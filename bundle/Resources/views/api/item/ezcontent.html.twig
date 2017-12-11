@@ -1,0 +1,13 @@
+{{ render(
+    controller(
+        'ng_content:viewAction', {
+            'content': item.object,
+            'location': item.object.mainLocation,
+            'viewType': 'ngbm_app_preview',
+            'layout': false,
+            'params': {
+                'ngbm_item': item,
+            }
+        }
+    )
+) }}

@@ -1,11 +1,11 @@
 view:
     item_view:
-        default:
+        api:
             ezcontent\siteapi:
-                template: "@ngbm/item/ezcontent.html.twig"
+                template: "@NetgenSiteAPIBlockManager/api/item/ezcontent.html.twig"
                 match:
                     item\value_type: ezcontent
             ezlocation\siteapi:
-                template: "@ngbm/item/ezlocation.html.twig"
+                template: "@NetgenSiteAPIBlockManager/api/item/ezlocation.html.twig"
                 match:
                     item\value_type: ezlocation

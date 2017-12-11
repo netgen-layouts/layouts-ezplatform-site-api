@@ -1,0 +1,2 @@
+parameters:
+    netgen_block_manager.app.ezpublish.item_preview_template: '@@NetgenSiteAPIBlockManager/api/item/ngbm_app_preview.html.twig'

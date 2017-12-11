@@ -23,6 +23,7 @@ final class NetgenSiteAPIBlockManagerExtension extends Extension implements Prep
         );
 
         $loader->load('services/items.yml');
+        $loader->load('default_settings.yml');
 
         $container->setParameter(
             'netgen_block_manager.site_api.search_service_adapter',
