@@ -1,0 +1,11 @@
+view:
+    item_view:
+        default:
+            ezcontent\siteapi:
+                template: "@ngbm/item/ezcontent.html.twig"
+                match:
+                    item\value_type: ezcontent
+            ezlocation\siteapi:
+                template: "@ngbm/item/ezlocation.html.twig"
+                match:
+                    item\value_type: ezlocation

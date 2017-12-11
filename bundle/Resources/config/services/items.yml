@@ -1,0 +1,44 @@
+services:
+    netgen_block_manager.site_api.item.value_converter.ezlocation:
+        class: Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter
+        decorates: netgen_block_manager.item.value_converter.ezlocation
+        public: false
+        arguments:
+            - "@netgen_block_manager.site_api.item.value_converter.ezlocation.inner"
+            - "@netgen.ezplatform_site.load_service"
+
+    netgen_block_manager.site_api.item.value_converter.ezcontent:
+        class: Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter
+        decorates: netgen_block_manager.item.value_converter.ezcontent
+        public: false
+        arguments:
+            - "@netgen_block_manager.site_api.item.value_converter.ezcontent.inner"
+            - "@netgen.ezplatform_site.load_service"
+
+    netgen_block_manager.site_api.item.value_loader.ezlocation:
+        class: Netgen\BlockManager\SiteAPI\Item\ValueLoader\LocationValueLoader
+        decorates: netgen_block_manager.item.value_loader.ezlocation
+        public: false
+        arguments:
+            - "@netgen.ezplatform_site.load_service"
+
+    netgen_block_manager.site_api.item.value_loader.ezcontent:
+        class: Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader
+        decorates: netgen_block_manager.item.value_loader.ezcontent
+        public: false
+        arguments:
+            - "@netgen.ezplatform_site.load_service"
+
+    netgen_block_manager.site_api.item.value_url_builder.ezlocation:
+        class: Netgen\BlockManager\SiteAPI\Item\ValueUrlBuilder\LocationValueUrlBuilder
+        decorates: netgen_block_manager.item.value_url_builder.ezlocation
+        public: false
+        arguments:
+            - "@router"
+
+    netgen_block_manager.site_api.item.value_url_builder.ezcontent:
+        class: Netgen\BlockManager\SiteAPI\Item\ValueUrlBuilder\ContentValueUrlBuilder
+        decorates: netgen_block_manager.item.value_url_builder.ezcontent
+        public: false
+        arguments:
+            - "@router"

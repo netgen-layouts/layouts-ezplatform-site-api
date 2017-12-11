@@ -1,0 +1,13 @@
+{{ render(
+    controller(
+        'ng_content:viewAction', {
+            'content': item.object,
+            'location': item.object.mainLocation,
+            'viewType': view_type,
+            'layout': false,
+            'params': {
+                'ngbm_item': item,
+            }|merge(ezparams|default({}))
+        }
+    )
+) }}
