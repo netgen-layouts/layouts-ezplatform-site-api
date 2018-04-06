@@ -11,16 +11,16 @@ final class LocationValueConverter implements ValueConverterInterface
     /**
      * @var \Netgen\BlockManager\Item\ValueConverterInterface
      */
-    private $decoratedConverter;
+    private $innerConverter;
 
     /**
      * @var \Netgen\EzPlatformSiteApi\API\LoadService
      */
     private $loadService;
 
-    public function __construct(ValueConverterInterface $decoratedConverter, LoadService $loadService)
+    public function __construct(ValueConverterInterface $innerConverter, LoadService $loadService)
     {
-        $this->decoratedConverter = $decoratedConverter;
+        $this->innerConverter = $innerConverter;
         $this->loadService = $loadService;
     }
 
@@ -30,7 +30,7 @@ final class LocationValueConverter implements ValueConverterInterface
             return true;
         }
 
-        return $this->decoratedConverter->supports($object);
+        return $this->innerConverter->supports($object);
     }
 
     public function getValueType($object)
@@ -44,7 +44,7 @@ final class LocationValueConverter implements ValueConverterInterface
             return $object->id;
         }
 
-        return $this->decoratedConverter->getId($object);
+        return $this->innerConverter->getId($object);
     }
 
     public function getRemoteId($object)
@@ -53,7 +53,7 @@ final class LocationValueConverter implements ValueConverterInterface
             return $object->remoteId;
         }
 
-        return $this->decoratedConverter->getRemoteId($object);
+        return $this->innerConverter->getRemoteId($object);
     }
 
     public function getName($object)
@@ -62,7 +62,7 @@ final class LocationValueConverter implements ValueConverterInterface
             return $object->contentInfo->name;
         }
 
-        return $this->decoratedConverter->getName($object);
+        return $this->innerConverter->getName($object);
     }
 
     public function getIsVisible($object)
@@ -71,7 +71,7 @@ final class LocationValueConverter implements ValueConverterInterface
             return !$object->invisible;
         }
 
-        return $this->decoratedConverter->getIsVisible($object);
+        return $this->innerConverter->getIsVisible($object);
     }
 
     public function getObject($object)
