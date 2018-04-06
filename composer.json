@@ -12,7 +12,7 @@
         "netgen/ezplatform-site-api": "^2.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.7|^6.5",
+        "phpunit/phpunit": "^5.7 || ^6.5",
         "symfony/phpunit-bridge": "^4.0",
         "franzl/studio": "*"
     },
