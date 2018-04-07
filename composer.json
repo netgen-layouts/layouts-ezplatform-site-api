@@ -15,6 +15,7 @@
         "phpunit/phpunit": "^5.7 || ^7.1",
         "symfony/phpunit-bridge": "^4.0",
         "matthiasnoback/symfony-dependency-injection-test": "^1.2 || ^3.0",
+        "matthiasnoback/symfony-config-test": "^2.2 || ^4.0",
         "franzl/studio": "*"
     },
     "scripts": {
