@@ -9,6 +9,10 @@ final class SearchServiceAdapterPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
+        if (!$container->hasParameter('netgen_block_manager.site_api.search_service_adapter')) {
+            return;
+        }
+
         $searchServiceAdapter = null;
         $adapterType = $container->getParameter('netgen_block_manager.site_api.search_service_adapter');
         if ($adapterType === 'filter') {
@@ -17,14 +21,16 @@ final class SearchServiceAdapterPass implements CompilerPassInterface
             $searchServiceAdapter = 'netgen.ezplatform_site.find_service.search_adapter';
         }
 
-        if (!empty($searchServiceAdapter)) {
-            if ($container->hasAlias('netgen_block_manager.ezpublish.search_service')) {
-                $container->setAlias('netgen_block_manager.ezpublish.search_service', $searchServiceAdapter);
-            }
+        if (empty($searchServiceAdapter) || !$container->has($searchServiceAdapter)) {
+            return;
+        }
 
-            if ($container->hasAlias('netgen_content_browser.ezpublish.search_service')) {
-                $container->setAlias('netgen_content_browser.ezpublish.search_service', $searchServiceAdapter);
-            }
+        if ($container->hasAlias('netgen_block_manager.ezpublish.search_service')) {
+            $container->setAlias('netgen_block_manager.ezpublish.search_service', $searchServiceAdapter);
+        }
+
+        if ($container->hasAlias('netgen_content_browser.ezpublish.search_service')) {
+            $container->setAlias('netgen_content_browser.ezpublish.search_service', $searchServiceAdapter);
         }
     }
 }
