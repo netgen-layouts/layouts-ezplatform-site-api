@@ -1,11 +1,11 @@
 <?php
 
-namespace Netgen\BlockManager\SiteAPI\Item\ValueUrlBuilder;
+namespace Netgen\BlockManager\SiteAPI\Item\ValueUrlGenerator;
 
-use Netgen\BlockManager\Item\ValueUrlBuilderInterface;
+use Netgen\BlockManager\Item\ValueUrlGeneratorInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-final class LocationValueUrlBuilder implements ValueUrlBuilderInterface
+final class LocationValueUrlGenerator implements ValueUrlGeneratorInterface
 {
     /**
      * @var \Symfony\Component\Routing\Generator\UrlGeneratorInterface
@@ -17,7 +17,7 @@ final class LocationValueUrlBuilder implements ValueUrlBuilderInterface
         $this->urlGenerator = $urlGenerator;
     }
 
-    public function getUrl($object)
+    public function generate($object)
     {
         return $this->urlGenerator->generate($object->innerLocation);
     }

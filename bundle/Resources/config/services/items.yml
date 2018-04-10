@@ -29,16 +29,16 @@ services:
         arguments:
             - "@netgen.ezplatform_site.load_service"
 
-    netgen_block_manager.site_api.item.value_url_builder.ezlocation:
-        class: Netgen\BlockManager\SiteAPI\Item\ValueUrlBuilder\LocationValueUrlBuilder
-        decorates: netgen_block_manager.item.value_url_builder.ezlocation
+    netgen_block_manager.site_api.item.value_url_generator.ezlocation:
+        class: Netgen\BlockManager\SiteAPI\Item\ValueUrlGenerator\LocationValueUrlGenerator
+        decorates: netgen_block_manager.item.value_url_generator.ezlocation
         public: false
         arguments:
             - "@router"
 
-    netgen_block_manager.site_api.item.value_url_builder.ezcontent:
-        class: Netgen\BlockManager\SiteAPI\Item\ValueUrlBuilder\ContentValueUrlBuilder
-        decorates: netgen_block_manager.item.value_url_builder.ezcontent
+    netgen_block_manager.site_api.item.value_url_generator.ezcontent:
+        class: Netgen\BlockManager\SiteAPI\Item\ValueUrlGenerator\ContentValueUrlGenerator
+        decorates: netgen_block_manager.item.value_url_generator.ezcontent
         public: false
         arguments:
             - "@router"
