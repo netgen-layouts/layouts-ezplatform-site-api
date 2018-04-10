@@ -8,7 +8,8 @@
         }
     ],
     "require": {
-        "netgen/block-manager": "~0.11.0",
+        "netgen/block-manager-ezpublish": "~0.11.0",
+        "netgen/content-browser": "~0.11.0",
         "netgen/ezplatform-site-api": "^2.3"
     },
     "require-dev": {
