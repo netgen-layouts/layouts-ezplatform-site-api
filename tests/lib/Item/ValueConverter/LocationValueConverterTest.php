@@ -94,7 +94,7 @@ final class LocationValueConverterTest extends TestCase
         $this->assertEquals(
             24,
             $this->valueConverter->getId(
-                new Location(array('id' => 24))
+                new Location(['id' => 24])
             )
         );
     }
@@ -130,7 +130,7 @@ final class LocationValueConverterTest extends TestCase
         $this->assertEquals(
             'abc',
             $this->valueConverter->getRemoteId(
-                new Location(array('remoteId' => 'abc'))
+                new Location(['remoteId' => 'abc'])
             )
         );
     }
@@ -166,7 +166,7 @@ final class LocationValueConverterTest extends TestCase
         $this->assertEquals(
             'Cool name',
             $this->valueConverter->getName(
-                new Location(array('contentInfo' => new ContentInfo(array('name' => 'Cool name'))))
+                new Location(['contentInfo' => new ContentInfo(['name' => 'Cool name'])])
             )
         );
     }
@@ -201,7 +201,7 @@ final class LocationValueConverterTest extends TestCase
 
         $this->assertTrue(
             $this->valueConverter->getIsVisible(
-                new Location(array('invisible' => false))
+                new Location(['invisible' => false])
             )
         );
     }
@@ -233,7 +233,7 @@ final class LocationValueConverterTest extends TestCase
             ->expects($this->never())
             ->method('loadLocation');
 
-        $object = new Location(array('id' => 42));
+        $object = new Location(['id' => 42]);
 
         $this->assertEquals($object, $this->valueConverter->getObject($object));
     }
@@ -252,7 +252,7 @@ final class LocationValueConverterTest extends TestCase
         $this->assertEquals(
             new Location(),
             $this->valueConverter->getObject(
-                new EzLocation(array('id' => 42))
+                new EzLocation(['id' => 42])
             )
         );
     }

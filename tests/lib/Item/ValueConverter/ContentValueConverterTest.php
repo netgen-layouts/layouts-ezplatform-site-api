@@ -95,7 +95,7 @@ final class ContentValueConverterTest extends TestCase
         $this->assertEquals(
             24,
             $this->valueConverter->getId(
-                new ContentInfo(array('id' => 24))
+                new ContentInfo(['id' => 24])
             )
         );
     }
@@ -126,7 +126,7 @@ final class ContentValueConverterTest extends TestCase
         $this->assertEquals(
             'abc',
             $this->valueConverter->getRemoteId(
-                new ContentInfo(array('remoteId' => 'abc'))
+                new ContentInfo(['remoteId' => 'abc'])
             )
         );
     }
@@ -157,7 +157,7 @@ final class ContentValueConverterTest extends TestCase
         $this->assertEquals(
             'Cool name',
             $this->valueConverter->getName(
-                new ContentInfo(array('name' => 'Cool name'))
+                new ContentInfo(['name' => 'Cool name'])
             )
         );
     }
@@ -187,7 +187,7 @@ final class ContentValueConverterTest extends TestCase
 
         $this->assertTrue(
             $this->valueConverter->getIsVisible(
-                new ContentInfo(array('mainLocation' => new Location(array('invisible' => false))))
+                new ContentInfo(['mainLocation' => new Location(['invisible' => false])])
             )
         );
     }
@@ -215,7 +215,7 @@ final class ContentValueConverterTest extends TestCase
             ->expects($this->never())
             ->method('loadContent');
 
-        $object = new ContentInfo(array('id' => 42));
+        $object = new ContentInfo(['id' => 42]);
 
         $this->assertEquals($object, $this->valueConverter->getObject($object));
     }
@@ -226,13 +226,13 @@ final class ContentValueConverterTest extends TestCase
     public function testGetObjectWithoutSiteAPIContentInfo()
     {
         $object = new Content(
-            array(
+            [
                 'contentInfo' => new ContentInfo(
-                    array(
+                    [
                         'id' => 42,
-                    )
+                    ]
                 ),
-            )
+            ]
         );
 
         $this->loadServiceMock
@@ -242,8 +242,8 @@ final class ContentValueConverterTest extends TestCase
             ->will($this->returnValue($object));
 
         $this->assertEquals(
-            new ContentInfo(array('id' => 42)),
-            $this->valueConverter->getObject(new Content(array('id' => 42)))
+            new ContentInfo(['id' => 42]),
+            $this->valueConverter->getObject(new Content(['id' => 42]))
         );
     }
 }

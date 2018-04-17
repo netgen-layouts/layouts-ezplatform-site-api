@@ -15,11 +15,11 @@ final class ConfigurationTest extends TestCase
      */
     public function testDefaultAdapterSettings()
     {
-        $config = array();
+        $config = [];
 
-        $expectedConfig = array(
+        $expectedConfig = [
             'search_service_adapter' => null,
-        );
+        ];
 
         $this->assertProcessedConfigurationEquals($config, $expectedConfig);
     }
@@ -29,15 +29,15 @@ final class ConfigurationTest extends TestCase
      */
     public function testNullAdapterSettings()
     {
-        $config = array(
-            array(
+        $config = [
+            [
                 'search_service_adapter' => null,
-            ),
-        );
+            ],
+        ];
 
-        $expectedConfig = array(
+        $expectedConfig = [
             'search_service_adapter' => null,
-        );
+        ];
 
         $this->assertProcessedConfigurationEquals($config, $expectedConfig);
     }
@@ -47,15 +47,15 @@ final class ConfigurationTest extends TestCase
      */
     public function testFilterAdapterSettings()
     {
-        $config = array(
-            array(
+        $config = [
+            [
                 'search_service_adapter' => 'filter',
-            ),
-        );
+            ],
+        ];
 
-        $expectedConfig = array(
+        $expectedConfig = [
             'search_service_adapter' => 'filter',
-        );
+        ];
 
         $this->assertProcessedConfigurationEquals($config, $expectedConfig);
     }
@@ -65,15 +65,15 @@ final class ConfigurationTest extends TestCase
      */
     public function testFindAdapterSettings()
     {
-        $config = array(
-            array(
+        $config = [
+            [
                 'search_service_adapter' => 'find',
-            ),
-        );
+            ],
+        ];
 
-        $expectedConfig = array(
+        $expectedConfig = [
             'search_service_adapter' => 'find',
-        );
+        ];
 
         $this->assertProcessedConfigurationEquals($config, $expectedConfig);
     }
@@ -83,13 +83,13 @@ final class ConfigurationTest extends TestCase
      */
     public function testUnknownAdapterSettings()
     {
-        $config = array(
-            array(
+        $config = [
+            [
                 'search_service_adapter' => 'other',
-            ),
-        );
+            ],
+        ];
 
-        $this->assertConfigurationIsInvalid(array($config));
+        $this->assertConfigurationIsInvalid([$config]);
     }
 
     protected function getConfiguration()

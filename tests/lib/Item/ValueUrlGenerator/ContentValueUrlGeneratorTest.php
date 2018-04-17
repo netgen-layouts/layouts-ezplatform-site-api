@@ -34,9 +34,9 @@ final class ContentValueUrlGeneratorTest extends TestCase
     public function testGetUrl()
     {
         $contentInfo = new ContentInfo(
-            array(
+            [
                 'id' => 42,
-            )
+            ]
         );
 
         $this->urlGeneratorMock
@@ -44,9 +44,9 @@ final class ContentValueUrlGeneratorTest extends TestCase
             ->method('generate')
             ->with(
                 $this->equalTo(UrlAliasRouter::URL_ALIAS_ROUTE_NAME),
-                array(
+                [
                     'contentId' => 42,
-                )
+                ]
             )
             ->will($this->returnValue('/content/path'));
 

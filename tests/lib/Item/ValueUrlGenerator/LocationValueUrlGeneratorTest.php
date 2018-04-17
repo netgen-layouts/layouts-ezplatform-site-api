@@ -34,9 +34,9 @@ final class LocationValueUrlGeneratorTest extends TestCase
     public function testGetUrl()
     {
         $location = new Location(
-            array(
+            [
                 'innerLocation' => new EzLocation(),
-            )
+            ]
         );
 
         $this->urlGeneratorMock

@@ -58,7 +58,7 @@ final class Content extends APIContent
 
     public function filterFieldRelations(
         $fieldDefinitionIdentifier,
-        array $contentTypeIdentifiers = array(),
+        array $contentTypeIdentifiers = [],
         $maxPerPage = 25,
         $currentPage = 1
     ) {

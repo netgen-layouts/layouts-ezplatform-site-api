@@ -33,9 +33,9 @@ final class NetgenSiteAPIBlockManagerExtension extends Extension implements Prep
 
     public function prepend(ContainerBuilder $container)
     {
-        $prependConfigs = array(
+        $prependConfigs = [
             'item_view.yml' => 'netgen_block_manager',
-        );
+        ];
 
         foreach ($prependConfigs as $configFile => $prependConfig) {
             $configFile = __DIR__ . '/../Resources/config/' . $configFile;

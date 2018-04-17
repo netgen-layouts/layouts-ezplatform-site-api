@@ -39,7 +39,7 @@ final class NetgenSiteAPIBlockManagerExtensionTest extends AbstractExtensionTest
      */
     public function testPrepend()
     {
-        $this->container->setParameter('kernel.bundles', array('NetgenBlockManagerBundle' => true));
+        $this->container->setParameter('kernel.bundles', ['NetgenBlockManagerBundle' => true]);
         $this->container->registerExtension(new NetgenBlockManagerExtension());
 
         $extension = $this->container->getExtension('netgen_site_api_block_manager');
@@ -61,6 +61,6 @@ final class NetgenSiteAPIBlockManagerExtensionTest extends AbstractExtensionTest
 
     protected function getContainerExtensions()
     {
-        return array(new NetgenSiteAPIBlockManagerExtension());
+        return [new NetgenSiteAPIBlockManagerExtension()];
     }
 }

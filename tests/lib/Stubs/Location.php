@@ -35,7 +35,7 @@ final class Location extends APILocation
     {
     }
 
-    public function filterChildren(array $contentTypeIdentifiers = array(), $maxPerPage = 25, $currentPage = 1)
+    public function filterChildren(array $contentTypeIdentifiers = [], $maxPerPage = 25, $currentPage = 1)
     {
     }
 
@@ -43,7 +43,7 @@ final class Location extends APILocation
     {
     }
 
-    public function filterSiblings(array $contentTypeIdentifiers = array(), $maxPerPage = 25, $currentPage = 1)
+    public function filterSiblings(array $contentTypeIdentifiers = [], $maxPerPage = 25, $currentPage = 1)
     {
     }
 }

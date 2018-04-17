@@ -35,17 +35,17 @@ final class ContentValueLoaderTest extends TestCase
     public function testLoad()
     {
         $contentInfo = new ContentInfo(
-            array(
+            [
                 'id' => 52,
                 'published' => true,
                 'mainLocationId' => 42,
-            )
+            ]
         );
 
         $content = new Content(
-            array(
+            [
                 'contentInfo' => $contentInfo,
-            )
+            ]
         );
 
         $this->loadServiceMock
@@ -81,16 +81,16 @@ final class ContentValueLoaderTest extends TestCase
     public function testLoadThrowsItemExceptionWithNonPublishedContent()
     {
         $contentInfo = new ContentInfo(
-            array(
+            [
                 'published' => false,
                 'mainLocationId' => 42,
-            )
+            ]
         );
 
         $content = new Content(
-            array(
+            [
                 'contentInfo' => $contentInfo,
-            )
+            ]
         );
 
         $this->loadServiceMock
@@ -110,15 +110,15 @@ final class ContentValueLoaderTest extends TestCase
     public function testLoadThrowsItemExceptionWithNoMainLocation()
     {
         $contentInfo = new ContentInfo(
-            array(
+            [
                 'published' => true,
-            )
+            ]
         );
 
         $content = new Content(
-            array(
+            [
                 'contentInfo' => $contentInfo,
-            )
+            ]
         );
 
         $this->loadServiceMock
@@ -136,17 +136,17 @@ final class ContentValueLoaderTest extends TestCase
     public function testLoadByRemoteId()
     {
         $contentInfo = new ContentInfo(
-            array(
+            [
                 'remoteId' => 'abc',
                 'published' => true,
                 'mainLocationId' => 42,
-            )
+            ]
         );
 
         $content = new Content(
-            array(
+            [
                 'contentInfo' => $contentInfo,
-            )
+            ]
         );
 
         $this->loadServiceMock
@@ -182,16 +182,16 @@ final class ContentValueLoaderTest extends TestCase
     public function testLoadByRemoteIdThrowsItemExceptionWithNonPublishedContent()
     {
         $contentInfo = new ContentInfo(
-            array(
+            [
                 'published' => false,
                 'mainLocationId' => 42,
-            )
+            ]
         );
 
         $content = new Content(
-            array(
+            [
                 'contentInfo' => $contentInfo,
-            )
+            ]
         );
 
         $this->loadServiceMock
@@ -211,15 +211,15 @@ final class ContentValueLoaderTest extends TestCase
     public function testLoadByRemoteIdThrowsItemExceptionWithNoMainLocation()
     {
         $contentInfo = new ContentInfo(
-            array(
+            [
                 'published' => true,
-            )
+            ]
         );
 
         $content = new Content(
-            array(
+            [
                 'contentInfo' => $contentInfo,
-            )
+            ]
         );
 
         $this->loadServiceMock

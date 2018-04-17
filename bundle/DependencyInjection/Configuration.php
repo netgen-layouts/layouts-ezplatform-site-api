@@ -17,7 +17,7 @@ final class Configuration implements ConfigurationInterface
             ->children()
                 ->enumNode('search_service_adapter')
                     ->defaultValue(null)
-                    ->values(array(null, 'filter', 'find'))
+                    ->values([null, 'filter', 'find'])
                 ->end()
             ->end();
 

@@ -35,14 +35,14 @@ final class LocationValueLoaderTest extends TestCase
     public function testLoad()
     {
         $location = new Location(
-            array(
+            [
                 'id' => 52,
                 'contentInfo' => new ContentInfo(
-                    array(
+                    [
                         'published' => true,
-                    )
+                    ]
                 ),
-            )
+            ]
         );
 
         $this->loadServiceMock
@@ -78,13 +78,13 @@ final class LocationValueLoaderTest extends TestCase
     public function testLoadThrowsItemExceptionWithNonPublishedContent()
     {
         $location = new Location(
-            array(
+            [
                 'contentInfo' => new ContentInfo(
-                    array(
+                    [
                         'published' => false,
-                    )
+                    ]
                 ),
-            )
+            ]
         );
 
         $this->loadServiceMock
@@ -102,14 +102,14 @@ final class LocationValueLoaderTest extends TestCase
     public function testLoadByRemoteId()
     {
         $location = new Location(
-            array(
+            [
                 'remoteId' => 'abc',
                 'contentInfo' => new ContentInfo(
-                    array(
+                    [
                         'published' => true,
-                    )
+                    ]
                 ),
-            )
+            ]
         );
 
         $this->loadServiceMock
@@ -145,13 +145,13 @@ final class LocationValueLoaderTest extends TestCase
     public function testLoadByRemoteIdThrowsItemExceptionWithNonPublishedContent()
     {
         $location = new Location(
-            array(
+            [
                 'contentInfo' => new ContentInfo(
-                    array(
+                    [
                         'published' => false,
-                    )
+                    ]
                 ),
-            )
+            ]
         );
 
         $this->loadServiceMock
