@@ -1,6 +1,7 @@
 {
     "name": "netgen/block-manager-site-api",
     "description": "Netgen Block Manager & eZ Platform Site API integration",
+    "license": "proprietary",
     "authors": [
         {
             "name": "Netgen",
