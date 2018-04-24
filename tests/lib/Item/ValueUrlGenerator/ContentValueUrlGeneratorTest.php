@@ -31,7 +31,7 @@ final class ContentValueUrlGeneratorTest extends TestCase
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueUrlGenerator\ContentValueUrlGenerator::__construct
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueUrlGenerator\ContentValueUrlGenerator::generate
      */
-    public function testGetUrl()
+    public function testGenerate()
     {
         $contentInfo = new ContentInfo(
             [

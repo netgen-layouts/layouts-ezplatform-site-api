@@ -31,7 +31,7 @@ final class LocationValueUrlGeneratorTest extends TestCase
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueUrlGenerator\LocationValueUrlGenerator::__construct
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueUrlGenerator\LocationValueUrlGenerator::generate
      */
-    public function testGetUrl()
+    public function testGenerate()
     {
         $location = new Location(
             [
