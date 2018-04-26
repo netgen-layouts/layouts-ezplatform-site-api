@@ -195,6 +195,22 @@ final class ContentValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getIsVisible
      */
+    public function testGetIsVisibleWithoutMainLocation()
+    {
+        $this->innerConverterMock
+            ->expects($this->never())
+            ->method('getIsVisible');
+
+        $this->assertFalse(
+            $this->valueConverter->getIsVisible(
+                new ContentInfo()
+            )
+        );
+    }
+
+    /**
+     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getIsVisible
+     */
     public function testGetIsVisibleWithoutSiteAPIContentInfo()
     {
         $this->innerConverterMock

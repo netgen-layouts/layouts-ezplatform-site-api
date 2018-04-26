@@ -10,7 +10,7 @@ use Netgen\EzPlatformSiteApi\API\LoadService;
 final class LocationValueLoader implements ValueLoaderInterface
 {
     /**
-     * @var \eZ\Publish\API\Repository\LocationService
+     * @var \Netgen\EzPlatformSiteApi\API\LoadService
      */
     private $loadService;
 

@@ -68,7 +68,7 @@ final class ContentValueConverter implements ValueConverterInterface
     public function getIsVisible($object)
     {
         if ($object instanceof ContentInfo) {
-            return !$object->mainLocation->invisible;
+            return $object->mainLocation && !$object->mainLocation->invisible;
         }
 
         return $this->innerConverter->getIsVisible($object);

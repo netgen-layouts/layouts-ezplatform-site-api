@@ -13,7 +13,7 @@ final class SearchServiceAdapterPass implements CompilerPassInterface
             return;
         }
 
-        $searchServiceAdapter = null;
+        $searchServiceAdapter = '';
         $adapterType = $container->getParameter('netgen_block_manager.site_api.search_service_adapter');
         if ($adapterType === 'filter') {
             $searchServiceAdapter = 'netgen.ezplatform_site.filter_service.search_adapter';
