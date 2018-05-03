@@ -1,6 +1,6 @@
 <?php
 
-namespace Netgen\Bundle\SiteAPIBlockManagerBundle\Tests\DependencyInjection\ConfigurationNode;
+namespace Netgen\Bundle\SiteAPIBlockManagerBundle\Tests\DependencyInjection;
 
 use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
 use Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\Configuration;
