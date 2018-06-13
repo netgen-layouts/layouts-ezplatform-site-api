@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Netgen\BlockManager\SiteAPI\Tests\Item\ValueLoader;
 
 use Netgen\BlockManager\Exception\Item\ItemException;

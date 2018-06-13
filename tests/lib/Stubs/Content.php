@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Netgen\BlockManager\SiteAPI\Tests\Stubs;
 
 use Netgen\EzPlatformSiteApi\API\Values\Content as APIContent;

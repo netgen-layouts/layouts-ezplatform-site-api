@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Netgen\BlockManager\SiteAPI\Tests\Item\ValueUrlGenerator;
 
 use eZ\Publish\Core\Repository\Values\Content\Location as EzLocation;
