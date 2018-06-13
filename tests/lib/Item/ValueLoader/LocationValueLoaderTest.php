@@ -23,7 +23,7 @@ final class LocationValueLoaderTest extends TestCase
      */
     private $valueLoader;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->loadServiceMock = $this->createMock(LoadService::class);
 
@@ -34,7 +34,7 @@ final class LocationValueLoaderTest extends TestCase
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\LocationValueLoader::__construct
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\LocationValueLoader::load
      */
-    public function testLoad()
+    public function testLoad(): void
     {
         $location = new Location(
             [
@@ -61,7 +61,7 @@ final class LocationValueLoaderTest extends TestCase
      * @expectedException \Netgen\BlockManager\Exception\Item\ItemException
      * @expectedExceptionMessage Location with ID "52" could not be loaded.
      */
-    public function testLoadThrowsItemException()
+    public function testLoadThrowsItemException(): void
     {
         $this->loadServiceMock
             ->expects($this->any())
@@ -77,7 +77,7 @@ final class LocationValueLoaderTest extends TestCase
      * @expectedException \Netgen\BlockManager\Exception\Item\ItemException
      * @expectedExceptionMessage Location with ID "52" has unpublished content and cannot be loaded.
      */
-    public function testLoadThrowsItemExceptionWithNonPublishedContent()
+    public function testLoadThrowsItemExceptionWithNonPublishedContent(): void
     {
         $location = new Location(
             [
@@ -101,7 +101,7 @@ final class LocationValueLoaderTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\LocationValueLoader::loadByRemoteId
      */
-    public function testLoadByRemoteId()
+    public function testLoadByRemoteId(): void
     {
         $location = new Location(
             [
@@ -128,7 +128,7 @@ final class LocationValueLoaderTest extends TestCase
      * @expectedException \Netgen\BlockManager\Exception\Item\ItemException
      * @expectedExceptionMessage Location with remote ID "abc" could not be loaded.
      */
-    public function testLoadByRemoteIdThrowsItemException()
+    public function testLoadByRemoteIdThrowsItemException(): void
     {
         $this->loadServiceMock
             ->expects($this->any())
@@ -144,7 +144,7 @@ final class LocationValueLoaderTest extends TestCase
      * @expectedException \Netgen\BlockManager\Exception\Item\ItemException
      * @expectedExceptionMessage Location with remote ID "abc" has unpublished content and cannot be loaded.
      */
-    public function testLoadByRemoteIdThrowsItemExceptionWithNonPublishedContent()
+    public function testLoadByRemoteIdThrowsItemExceptionWithNonPublishedContent(): void
     {
         $location = new Location(
             [

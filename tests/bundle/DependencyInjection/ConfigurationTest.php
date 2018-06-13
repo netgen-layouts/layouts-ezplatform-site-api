@@ -7,6 +7,7 @@ namespace Netgen\Bundle\SiteAPIBlockManagerBundle\Tests\DependencyInjection;
 use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
 use Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\Configuration;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 final class ConfigurationTest extends TestCase
 {
@@ -15,7 +16,7 @@ final class ConfigurationTest extends TestCase
     /**
      * @covers \Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\Configuration::getConfigTreeBuilder
      */
-    public function testDefaultAdapterSettings()
+    public function testDefaultAdapterSettings(): void
     {
         $config = [];
 
@@ -29,7 +30,7 @@ final class ConfigurationTest extends TestCase
     /**
      * @covers \Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\Configuration::getConfigTreeBuilder
      */
-    public function testNullAdapterSettings()
+    public function testNullAdapterSettings(): void
     {
         $config = [
             [
@@ -47,7 +48,7 @@ final class ConfigurationTest extends TestCase
     /**
      * @covers \Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\Configuration::getConfigTreeBuilder
      */
-    public function testFilterAdapterSettings()
+    public function testFilterAdapterSettings(): void
     {
         $config = [
             [
@@ -65,7 +66,7 @@ final class ConfigurationTest extends TestCase
     /**
      * @covers \Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\Configuration::getConfigTreeBuilder
      */
-    public function testFindAdapterSettings()
+    public function testFindAdapterSettings(): void
     {
         $config = [
             [
@@ -83,7 +84,7 @@ final class ConfigurationTest extends TestCase
     /**
      * @covers \Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\Configuration::getConfigTreeBuilder
      */
-    public function testUnknownAdapterSettings()
+    public function testUnknownAdapterSettings(): void
     {
         $config = [
             [
@@ -94,7 +95,7 @@ final class ConfigurationTest extends TestCase
         $this->assertConfigurationIsInvalid([$config]);
     }
 
-    protected function getConfiguration()
+    protected function getConfiguration(): ConfigurationInterface
     {
         return new Configuration();
     }

@@ -22,7 +22,7 @@ final class ContentValueUrlGeneratorTest extends TestCase
      */
     private $urlGenerator;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->urlGeneratorMock = $this->createMock(UrlGeneratorInterface::class);
 
@@ -33,7 +33,7 @@ final class ContentValueUrlGeneratorTest extends TestCase
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueUrlGenerator\ContentValueUrlGenerator::__construct
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueUrlGenerator\ContentValueUrlGenerator::generate
      */
-    public function testGenerate()
+    public function testGenerate(): void
     {
         $contentInfo = new ContentInfo(
             [

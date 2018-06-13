@@ -15,7 +15,7 @@ final class NetgenSiteAPIBlockManagerExtensionTest extends AbstractExtensionTest
      *
      * @covers \Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\NetgenSiteAPIBlockManagerExtension::load
      */
-    public function testServices()
+    public function testServices(): void
     {
         $this->load();
 
@@ -39,7 +39,7 @@ final class NetgenSiteAPIBlockManagerExtensionTest extends AbstractExtensionTest
      *
      * @covers \Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\NetgenSiteAPIBlockManagerExtension::prepend
      */
-    public function testPrepend()
+    public function testPrepend(): void
     {
         $this->container->setParameter('kernel.bundles', ['NetgenBlockManagerBundle' => true]);
         $this->container->registerExtension(new NetgenBlockManagerExtension());
@@ -62,7 +62,7 @@ final class NetgenSiteAPIBlockManagerExtensionTest extends AbstractExtensionTest
         $this->assertArrayHasKey('ezlocation\siteapi', $config['view']['item_view']['api']);
     }
 
-    protected function getContainerExtensions()
+    protected function getContainerExtensions(): array
     {
         return [new NetgenSiteAPIBlockManagerExtension()];
     }

@@ -14,7 +14,7 @@ use Symfony\Component\Yaml\Yaml;
 
 final class NetgenSiteAPIBlockManagerExtension extends Extension implements PrependExtensionInterface
 {
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
@@ -33,7 +33,7 @@ final class NetgenSiteAPIBlockManagerExtension extends Extension implements Prep
         );
     }
 
-    public function prepend(ContainerBuilder $container)
+    public function prepend(ContainerBuilder $container): void
     {
         $prependConfigs = [
             'item_view.yml' => 'netgen_block_manager',

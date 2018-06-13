@@ -30,7 +30,7 @@ final class ContentValueConverterTest extends TestCase
      */
     private $valueConverter;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->innerConverterMock = $this->createMock(ValueConverterInterface::class);
         $this->loadServiceMock = $this->createMock(LoadService::class);
@@ -45,7 +45,7 @@ final class ContentValueConverterTest extends TestCase
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::__construct
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::supports
      */
-    public function testSupports()
+    public function testSupports(): void
     {
         $this->innerConverterMock
             ->expects($this->never())
@@ -57,7 +57,7 @@ final class ContentValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::supports
      */
-    public function testSupportsWithoutSiteAPIContentInfo()
+    public function testSupportsWithoutSiteAPIContentInfo(): void
     {
         $this->innerConverterMock
             ->expects($this->once())
@@ -71,7 +71,7 @@ final class ContentValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getValueType
      */
-    public function testGetValueType()
+    public function testGetValueType(): void
     {
         $this->innerConverterMock
             ->expects($this->never())
@@ -88,7 +88,7 @@ final class ContentValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getId
      */
-    public function testGetId()
+    public function testGetId(): void
     {
         $this->innerConverterMock
             ->expects($this->never())
@@ -105,7 +105,7 @@ final class ContentValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getId
      */
-    public function testGetIdWithoutSiteAPIContentInfo()
+    public function testGetIdWithoutSiteAPIContentInfo(): void
     {
         $this->innerConverterMock
             ->expects($this->once())
@@ -119,7 +119,7 @@ final class ContentValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getRemoteId
      */
-    public function testGetRemoteId()
+    public function testGetRemoteId(): void
     {
         $this->innerConverterMock
             ->expects($this->never())
@@ -136,7 +136,7 @@ final class ContentValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getRemoteId
      */
-    public function testGetRemoteIdWithoutSiteAPIContentInfo()
+    public function testGetRemoteIdWithoutSiteAPIContentInfo(): void
     {
         $this->innerConverterMock
             ->expects($this->once())
@@ -150,7 +150,7 @@ final class ContentValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getName
      */
-    public function testGetName()
+    public function testGetName(): void
     {
         $this->innerConverterMock
             ->expects($this->never())
@@ -167,7 +167,7 @@ final class ContentValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getName
      */
-    public function testGetNameWithoutSiteAPIContentInfo()
+    public function testGetNameWithoutSiteAPIContentInfo(): void
     {
         $this->innerConverterMock
             ->expects($this->once())
@@ -181,7 +181,7 @@ final class ContentValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getIsVisible
      */
-    public function testGetIsVisible()
+    public function testGetIsVisible(): void
     {
         $this->innerConverterMock
             ->expects($this->never())
@@ -197,7 +197,7 @@ final class ContentValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getIsVisible
      */
-    public function testGetIsVisibleWithoutMainLocation()
+    public function testGetIsVisibleWithoutMainLocation(): void
     {
         $this->innerConverterMock
             ->expects($this->never())
@@ -213,7 +213,7 @@ final class ContentValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getIsVisible
      */
-    public function testGetIsVisibleWithoutSiteAPIContentInfo()
+    public function testGetIsVisibleWithoutSiteAPIContentInfo(): void
     {
         $this->innerConverterMock
             ->expects($this->once())
@@ -227,7 +227,7 @@ final class ContentValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getObject
      */
-    public function testGetObject()
+    public function testGetObject(): void
     {
         $this->loadServiceMock
             ->expects($this->never())
@@ -241,7 +241,7 @@ final class ContentValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getObject
      */
-    public function testGetObjectWithoutSiteAPIContentInfo()
+    public function testGetObjectWithoutSiteAPIContentInfo(): void
     {
         $object = new Content(
             [

@@ -23,7 +23,7 @@ final class ContentValueLoaderTest extends TestCase
      */
     private $valueLoader;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->loadServiceMock = $this->createMock(LoadService::class);
 
@@ -34,7 +34,7 @@ final class ContentValueLoaderTest extends TestCase
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader::__construct
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader::load
      */
-    public function testLoad()
+    public function testLoad(): void
     {
         $contentInfo = new ContentInfo(
             [
@@ -64,7 +64,7 @@ final class ContentValueLoaderTest extends TestCase
      * @expectedException \Netgen\BlockManager\Exception\Item\ItemException
      * @expectedExceptionMessage Content with ID "52" could not be loaded.
      */
-    public function testLoadThrowsItemException()
+    public function testLoadThrowsItemException(): void
     {
         $this->loadServiceMock
             ->expects($this->any())
@@ -80,7 +80,7 @@ final class ContentValueLoaderTest extends TestCase
      * @expectedException \Netgen\BlockManager\Exception\Item\ItemException
      * @expectedExceptionMessage Content with ID "52" is not published and cannot loaded.
      */
-    public function testLoadThrowsItemExceptionWithNonPublishedContent()
+    public function testLoadThrowsItemExceptionWithNonPublishedContent(): void
     {
         $contentInfo = new ContentInfo(
             [
@@ -109,7 +109,7 @@ final class ContentValueLoaderTest extends TestCase
      * @expectedException \Netgen\BlockManager\Exception\Item\ItemException
      * @expectedExceptionMessage Content with ID "52" does not have a main location and cannot loaded.
      */
-    public function testLoadThrowsItemExceptionWithNoMainLocation()
+    public function testLoadThrowsItemExceptionWithNoMainLocation(): void
     {
         $contentInfo = new ContentInfo(
             [
@@ -135,7 +135,7 @@ final class ContentValueLoaderTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader::loadByRemoteId
      */
-    public function testLoadByRemoteId()
+    public function testLoadByRemoteId(): void
     {
         $contentInfo = new ContentInfo(
             [
@@ -165,7 +165,7 @@ final class ContentValueLoaderTest extends TestCase
      * @expectedException \Netgen\BlockManager\Exception\Item\ItemException
      * @expectedExceptionMessage Content with remote ID "abc" could not be loaded.
      */
-    public function testLoadByRemoteIdThrowsItemException()
+    public function testLoadByRemoteIdThrowsItemException(): void
     {
         $this->loadServiceMock
             ->expects($this->any())
@@ -181,7 +181,7 @@ final class ContentValueLoaderTest extends TestCase
      * @expectedException \Netgen\BlockManager\Exception\Item\ItemException
      * @expectedExceptionMessage Content with remote ID "abc" is not published and cannot loaded.
      */
-    public function testLoadByRemoteIdThrowsItemExceptionWithNonPublishedContent()
+    public function testLoadByRemoteIdThrowsItemExceptionWithNonPublishedContent(): void
     {
         $contentInfo = new ContentInfo(
             [
@@ -210,7 +210,7 @@ final class ContentValueLoaderTest extends TestCase
      * @expectedException \Netgen\BlockManager\Exception\Item\ItemException
      * @expectedExceptionMessage Content with remote ID "abc" does not have a main location and cannot loaded.
      */
-    public function testLoadByRemoteIdThrowsItemExceptionWithNoMainLocation()
+    public function testLoadByRemoteIdThrowsItemExceptionWithNoMainLocation(): void
     {
         $contentInfo = new ContentInfo(
             [

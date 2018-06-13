@@ -15,7 +15,7 @@ final class SearchServiceAdapterPassTest extends AbstractCompilerPassTestCase
     /**
      * @covers \Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\CompilerPass\SearchServiceAdapterPass::process
      */
-    public function testProcessWithFilterAdapter()
+    public function testProcessWithFilterAdapter(): void
     {
         $this->container->setParameter('netgen_block_manager.site_api.search_service_adapter', 'filter');
 
@@ -41,7 +41,7 @@ final class SearchServiceAdapterPassTest extends AbstractCompilerPassTestCase
     /**
      * @covers \Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\CompilerPass\SearchServiceAdapterPass::process
      */
-    public function testProcessWithFindAdapter()
+    public function testProcessWithFindAdapter(): void
     {
         $this->container->setParameter('netgen_block_manager.site_api.search_service_adapter', 'find');
 
@@ -67,7 +67,7 @@ final class SearchServiceAdapterPassTest extends AbstractCompilerPassTestCase
     /**
      * @covers \Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\CompilerPass\SearchServiceAdapterPass::process
      */
-    public function testProcessWithNonExistingAdapterService()
+    public function testProcessWithNonExistingAdapterService(): void
     {
         $this->container->setParameter('netgen_block_manager.site_api.search_service_adapter', 'filter');
 
@@ -85,7 +85,7 @@ final class SearchServiceAdapterPassTest extends AbstractCompilerPassTestCase
     /**
      * @covers \Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\CompilerPass\SearchServiceAdapterPass::process
      */
-    public function testProcessWithUnsupportedAdapter()
+    public function testProcessWithUnsupportedAdapter(): void
     {
         $this->container->setParameter('netgen_block_manager.site_api.search_service_adapter', 'other');
 
@@ -103,7 +103,7 @@ final class SearchServiceAdapterPassTest extends AbstractCompilerPassTestCase
     /**
      * @covers \Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\CompilerPass\SearchServiceAdapterPass::process
      */
-    public function testProcessWithEmptyContainer()
+    public function testProcessWithEmptyContainer(): void
     {
         $this->compile();
 
@@ -115,7 +115,7 @@ final class SearchServiceAdapterPassTest extends AbstractCompilerPassTestCase
      *
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
      */
-    protected function registerCompilerPass(ContainerBuilder $container)
+    protected function registerCompilerPass(ContainerBuilder $container): void
     {
         $container->addCompilerPass(new SearchServiceAdapterPass());
     }

@@ -26,7 +26,7 @@ final class LocationValueConverter implements ValueConverterInterface
         $this->loadService = $loadService;
     }
 
-    public function supports($object)
+    public function supports($object): bool
     {
         if ($object instanceof Location) {
             return true;
@@ -35,7 +35,7 @@ final class LocationValueConverter implements ValueConverterInterface
         return $this->innerConverter->supports($object);
     }
 
-    public function getValueType($object)
+    public function getValueType($object): string
     {
         return 'ezlocation';
     }
@@ -58,7 +58,7 @@ final class LocationValueConverter implements ValueConverterInterface
         return $this->innerConverter->getRemoteId($object);
     }
 
-    public function getName($object)
+    public function getName($object): string
     {
         if ($object instanceof Location) {
             return $object->contentInfo->name;
@@ -67,7 +67,7 @@ final class LocationValueConverter implements ValueConverterInterface
         return $this->innerConverter->getName($object);
     }
 
-    public function getIsVisible($object)
+    public function getIsVisible($object): bool
     {
         if ($object instanceof Location) {
             return !$object->invisible;

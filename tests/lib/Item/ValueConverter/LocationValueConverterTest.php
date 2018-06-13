@@ -29,7 +29,7 @@ final class LocationValueConverterTest extends TestCase
      */
     private $valueConverter;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->innerConverterMock = $this->createMock(ValueConverterInterface::class);
         $this->loadServiceMock = $this->createMock(LoadService::class);
@@ -44,7 +44,7 @@ final class LocationValueConverterTest extends TestCase
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::__construct
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::supports
      */
-    public function testSupports()
+    public function testSupports(): void
     {
         $this->innerConverterMock
             ->expects($this->never())
@@ -56,7 +56,7 @@ final class LocationValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::supports
      */
-    public function testSupportsWithoutSiteAPILocation()
+    public function testSupportsWithoutSiteAPILocation(): void
     {
         $this->innerConverterMock
             ->expects($this->once())
@@ -70,7 +70,7 @@ final class LocationValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getValueType
      */
-    public function testGetValueType()
+    public function testGetValueType(): void
     {
         $this->innerConverterMock
             ->expects($this->never())
@@ -87,7 +87,7 @@ final class LocationValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getId
      */
-    public function testGetId()
+    public function testGetId(): void
     {
         $this->innerConverterMock
             ->expects($this->never())
@@ -104,7 +104,7 @@ final class LocationValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getId
      */
-    public function testGetIdWithoutSiteAPILocation()
+    public function testGetIdWithoutSiteAPILocation(): void
     {
         $this->innerConverterMock
             ->expects($this->once())
@@ -123,7 +123,7 @@ final class LocationValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getRemoteId
      */
-    public function testGetRemoteId()
+    public function testGetRemoteId(): void
     {
         $this->innerConverterMock
             ->expects($this->never())
@@ -140,7 +140,7 @@ final class LocationValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getRemoteId
      */
-    public function testGetRemoteIdWithoutSiteAPILocation()
+    public function testGetRemoteIdWithoutSiteAPILocation(): void
     {
         $this->innerConverterMock
             ->expects($this->once())
@@ -159,7 +159,7 @@ final class LocationValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getName
      */
-    public function testGetName()
+    public function testGetName(): void
     {
         $this->innerConverterMock
             ->expects($this->never())
@@ -176,7 +176,7 @@ final class LocationValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getName
      */
-    public function testGetNameWithoutSiteAPILocation()
+    public function testGetNameWithoutSiteAPILocation(): void
     {
         $this->innerConverterMock
             ->expects($this->once())
@@ -195,7 +195,7 @@ final class LocationValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getIsVisible
      */
-    public function testGetIsVisible()
+    public function testGetIsVisible(): void
     {
         $this->innerConverterMock
             ->expects($this->never())
@@ -211,7 +211,7 @@ final class LocationValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getIsVisible
      */
-    public function testGetIsVisibleWithoutSiteAPILocation()
+    public function testGetIsVisibleWithoutSiteAPILocation(): void
     {
         $this->innerConverterMock
             ->expects($this->once())
@@ -229,7 +229,7 @@ final class LocationValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getObject
      */
-    public function testGetObject()
+    public function testGetObject(): void
     {
         $this->loadServiceMock
             ->expects($this->never())
@@ -243,7 +243,7 @@ final class LocationValueConverterTest extends TestCase
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getObject
      */
-    public function testGetObjectWithoutSiteAPILocation()
+    public function testGetObjectWithoutSiteAPILocation(): void
     {
         $this->loadServiceMock
             ->expects($this->once())
