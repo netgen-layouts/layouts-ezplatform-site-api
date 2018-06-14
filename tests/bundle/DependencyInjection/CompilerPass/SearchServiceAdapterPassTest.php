@@ -110,11 +110,6 @@ final class SearchServiceAdapterPassTest extends AbstractCompilerPassTestCase
         $this->assertInstanceOf(FrozenParameterBag::class, $this->container->getParameterBag());
     }
 
-    /**
-     * Register the compiler pass under test.
-     *
-     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
-     */
     protected function registerCompilerPass(ContainerBuilder $container): void
     {
         $container->addCompilerPass(new SearchServiceAdapterPass());
