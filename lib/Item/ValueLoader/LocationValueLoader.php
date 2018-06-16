@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Netgen\BlockManager\SiteAPI\Item\ValueLoader;
 
-use Exception;
 use Netgen\BlockManager\Exception\Item\ItemException;
 use Netgen\BlockManager\Item\ValueLoaderInterface;
 use Netgen\EzPlatformSiteApi\API\LoadService;
+use Throwable;
 
 final class LocationValueLoader implements ValueLoaderInterface
 {
@@ -25,11 +25,11 @@ final class LocationValueLoader implements ValueLoaderInterface
     {
         try {
             $location = $this->loadService->loadLocation((int) $id);
-        } catch (Exception $e) {
+        } catch (Throwable $t) {
             throw new ItemException(
                 sprintf('Location with ID "%s" could not be loaded.', $id),
                 0,
-                $e
+                $t
             );
         }
 
@@ -46,11 +46,11 @@ final class LocationValueLoader implements ValueLoaderInterface
     {
         try {
             $location = $this->loadService->loadLocationByRemoteId((string) $remoteId);
-        } catch (Exception $e) {
+        } catch (Throwable $t) {
             throw new ItemException(
                 sprintf('Location with remote ID "%s" could not be loaded.', $remoteId),
                 0,
-                $e
+                $t
             );
         }
 
