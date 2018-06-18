@@ -53,7 +53,7 @@ final class LocationValueLoaderTest extends TestCase
             ->with($this->isType('int'))
             ->will($this->returnValue($location));
 
-        $this->assertEquals($location, $this->valueLoader->load(52));
+        $this->assertSame($location, $this->valueLoader->load(52));
     }
 
     /**
@@ -120,7 +120,7 @@ final class LocationValueLoaderTest extends TestCase
             ->with($this->isType('string'))
             ->will($this->returnValue($location));
 
-        $this->assertEquals($location, $this->valueLoader->loadByRemoteId('abc'));
+        $this->assertSame($location, $this->valueLoader->loadByRemoteId('abc'));
     }
 
     /**

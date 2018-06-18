@@ -47,6 +47,6 @@ final class LocationValueUrlGeneratorTest extends TestCase
             ->with($this->equalTo(new EzLocation()))
             ->will($this->returnValue('/location/path'));
 
-        $this->assertEquals('/location/path', $this->urlGenerator->generate($location));
+        $this->assertSame('/location/path', $this->urlGenerator->generate($location));
     }
 }

@@ -56,7 +56,7 @@ final class ContentValueLoaderTest extends TestCase
             ->with($this->isType('int'))
             ->will($this->returnValue($content));
 
-        $this->assertEquals($contentInfo, $this->valueLoader->load(52));
+        $this->assertSame($contentInfo, $this->valueLoader->load(52));
     }
 
     /**
@@ -157,7 +157,7 @@ final class ContentValueLoaderTest extends TestCase
             ->with($this->isType('string'))
             ->will($this->returnValue($content));
 
-        $this->assertEquals($contentInfo, $this->valueLoader->loadByRemoteId('abc'));
+        $this->assertSame($contentInfo, $this->valueLoader->loadByRemoteId('abc'));
     }
 
     /**

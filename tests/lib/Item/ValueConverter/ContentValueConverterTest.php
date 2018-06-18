@@ -77,7 +77,7 @@ final class ContentValueConverterTest extends TestCase
             ->expects($this->never())
             ->method('getValueType');
 
-        $this->assertEquals(
+        $this->assertSame(
             'ezcontent',
             $this->valueConverter->getValueType(
                 new ContentInfo()
@@ -94,7 +94,7 @@ final class ContentValueConverterTest extends TestCase
             ->expects($this->never())
             ->method('getId');
 
-        $this->assertEquals(
+        $this->assertSame(
             24,
             $this->valueConverter->getId(
                 new ContentInfo(['id' => 24])
@@ -113,7 +113,7 @@ final class ContentValueConverterTest extends TestCase
             ->with($this->equalTo(new EzContentInfo()))
             ->will($this->returnValue(42));
 
-        $this->assertEquals(42, $this->valueConverter->getId(new EzContentInfo()));
+        $this->assertSame(42, $this->valueConverter->getId(new EzContentInfo()));
     }
 
     /**
@@ -125,7 +125,7 @@ final class ContentValueConverterTest extends TestCase
             ->expects($this->never())
             ->method('getRemoteId');
 
-        $this->assertEquals(
+        $this->assertSame(
             'abc',
             $this->valueConverter->getRemoteId(
                 new ContentInfo(['remoteId' => 'abc'])
@@ -144,7 +144,7 @@ final class ContentValueConverterTest extends TestCase
             ->with($this->equalTo(new EzContentInfo()))
             ->will($this->returnValue('abc'));
 
-        $this->assertEquals('abc', $this->valueConverter->getRemoteId(new EzContentInfo()));
+        $this->assertSame('abc', $this->valueConverter->getRemoteId(new EzContentInfo()));
     }
 
     /**
@@ -156,7 +156,7 @@ final class ContentValueConverterTest extends TestCase
             ->expects($this->never())
             ->method('getName');
 
-        $this->assertEquals(
+        $this->assertSame(
             'Cool name',
             $this->valueConverter->getName(
                 new ContentInfo(['name' => 'Cool name'])
@@ -175,7 +175,7 @@ final class ContentValueConverterTest extends TestCase
             ->with($this->equalTo(new EzContentInfo()))
             ->will($this->returnValue('Cool name'));
 
-        $this->assertEquals('Cool name', $this->valueConverter->getName(new EzContentInfo()));
+        $this->assertSame('Cool name', $this->valueConverter->getName(new EzContentInfo()));
     }
 
     /**
@@ -235,7 +235,7 @@ final class ContentValueConverterTest extends TestCase
 
         $object = new ContentInfo(['id' => 42]);
 
-        $this->assertEquals($object, $this->valueConverter->getObject($object));
+        $this->assertSame($object, $this->valueConverter->getObject($object));
     }
 
     /**
@@ -243,15 +243,8 @@ final class ContentValueConverterTest extends TestCase
      */
     public function testGetObjectWithoutSiteAPIContentInfo(): void
     {
-        $object = new Content(
-            [
-                'contentInfo' => new ContentInfo(
-                    [
-                        'id' => 42,
-                    ]
-                ),
-            ]
-        );
+        $contentInfo = new ContentInfo(['id' => 42]);
+        $object = new Content(['contentInfo' => $contentInfo]);
 
         $this->loadServiceMock
             ->expects($this->once())
@@ -259,9 +252,6 @@ final class ContentValueConverterTest extends TestCase
             ->with($this->equalTo(42))
             ->will($this->returnValue($object));
 
-        $this->assertEquals(
-            new ContentInfo(['id' => 42]),
-            $this->valueConverter->getObject(new Content(['id' => 42]))
-        );
+        $this->assertSame($contentInfo, $this->valueConverter->getObject(new Content(['id' => 42])));
     }
 }

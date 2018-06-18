@@ -76,7 +76,7 @@ final class LocationValueConverterTest extends TestCase
             ->expects($this->never())
             ->method('getValueType');
 
-        $this->assertEquals(
+        $this->assertSame(
             'ezlocation',
             $this->valueConverter->getValueType(
                 new Location()
@@ -93,7 +93,7 @@ final class LocationValueConverterTest extends TestCase
             ->expects($this->never())
             ->method('getId');
 
-        $this->assertEquals(
+        $this->assertSame(
             24,
             $this->valueConverter->getId(
                 new Location(['id' => 24])
@@ -112,7 +112,7 @@ final class LocationValueConverterTest extends TestCase
             ->with($this->equalTo(new EzLocation()))
             ->will($this->returnValue(42));
 
-        $this->assertEquals(
+        $this->assertSame(
             42,
             $this->valueConverter->getId(
                 new EzLocation()
@@ -129,7 +129,7 @@ final class LocationValueConverterTest extends TestCase
             ->expects($this->never())
             ->method('getRemoteId');
 
-        $this->assertEquals(
+        $this->assertSame(
             'abc',
             $this->valueConverter->getRemoteId(
                 new Location(['remoteId' => 'abc'])
@@ -148,7 +148,7 @@ final class LocationValueConverterTest extends TestCase
             ->with($this->equalTo(new EzLocation()))
             ->will($this->returnValue('abc'));
 
-        $this->assertEquals(
+        $this->assertSame(
             'abc',
             $this->valueConverter->getRemoteId(
                 new EzLocation()
@@ -165,7 +165,7 @@ final class LocationValueConverterTest extends TestCase
             ->expects($this->never())
             ->method('getName');
 
-        $this->assertEquals(
+        $this->assertSame(
             'Cool name',
             $this->valueConverter->getName(
                 new Location(['contentInfo' => new ContentInfo(['name' => 'Cool name'])])
@@ -184,7 +184,7 @@ final class LocationValueConverterTest extends TestCase
             ->with($this->equalTo(new EzLocation()))
             ->will($this->returnValue('Cool name'));
 
-        $this->assertEquals(
+        $this->assertSame(
             'Cool name',
             $this->valueConverter->getName(
                 new EzLocation()
@@ -237,7 +237,7 @@ final class LocationValueConverterTest extends TestCase
 
         $object = new Location(['id' => 42]);
 
-        $this->assertEquals($object, $this->valueConverter->getObject($object));
+        $this->assertSame($object, $this->valueConverter->getObject($object));
     }
 
     /**
@@ -245,17 +245,14 @@ final class LocationValueConverterTest extends TestCase
      */
     public function testGetObjectWithoutSiteAPILocation(): void
     {
+        $location = new Location();
+
         $this->loadServiceMock
             ->expects($this->once())
             ->method('loadLocation')
             ->with($this->equalTo(42))
-            ->will($this->returnValue(new Location()));
+            ->will($this->returnValue($location));
 
-        $this->assertEquals(
-            new Location(),
-            $this->valueConverter->getObject(
-                new EzLocation(['id' => 42])
-            )
-        );
+        $this->assertSame($location, $this->valueConverter->getObject(new EzLocation(['id' => 42])));
     }
 }
