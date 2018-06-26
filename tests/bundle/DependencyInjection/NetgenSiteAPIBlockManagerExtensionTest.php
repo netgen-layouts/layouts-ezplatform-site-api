@@ -52,8 +52,6 @@ final class NetgenSiteAPIBlockManagerExtensionTest extends AbstractExtensionTest
             ...$this->container->getExtensionConfig('netgen_block_manager')
         );
 
-        $this->assertInternalType('array', $config);
-
         $this->assertArrayHasKey('view', $config);
         $this->assertArrayHasKey('item_view', $config['view']);
         $this->assertArrayHasKey('api', $config['view']['item_view']);
