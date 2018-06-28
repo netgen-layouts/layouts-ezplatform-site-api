@@ -29,6 +29,7 @@
             <directory suffix=".php">bundle</directory>
             <exclude>
                 <file>bundle/NetgenSiteAPIBlockManagerBundle.php</file>
+                <file>bundle/DependencyInjection/NetgenSiteAPIBlockManagerExtension.php</file>
             </exclude>
             <exclude>
                 <directory>bundle/Resources</directory>
