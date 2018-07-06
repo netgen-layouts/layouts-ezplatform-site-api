@@ -35,16 +35,13 @@ final class LocationValueUrlGeneratorTest extends TestCase
      */
     public function testGenerate(): void
     {
-        $location = new Location(
-            [
-                'innerLocation' => new EzLocation(),
-            ]
-        );
+        $innerLocation = new EzLocation();
+        $location = new Location(['innerLocation' => $innerLocation]);
 
         $this->urlGeneratorMock
             ->expects($this->once())
             ->method('generate')
-            ->with($this->equalTo(new EzLocation()))
+            ->with($this->identicalTo($innerLocation))
             ->will($this->returnValue('/location/path'));
 
         $this->assertSame('/location/path', $this->urlGenerator->generate($location));

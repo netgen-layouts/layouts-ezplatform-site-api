@@ -59,13 +59,15 @@ final class ContentValueConverterTest extends TestCase
      */
     public function testSupportsWithoutSiteAPIContentInfo(): void
     {
+        $contentInfo = new EzContentInfo();
+
         $this->innerConverterMock
             ->expects($this->once())
             ->method('supports')
-            ->with($this->equalTo(new EzContentInfo()))
+            ->with($this->identicalTo($contentInfo))
             ->will($this->returnValue(true));
 
-        $this->assertTrue($this->valueConverter->supports(new EzContentInfo()));
+        $this->assertTrue($this->valueConverter->supports($contentInfo));
     }
 
     /**
@@ -107,13 +109,15 @@ final class ContentValueConverterTest extends TestCase
      */
     public function testGetIdWithoutSiteAPIContentInfo(): void
     {
+        $contentInfo = new EzContentInfo();
+
         $this->innerConverterMock
             ->expects($this->once())
             ->method('getId')
-            ->with($this->equalTo(new EzContentInfo()))
+            ->with($this->identicalTo($contentInfo))
             ->will($this->returnValue(42));
 
-        $this->assertSame(42, $this->valueConverter->getId(new EzContentInfo()));
+        $this->assertSame(42, $this->valueConverter->getId($contentInfo));
     }
 
     /**
@@ -138,13 +142,15 @@ final class ContentValueConverterTest extends TestCase
      */
     public function testGetRemoteIdWithoutSiteAPIContentInfo(): void
     {
+        $contentInfo = new EzContentInfo();
+
         $this->innerConverterMock
             ->expects($this->once())
             ->method('getRemoteId')
-            ->with($this->equalTo(new EzContentInfo()))
+            ->with($this->identicalTo($contentInfo))
             ->will($this->returnValue('abc'));
 
-        $this->assertSame('abc', $this->valueConverter->getRemoteId(new EzContentInfo()));
+        $this->assertSame('abc', $this->valueConverter->getRemoteId($contentInfo));
     }
 
     /**
@@ -169,13 +175,15 @@ final class ContentValueConverterTest extends TestCase
      */
     public function testGetNameWithoutSiteAPIContentInfo(): void
     {
+        $contentInfo = new EzContentInfo();
+
         $this->innerConverterMock
             ->expects($this->once())
             ->method('getName')
-            ->with($this->equalTo(new EzContentInfo()))
+            ->with($this->identicalTo($contentInfo))
             ->will($this->returnValue('Cool name'));
 
-        $this->assertSame('Cool name', $this->valueConverter->getName(new EzContentInfo()));
+        $this->assertSame('Cool name', $this->valueConverter->getName($contentInfo));
     }
 
     /**
@@ -215,13 +223,15 @@ final class ContentValueConverterTest extends TestCase
      */
     public function testGetIsVisibleWithoutSiteAPIContentInfo(): void
     {
+        $contentInfo = new EzContentInfo();
+
         $this->innerConverterMock
             ->expects($this->once())
             ->method('getIsVisible')
-            ->with($this->equalTo(new EzContentInfo()))
+            ->with($this->identicalTo($contentInfo))
             ->will($this->returnValue(true));
 
-        $this->assertTrue($this->valueConverter->getIsVisible(new EzContentInfo()));
+        $this->assertTrue($this->valueConverter->getIsVisible($contentInfo));
     }
 
     /**
@@ -249,7 +259,7 @@ final class ContentValueConverterTest extends TestCase
         $this->loadServiceMock
             ->expects($this->once())
             ->method('loadContent')
-            ->with($this->equalTo(42))
+            ->with($this->identicalTo(42))
             ->will($this->returnValue($object));
 
         $this->assertSame($contentInfo, $this->valueConverter->getObject(new Content(['id' => 42])));
