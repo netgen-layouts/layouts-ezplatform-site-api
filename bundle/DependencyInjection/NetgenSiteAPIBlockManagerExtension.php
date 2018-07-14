@@ -16,7 +16,7 @@ final class NetgenSiteAPIBlockManagerExtension extends Extension implements Prep
 {
     public function load(array $configs, ContainerBuilder $container): void
     {
-        $configuration = new Configuration();
+        $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new YamlFileLoader(
@@ -45,5 +45,10 @@ final class NetgenSiteAPIBlockManagerExtension extends Extension implements Prep
             $container->prependExtensionConfig($prependConfig, $config);
             $container->addResource(new FileResource($configFile));
         }
+    }
+
+    public function getConfiguration(array $config, ContainerBuilder $container)
+    {
+        return new Configuration($this);
     }
 }
