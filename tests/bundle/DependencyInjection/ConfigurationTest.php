@@ -8,6 +8,7 @@ use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
 use Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\Configuration;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 
 final class ConfigurationTest extends TestCase
 {
@@ -97,6 +98,12 @@ final class ConfigurationTest extends TestCase
 
     protected function getConfiguration(): ConfigurationInterface
     {
-        return new Configuration();
+        $extensionMock = $this->createMock(ExtensionInterface::class);
+        $extensionMock
+            ->expects($this->any())
+            ->method('getAlias')
+            ->willReturn('alias');
+
+        return new Configuration($extensionMock);
     }
 }
