@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Netgen\BlockManager\SiteAPI\Tests\Item\ValueLoader;
 
-use Netgen\BlockManager\Exception\Item\ItemException;
+use Exception;
 use Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader;
 use Netgen\BlockManager\SiteAPI\Tests\Stubs\Content;
 use Netgen\BlockManager\SiteAPI\Tests\Stubs\ContentInfo;
@@ -53,7 +53,7 @@ final class ContentValueLoaderTest extends TestCase
         $this->loadServiceMock
             ->expects($this->any())
             ->method('loadContent')
-            ->with($this->isType('int'))
+            ->with($this->identicalTo(52))
             ->will($this->returnValue($content));
 
         $this->assertSame($contentInfo, $this->valueLoader->load(52));
@@ -61,26 +61,22 @@ final class ContentValueLoaderTest extends TestCase
 
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader::load
-     * @expectedException \Netgen\BlockManager\Exception\Item\ItemException
-     * @expectedExceptionMessage Content with ID "52" could not be loaded.
      */
-    public function testLoadThrowsItemException(): void
+    public function testLoadWithNoContent(): void
     {
         $this->loadServiceMock
             ->expects($this->any())
             ->method('loadContent')
-            ->with($this->isType('int'))
-            ->will($this->throwException(new ItemException()));
+            ->with($this->identicalTo(52))
+            ->will($this->throwException(new Exception()));
 
-        $this->valueLoader->load(52);
+        $this->assertNull($this->valueLoader->load(52));
     }
 
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader::load
-     * @expectedException \Netgen\BlockManager\Exception\Item\ItemException
-     * @expectedExceptionMessage Content with ID "52" is not published and cannot loaded.
      */
-    public function testLoadThrowsItemExceptionWithNonPublishedContent(): void
+    public function testLoadWithNonPublishedContent(): void
     {
         $contentInfo = new ContentInfo(
             [
@@ -98,18 +94,16 @@ final class ContentValueLoaderTest extends TestCase
         $this->loadServiceMock
             ->expects($this->any())
             ->method('loadContent')
-            ->with($this->isType('int'))
+            ->with($this->identicalTo(52))
             ->will($this->returnValue($content));
 
-        $this->valueLoader->load(52);
+        $this->assertNull($this->valueLoader->load(52));
     }
 
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader::load
-     * @expectedException \Netgen\BlockManager\Exception\Item\ItemException
-     * @expectedExceptionMessage Content with ID "52" does not have a main location and cannot loaded.
      */
-    public function testLoadThrowsItemExceptionWithNoMainLocation(): void
+    public function testLoadWithNoMainLocation(): void
     {
         $contentInfo = new ContentInfo(
             [
@@ -126,10 +120,10 @@ final class ContentValueLoaderTest extends TestCase
         $this->loadServiceMock
             ->expects($this->any())
             ->method('loadContent')
-            ->with($this->isType('int'))
+            ->with($this->identicalTo(52))
             ->will($this->returnValue($content));
 
-        $this->valueLoader->load(52);
+        $this->assertNull($this->valueLoader->load(52));
     }
 
     /**
@@ -154,7 +148,7 @@ final class ContentValueLoaderTest extends TestCase
         $this->loadServiceMock
             ->expects($this->any())
             ->method('loadContentByRemoteId')
-            ->with($this->isType('string'))
+            ->with($this->identicalTo('abc'))
             ->will($this->returnValue($content));
 
         $this->assertSame($contentInfo, $this->valueLoader->loadByRemoteId('abc'));
@@ -162,26 +156,22 @@ final class ContentValueLoaderTest extends TestCase
 
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader::loadByRemoteId
-     * @expectedException \Netgen\BlockManager\Exception\Item\ItemException
-     * @expectedExceptionMessage Content with remote ID "abc" could not be loaded.
      */
-    public function testLoadByRemoteIdThrowsItemException(): void
+    public function testLoadByRemoteIdWithNoContent(): void
     {
         $this->loadServiceMock
             ->expects($this->any())
             ->method('loadContentByRemoteId')
-            ->with($this->isType('string'))
-            ->will($this->throwException(new ItemException()));
+            ->with($this->identicalTo('abc'))
+            ->will($this->throwException(new Exception()));
 
-        $this->valueLoader->loadByRemoteId('abc');
+        $this->assertNull($this->valueLoader->loadByRemoteId('abc'));
     }
 
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader::loadByRemoteId
-     * @expectedException \Netgen\BlockManager\Exception\Item\ItemException
-     * @expectedExceptionMessage Content with remote ID "abc" is not published and cannot loaded.
      */
-    public function testLoadByRemoteIdThrowsItemExceptionWithNonPublishedContent(): void
+    public function testLoadByRemoteIdWithNonPublishedContent(): void
     {
         $contentInfo = new ContentInfo(
             [
@@ -199,18 +189,16 @@ final class ContentValueLoaderTest extends TestCase
         $this->loadServiceMock
             ->expects($this->any())
             ->method('loadContentByRemoteId')
-            ->with($this->isType('string'))
+            ->with($this->identicalTo('abc'))
             ->will($this->returnValue($content));
 
-        $this->valueLoader->loadByRemoteId('abc');
+        $this->assertNull($this->valueLoader->loadByRemoteId('abc'));
     }
 
     /**
      * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader::loadByRemoteId
-     * @expectedException \Netgen\BlockManager\Exception\Item\ItemException
-     * @expectedExceptionMessage Content with remote ID "abc" does not have a main location and cannot loaded.
      */
-    public function testLoadByRemoteIdThrowsItemExceptionWithNoMainLocation(): void
+    public function testLoadByRemoteIdWithNoMainLocation(): void
     {
         $contentInfo = new ContentInfo(
             [
@@ -227,9 +215,9 @@ final class ContentValueLoaderTest extends TestCase
         $this->loadServiceMock
             ->expects($this->any())
             ->method('loadContentByRemoteId')
-            ->with($this->isType('string'))
+            ->with($this->identicalTo('abc'))
             ->will($this->returnValue($content));
 
-        $this->valueLoader->loadByRemoteId('abc');
+        $this->assertNull($this->valueLoader->loadByRemoteId('abc'));
     }
 }
