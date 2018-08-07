@@ -25,7 +25,7 @@ final class ConfigurationTest extends TestCase
             'search_service_adapter' => null,
         ];
 
-        self::assertProcessedConfigurationEquals($config, $expectedConfig);
+        $this->assertProcessedConfigurationEquals($config, $expectedConfig);
     }
 
     /**
@@ -43,7 +43,7 @@ final class ConfigurationTest extends TestCase
             'search_service_adapter' => null,
         ];
 
-        self::assertProcessedConfigurationEquals($config, $expectedConfig);
+        $this->assertProcessedConfigurationEquals($config, $expectedConfig);
     }
 
     /**
@@ -61,7 +61,7 @@ final class ConfigurationTest extends TestCase
             'search_service_adapter' => 'filter',
         ];
 
-        self::assertProcessedConfigurationEquals($config, $expectedConfig);
+        $this->assertProcessedConfigurationEquals($config, $expectedConfig);
     }
 
     /**
@@ -79,7 +79,7 @@ final class ConfigurationTest extends TestCase
             'search_service_adapter' => 'find',
         ];
 
-        self::assertProcessedConfigurationEquals($config, $expectedConfig);
+        $this->assertProcessedConfigurationEquals($config, $expectedConfig);
     }
 
     /**
@@ -93,7 +93,7 @@ final class ConfigurationTest extends TestCase
             ],
         ];
 
-        self::assertConfigurationIsInvalid([$config]);
+        $this->assertConfigurationIsInvalid([$config]);
     }
 
     protected function getConfiguration(): ConfigurationInterface
