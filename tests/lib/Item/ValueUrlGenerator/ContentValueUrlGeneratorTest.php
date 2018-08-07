@@ -42,14 +42,14 @@ final class ContentValueUrlGeneratorTest extends TestCase
         );
 
         $this->urlGeneratorMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('generate')
             ->with(
-                $this->identicalTo(UrlAliasRouter::URL_ALIAS_ROUTE_NAME),
-                $this->identicalTo(['contentId' => 42])
+                self::identicalTo(UrlAliasRouter::URL_ALIAS_ROUTE_NAME),
+                self::identicalTo(['contentId' => 42])
             )
-            ->will($this->returnValue('/content/path'));
+            ->will(self::returnValue('/content/path'));
 
-        $this->assertSame('/content/path', $this->urlGenerator->generate($contentInfo));
+        self::assertSame('/content/path', $this->urlGenerator->generate($contentInfo));
     }
 }

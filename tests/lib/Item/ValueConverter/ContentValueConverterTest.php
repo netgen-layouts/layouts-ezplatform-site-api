@@ -48,10 +48,10 @@ final class ContentValueConverterTest extends TestCase
     public function testSupports(): void
     {
         $this->innerConverterMock
-            ->expects($this->never())
+            ->expects(self::never())
             ->method('supports');
 
-        $this->assertTrue($this->valueConverter->supports(new ContentInfo()));
+        self::assertTrue($this->valueConverter->supports(new ContentInfo()));
     }
 
     /**
@@ -62,12 +62,12 @@ final class ContentValueConverterTest extends TestCase
         $contentInfo = new EzContentInfo();
 
         $this->innerConverterMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('supports')
-            ->with($this->identicalTo($contentInfo))
-            ->will($this->returnValue(true));
+            ->with(self::identicalTo($contentInfo))
+            ->will(self::returnValue(true));
 
-        $this->assertTrue($this->valueConverter->supports($contentInfo));
+        self::assertTrue($this->valueConverter->supports($contentInfo));
     }
 
     /**
@@ -76,10 +76,10 @@ final class ContentValueConverterTest extends TestCase
     public function testGetValueType(): void
     {
         $this->innerConverterMock
-            ->expects($this->never())
+            ->expects(self::never())
             ->method('getValueType');
 
-        $this->assertSame(
+        self::assertSame(
             'ezcontent',
             $this->valueConverter->getValueType(
                 new ContentInfo()
@@ -93,10 +93,10 @@ final class ContentValueConverterTest extends TestCase
     public function testGetId(): void
     {
         $this->innerConverterMock
-            ->expects($this->never())
+            ->expects(self::never())
             ->method('getId');
 
-        $this->assertSame(
+        self::assertSame(
             24,
             $this->valueConverter->getId(
                 new ContentInfo(['id' => 24])
@@ -112,12 +112,12 @@ final class ContentValueConverterTest extends TestCase
         $contentInfo = new EzContentInfo();
 
         $this->innerConverterMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('getId')
-            ->with($this->identicalTo($contentInfo))
-            ->will($this->returnValue(42));
+            ->with(self::identicalTo($contentInfo))
+            ->will(self::returnValue(42));
 
-        $this->assertSame(42, $this->valueConverter->getId($contentInfo));
+        self::assertSame(42, $this->valueConverter->getId($contentInfo));
     }
 
     /**
@@ -126,10 +126,10 @@ final class ContentValueConverterTest extends TestCase
     public function testGetRemoteId(): void
     {
         $this->innerConverterMock
-            ->expects($this->never())
+            ->expects(self::never())
             ->method('getRemoteId');
 
-        $this->assertSame(
+        self::assertSame(
             'abc',
             $this->valueConverter->getRemoteId(
                 new ContentInfo(['remoteId' => 'abc'])
@@ -145,12 +145,12 @@ final class ContentValueConverterTest extends TestCase
         $contentInfo = new EzContentInfo();
 
         $this->innerConverterMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('getRemoteId')
-            ->with($this->identicalTo($contentInfo))
-            ->will($this->returnValue('abc'));
+            ->with(self::identicalTo($contentInfo))
+            ->will(self::returnValue('abc'));
 
-        $this->assertSame('abc', $this->valueConverter->getRemoteId($contentInfo));
+        self::assertSame('abc', $this->valueConverter->getRemoteId($contentInfo));
     }
 
     /**
@@ -159,10 +159,10 @@ final class ContentValueConverterTest extends TestCase
     public function testGetName(): void
     {
         $this->innerConverterMock
-            ->expects($this->never())
+            ->expects(self::never())
             ->method('getName');
 
-        $this->assertSame(
+        self::assertSame(
             'Cool name',
             $this->valueConverter->getName(
                 new ContentInfo(['name' => 'Cool name'])
@@ -178,12 +178,12 @@ final class ContentValueConverterTest extends TestCase
         $contentInfo = new EzContentInfo();
 
         $this->innerConverterMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('getName')
-            ->with($this->identicalTo($contentInfo))
-            ->will($this->returnValue('Cool name'));
+            ->with(self::identicalTo($contentInfo))
+            ->will(self::returnValue('Cool name'));
 
-        $this->assertSame('Cool name', $this->valueConverter->getName($contentInfo));
+        self::assertSame('Cool name', $this->valueConverter->getName($contentInfo));
     }
 
     /**
@@ -192,10 +192,10 @@ final class ContentValueConverterTest extends TestCase
     public function testGetIsVisible(): void
     {
         $this->innerConverterMock
-            ->expects($this->never())
+            ->expects(self::never())
             ->method('getIsVisible');
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->valueConverter->getIsVisible(
                 new ContentInfo(['mainLocation' => new Location(['invisible' => false])])
             )
@@ -208,10 +208,10 @@ final class ContentValueConverterTest extends TestCase
     public function testGetIsVisibleWithoutMainLocation(): void
     {
         $this->innerConverterMock
-            ->expects($this->never())
+            ->expects(self::never())
             ->method('getIsVisible');
 
-        $this->assertFalse(
+        self::assertFalse(
             $this->valueConverter->getIsVisible(
                 new ContentInfo()
             )
@@ -226,12 +226,12 @@ final class ContentValueConverterTest extends TestCase
         $contentInfo = new EzContentInfo();
 
         $this->innerConverterMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('getIsVisible')
-            ->with($this->identicalTo($contentInfo))
-            ->will($this->returnValue(true));
+            ->with(self::identicalTo($contentInfo))
+            ->will(self::returnValue(true));
 
-        $this->assertTrue($this->valueConverter->getIsVisible($contentInfo));
+        self::assertTrue($this->valueConverter->getIsVisible($contentInfo));
     }
 
     /**
@@ -240,12 +240,12 @@ final class ContentValueConverterTest extends TestCase
     public function testGetObject(): void
     {
         $this->loadServiceMock
-            ->expects($this->never())
+            ->expects(self::never())
             ->method('loadContent');
 
         $object = new ContentInfo(['id' => 42]);
 
-        $this->assertSame($object, $this->valueConverter->getObject($object));
+        self::assertSame($object, $this->valueConverter->getObject($object));
     }
 
     /**
@@ -257,11 +257,11 @@ final class ContentValueConverterTest extends TestCase
         $object = new Content(['contentInfo' => $contentInfo]);
 
         $this->loadServiceMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('loadContent')
-            ->with($this->identicalTo(42))
-            ->will($this->returnValue($object));
+            ->with(self::identicalTo(42))
+            ->will(self::returnValue($object));
 
-        $this->assertSame($contentInfo, $this->valueConverter->getObject(new Content(['id' => 42])));
+        self::assertSame($contentInfo, $this->valueConverter->getObject(new Content(['id' => 42])));
     }
 }

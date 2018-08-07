@@ -47,10 +47,10 @@ final class LocationValueConverterTest extends TestCase
     public function testSupports(): void
     {
         $this->innerConverterMock
-            ->expects($this->never())
+            ->expects(self::never())
             ->method('supports');
 
-        $this->assertTrue($this->valueConverter->supports(new Location()));
+        self::assertTrue($this->valueConverter->supports(new Location()));
     }
 
     /**
@@ -61,12 +61,12 @@ final class LocationValueConverterTest extends TestCase
         $location = new EzLocation();
 
         $this->innerConverterMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('supports')
-            ->with($this->identicalTo($location))
-            ->will($this->returnValue(true));
+            ->with(self::identicalTo($location))
+            ->will(self::returnValue(true));
 
-        $this->assertTrue($this->valueConverter->supports($location));
+        self::assertTrue($this->valueConverter->supports($location));
     }
 
     /**
@@ -75,10 +75,10 @@ final class LocationValueConverterTest extends TestCase
     public function testGetValueType(): void
     {
         $this->innerConverterMock
-            ->expects($this->never())
+            ->expects(self::never())
             ->method('getValueType');
 
-        $this->assertSame(
+        self::assertSame(
             'ezlocation',
             $this->valueConverter->getValueType(
                 new Location()
@@ -92,10 +92,10 @@ final class LocationValueConverterTest extends TestCase
     public function testGetId(): void
     {
         $this->innerConverterMock
-            ->expects($this->never())
+            ->expects(self::never())
             ->method('getId');
 
-        $this->assertSame(
+        self::assertSame(
             24,
             $this->valueConverter->getId(
                 new Location(['id' => 24])
@@ -111,12 +111,12 @@ final class LocationValueConverterTest extends TestCase
         $location = new EzLocation();
 
         $this->innerConverterMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('getId')
-            ->with($this->identicalTo($location))
-            ->will($this->returnValue(42));
+            ->with(self::identicalTo($location))
+            ->will(self::returnValue(42));
 
-        $this->assertSame(42, $this->valueConverter->getId($location));
+        self::assertSame(42, $this->valueConverter->getId($location));
     }
 
     /**
@@ -125,10 +125,10 @@ final class LocationValueConverterTest extends TestCase
     public function testGetRemoteId(): void
     {
         $this->innerConverterMock
-            ->expects($this->never())
+            ->expects(self::never())
             ->method('getRemoteId');
 
-        $this->assertSame(
+        self::assertSame(
             'abc',
             $this->valueConverter->getRemoteId(
                 new Location(['remoteId' => 'abc'])
@@ -144,12 +144,12 @@ final class LocationValueConverterTest extends TestCase
         $location = new EzLocation();
 
         $this->innerConverterMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('getRemoteId')
-            ->with($this->identicalTo($location))
-            ->will($this->returnValue('abc'));
+            ->with(self::identicalTo($location))
+            ->will(self::returnValue('abc'));
 
-        $this->assertSame('abc', $this->valueConverter->getRemoteId($location));
+        self::assertSame('abc', $this->valueConverter->getRemoteId($location));
     }
 
     /**
@@ -158,10 +158,10 @@ final class LocationValueConverterTest extends TestCase
     public function testGetName(): void
     {
         $this->innerConverterMock
-            ->expects($this->never())
+            ->expects(self::never())
             ->method('getName');
 
-        $this->assertSame(
+        self::assertSame(
             'Cool name',
             $this->valueConverter->getName(
                 new Location(['contentInfo' => new ContentInfo(['name' => 'Cool name'])])
@@ -177,12 +177,12 @@ final class LocationValueConverterTest extends TestCase
         $location = new EzLocation();
 
         $this->innerConverterMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('getName')
-            ->with($this->identicalTo($location))
-            ->will($this->returnValue('Cool name'));
+            ->with(self::identicalTo($location))
+            ->will(self::returnValue('Cool name'));
 
-        $this->assertSame('Cool name', $this->valueConverter->getName($location));
+        self::assertSame('Cool name', $this->valueConverter->getName($location));
     }
 
     /**
@@ -191,10 +191,10 @@ final class LocationValueConverterTest extends TestCase
     public function testGetIsVisible(): void
     {
         $this->innerConverterMock
-            ->expects($this->never())
+            ->expects(self::never())
             ->method('getIsVisible');
 
-        $this->assertTrue(
+        self::assertTrue(
             $this->valueConverter->getIsVisible(
                 new Location(['invisible' => false])
             )
@@ -209,12 +209,12 @@ final class LocationValueConverterTest extends TestCase
         $location = new EzLocation();
 
         $this->innerConverterMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('getIsVisible')
-            ->with($this->identicalTo($location))
-            ->will($this->returnValue(true));
+            ->with(self::identicalTo($location))
+            ->will(self::returnValue(true));
 
-        $this->assertTrue($this->valueConverter->getIsVisible($location));
+        self::assertTrue($this->valueConverter->getIsVisible($location));
     }
 
     /**
@@ -223,12 +223,12 @@ final class LocationValueConverterTest extends TestCase
     public function testGetObject(): void
     {
         $this->loadServiceMock
-            ->expects($this->never())
+            ->expects(self::never())
             ->method('loadLocation');
 
         $object = new Location(['id' => 42]);
 
-        $this->assertSame($object, $this->valueConverter->getObject($object));
+        self::assertSame($object, $this->valueConverter->getObject($object));
     }
 
     /**
@@ -239,11 +239,11 @@ final class LocationValueConverterTest extends TestCase
         $location = new Location();
 
         $this->loadServiceMock
-            ->expects($this->once())
+            ->expects(self::once())
             ->method('loadLocation')
-            ->with($this->identicalTo(42))
-            ->will($this->returnValue($location));
+            ->with(self::identicalTo(42))
+            ->will(self::returnValue($location));
 
-        $this->assertSame($location, $this->valueConverter->getObject(new EzLocation(['id' => 42])));
+        self::assertSame($location, $this->valueConverter->getObject(new EzLocation(['id' => 42])));
     }
 }

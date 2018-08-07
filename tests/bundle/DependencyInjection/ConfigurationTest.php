@@ -25,7 +25,7 @@ final class ConfigurationTest extends TestCase
             'search_service_adapter' => null,
         ];
 
-        $this->assertProcessedConfigurationEquals($config, $expectedConfig);
+        self::assertProcessedConfigurationEquals($config, $expectedConfig);
     }
 
     /**
@@ -43,7 +43,7 @@ final class ConfigurationTest extends TestCase
             'search_service_adapter' => null,
         ];
 
-        $this->assertProcessedConfigurationEquals($config, $expectedConfig);
+        self::assertProcessedConfigurationEquals($config, $expectedConfig);
     }
 
     /**
@@ -61,7 +61,7 @@ final class ConfigurationTest extends TestCase
             'search_service_adapter' => 'filter',
         ];
 
-        $this->assertProcessedConfigurationEquals($config, $expectedConfig);
+        self::assertProcessedConfigurationEquals($config, $expectedConfig);
     }
 
     /**
@@ -79,7 +79,7 @@ final class ConfigurationTest extends TestCase
             'search_service_adapter' => 'find',
         ];
 
-        $this->assertProcessedConfigurationEquals($config, $expectedConfig);
+        self::assertProcessedConfigurationEquals($config, $expectedConfig);
     }
 
     /**
@@ -93,14 +93,14 @@ final class ConfigurationTest extends TestCase
             ],
         ];
 
-        $this->assertConfigurationIsInvalid([$config]);
+        self::assertConfigurationIsInvalid([$config]);
     }
 
     protected function getConfiguration(): ConfigurationInterface
     {
         $extensionMock = $this->createMock(ExtensionInterface::class);
         $extensionMock
-            ->expects($this->any())
+            ->expects(self::any())
             ->method('getAlias')
             ->willReturn('alias');
 
