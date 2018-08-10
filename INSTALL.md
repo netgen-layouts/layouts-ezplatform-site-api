@@ -8,7 +8,7 @@ Run the following command to install Netgen Layouts & eZ Platform Site API
 integration:
 
 ```
-composer require netgen/block-manager-site-api:^1.0
+composer require netgen/layouts-ezplatform-site-api
 ```
 
 Activating integration bundle
