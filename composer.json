@@ -1,7 +1,7 @@
 {
     "name": "netgen/layouts-ezplatform-site-api",
     "description": "Netgen Layouts & eZ Platform Site API integration",
-    "license": "proprietary",
+    "license": "GPL-2.0-only",
     "authors": [
         {
             "name": "Netgen",
