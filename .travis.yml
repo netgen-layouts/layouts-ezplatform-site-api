@@ -3,28 +3,25 @@ sudo: false
 
 language: php
 
+php:
+  - 7.1
+  - 7.2
+
 cache:
   directories:
     - $HOME/.composer/cache/files
 
+env:
+  - PHPUNIT_CONFIG="phpunit.xml" SYMFONY_VERSION="~3.4.0"
+
 matrix:
-  fast_finish: true
   include:
-    # PHP 7.1
-    - php: 7.1
-      env: PHPUNIT_CONFIG="phpunit.xml" SYMFONY_VERSION="~2.8.0"
-    - php: 7.1
+    -
+      php: 7.1
       env: PHPUNIT_CONFIG="phpunit.xml" SYMFONY_VERSION="~2.8.0" DEPS="low"
-    - php: 7.1
-      env: PHPUNIT_CONFIG="phpunit.xml" SYMFONY_VERSION="~3.4.0"
-    # PHP 7.2
-    - php: 7.2
-      env: PHPUNIT_CONFIG="phpunit.xml" SYMFONY_VERSION="~2.8.0"
-    - php: 7.2
-      env: PHPUNIT_CONFIG="phpunit.xml" SYMFONY_VERSION="~3.4.0"
-    # PHPStan
-    - php: 7.2
-      env: RUN_PHPSTAN="yes" SYMFONY_VERSION="~3.4.0"
+    -
+      php: 7.2
+      env: RUN_PHPSTAN="yes"
 
 branches:
   only:
@@ -45,18 +42,24 @@ before_script:
 
   - |
     if [ "$DEPS" = "low" ] ; then
-      composer update --prefer-dist --prefer-lowest --prefer-stable
+      composer update --no-suggest --prefer-dist --prefer-lowest --prefer-stable
     else
-      composer update --prefer-dist
+      composer update --no-suggest --prefer-dist
     fi
 
 script:
-  - if [ "$PHPUNIT_CONFIG" != "" ] ; then vendor/bin/phpunit -c $PHPUNIT_CONFIG ; fi
+  - composer validate --strict
+  - if [ "$PHPUNIT_CONFIG" != "" ] ; then vendor/bin/phpunit -c $PHPUNIT_CONFIG --colors=always ; fi
   - if [ "$RUN_PHPSTAN" != "" ] ; then composer phpstan ; fi
   - if [ "$RUN_PHPSTAN" != "" ] ; then composer phpstan-tests ; fi
 
 notifications:
   email: false
+  slack:
+    secure: bcisnsuBWUUPpwahEA+pyu4Y0wyJrW06MkiQue9CRjvjG2EhPYIsVPiDYnKymZ0EEdDnqUtjC4liYlEgHzq04dupcHum2rq9Dm9yHQAWv0wdE9kuN3i3VMvjmnM9oVSUh2NWyiMjN9dK3fYzCxHUFPybVPgO8bgBqzk0QkwM2zTb7NqMuLg8gWg/OT10isToNqMPT/1f+fuR79OB997Q1alw8k8wQnFSjKMlF9Yur1N8PfiZU1a+Uw4Uctd1HVuUasiNeG+BA+sPGO6Kd0dG93yvGphgkBK2HtZ/lUVsz7ncdW4fH19sQ5uvD2LYxyDoQFtSf4za65MPK8U21froFt6ENy1XVHyLhjcb0azy5EGQa4ypEvU6Iia19kYY7tzmKeMGhFq8t6//002SiqY3uN8q3HD2yKKdh2oIu1+ZKYKuLui8h2bJD51EbNsOvwk0MbvshBr3RUhylmrS59/MIiLWE+NKTHwSFxGfdSr3RXs0X0WWQTaDql3umAt6zNG/fsFnW/R55Pei1erV1d+qeV8G78dJjqOUmefJUN/pRvys+7yvdJiVJ1AhFziwXb4B5A70tzTlKg2VZSllmPSfGACyLTAxuNwLr44QjHVh6Q2ubf+hqOj7LZA2KTyDe0NDEjUyCWgvNdzP61PJ6Zxrl1rM9L30pVMukP45PYRuTpg=
+    on_success: change
+    on_failure: always
+    on_pull_requests: false
 
 git:
-  depth: 30
+  depth: 1
