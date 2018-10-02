@@ -35,7 +35,7 @@
     },
     "autoload-dev": {
         "files": [
-            "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
+            "vendor/symfony/var-dumper/Resources/functions/dump.php"
         ],
         "psr-4": {
             "Netgen\\BlockManager\\SiteAPI\\Tests\\": "tests/lib/",
