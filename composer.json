@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "netgen/layouts-ezplatform": "~0.12.0",
+        "netgen/layouts-ezplatform": "~0.13.0",
         "netgen/ezplatform-site-api": "^2.5"
     },
     "require-dev": {
@@ -47,7 +47,7 @@
     "prefer-stable": true,
     "extra": {
         "branch-alias": {
-            "dev-master": "0.12.x-dev"
+            "dev-master": "0.13.x-dev"
         }
     }
 }
