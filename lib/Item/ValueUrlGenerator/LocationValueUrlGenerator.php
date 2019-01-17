@@ -19,6 +19,9 @@ final class LocationValueUrlGenerator implements ValueUrlGeneratorInterface
         $this->urlGenerator = $urlGenerator;
     }
 
+    /**
+     * @param \Netgen\EzPlatformSiteApi\API\Values\Location $object
+     */
     public function generate($object): ?string
     {
         return $this->urlGenerator->generate($object->innerLocation);

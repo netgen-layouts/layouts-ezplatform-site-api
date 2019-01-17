@@ -2,3 +2,6 @@ parameters:
     ignoreErrors:
         # Symfony Config component
         - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition::addDefaultsIfNotSet\(\)#'
+
+        # eZ Platform
+        - '#Parameter \#1 \$name of method Symfony\\Component\\Routing\\Generator\\UrlGeneratorInterface::generate\(\) expects string, eZ\\Publish\\API\\Repository\\Values\\Content\\Location given.#'

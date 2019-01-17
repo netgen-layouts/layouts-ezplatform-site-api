@@ -76,6 +76,11 @@ final class ContentValueConverter implements ValueConverterInterface
         return $this->innerConverter->getIsVisible($object);
     }
 
+    /**
+     * @param \Netgen\EzPlatformSiteApi\API\Values\ContentInfo|\Netgen\EzPlatformSiteApi\API\Values\Content $object
+     *
+     * @return \Netgen\EzPlatformSiteApi\API\Values\ContentInfo
+     */
     public function getObject($object)
     {
         if ($object instanceof ContentInfo) {

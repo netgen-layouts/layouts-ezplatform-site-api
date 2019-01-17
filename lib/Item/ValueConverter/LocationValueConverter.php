@@ -76,6 +76,11 @@ final class LocationValueConverter implements ValueConverterInterface
         return $this->innerConverter->getIsVisible($object);
     }
 
+    /**
+     * @param \Netgen\EzPlatformSiteApi\API\Values\Location|\eZ\Publish\API\Repository\Values\Content\Location $object
+     *
+     * @return \Netgen\EzPlatformSiteApi\API\Values\Location
+     */
     public function getObject($object)
     {
         if ($object instanceof Location) {
