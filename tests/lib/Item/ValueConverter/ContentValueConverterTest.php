@@ -253,15 +253,15 @@ final class ContentValueConverterTest extends TestCase
      */
     public function testGetObjectWithoutSiteAPIContentInfo(): void
     {
-        $contentInfo = new ContentInfo(['id' => 42]);
-        $object = new Content(['contentInfo' => $contentInfo]);
+        $contentInfo = new ContentInfo();
+        $content = new Content(['contentInfo' => $contentInfo]);
 
         $this->loadServiceMock
             ->expects(self::once())
             ->method('loadContent')
             ->with(self::identicalTo(42))
-            ->will(self::returnValue($object));
+            ->will(self::returnValue($content));
 
-        self::assertSame($contentInfo, $this->valueConverter->getObject(new Content(['id' => 42])));
+        self::assertSame($contentInfo, $this->valueConverter->getObject(new EzContentInfo(['id' => 42])));
     }
 }

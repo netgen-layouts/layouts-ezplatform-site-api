@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Netgen\BlockManager\SiteAPI\Item\ValueConverter;
 
+use eZ\Publish\API\Repository\Values\Content\ContentInfo as EzContentInfo;
 use Netgen\BlockManager\Item\ValueConverterInterface;
 use Netgen\EzPlatformSiteApi\API\LoadService;
 use Netgen\EzPlatformSiteApi\API\Values\ContentInfo;
@@ -76,17 +77,12 @@ final class ContentValueConverter implements ValueConverterInterface
         return $this->innerConverter->getIsVisible($object);
     }
 
-    /**
-     * @param \Netgen\EzPlatformSiteApi\API\Values\ContentInfo|\Netgen\EzPlatformSiteApi\API\Values\Content $object
-     *
-     * @return \Netgen\EzPlatformSiteApi\API\Values\ContentInfo
-     */
     public function getObject($object)
     {
-        if ($object instanceof ContentInfo) {
-            return $object;
+        if ($object instanceof EzContentInfo) {
+            return $this->loadService->loadContent($object->id)->contentInfo;
         }
 
-        return $this->loadService->loadContent($object->id)->contentInfo;
+        return $object;
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Netgen\BlockManager\SiteAPI\Item\ValueConverter;
 
+use eZ\Publish\API\Repository\Values\Content\Location as EzLocation;
 use Netgen\BlockManager\Item\ValueConverterInterface;
 use Netgen\EzPlatformSiteApi\API\LoadService;
 use Netgen\EzPlatformSiteApi\API\Values\Location;
@@ -76,17 +77,12 @@ final class LocationValueConverter implements ValueConverterInterface
         return $this->innerConverter->getIsVisible($object);
     }
 
-    /**
-     * @param \Netgen\EzPlatformSiteApi\API\Values\Location|\eZ\Publish\API\Repository\Values\Content\Location $object
-     *
-     * @return \Netgen\EzPlatformSiteApi\API\Values\Location
-     */
     public function getObject($object)
     {
-        if ($object instanceof Location) {
-            return $object;
+        if ($object instanceof EzLocation) {
+            return $this->loadService->loadLocation($object->id);
         }
 
-        return $this->loadService->loadLocation($object->id);
+        return $object;
     }
 }
