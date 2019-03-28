@@ -15,7 +15,7 @@ final class SearchServiceAdapterPass implements CompilerPassInterface
             return;
         }
 
-        $searchServiceAdapter = '';
+        $searchServiceAdapter = null;
         $adapterType = $container->getParameter('netgen_block_manager.site_api.search_service_adapter');
         if ($adapterType === 'filter') {
             $searchServiceAdapter = 'netgen.ezplatform_site.filter_service.search_adapter';
@@ -23,7 +23,7 @@ final class SearchServiceAdapterPass implements CompilerPassInterface
             $searchServiceAdapter = 'netgen.ezplatform_site.find_service.search_adapter';
         }
 
-        if (empty($searchServiceAdapter) || !$container->has($searchServiceAdapter)) {
+        if ($searchServiceAdapter === null || !$container->has($searchServiceAdapter)) {
             return;
         }
 
