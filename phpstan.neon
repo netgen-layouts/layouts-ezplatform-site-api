@@ -4,8 +4,11 @@ includes:
 parameters:
     ignoreErrors:
         # Symfony Config component
-        - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition::addDefaultsIfNotSet\(\)#'
+        -
+            message: '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition::addDefaultsIfNotSet\(\)#'
+            path: bundle/DependencyInjection/Configuration.php
 
+        # Integration specifics
         -
             message: '#Access to an undefined property object::\$id.#'
             path: lib/Item/ValueUrlGenerator/ContentValueUrlGenerator.php
