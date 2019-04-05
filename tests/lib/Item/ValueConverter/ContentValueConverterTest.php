@@ -65,7 +65,7 @@ final class ContentValueConverterTest extends TestCase
             ->expects(self::once())
             ->method('supports')
             ->with(self::identicalTo($contentInfo))
-            ->will(self::returnValue(true));
+            ->willReturn(true);
 
         self::assertTrue($this->valueConverter->supports($contentInfo));
     }
@@ -115,7 +115,7 @@ final class ContentValueConverterTest extends TestCase
             ->expects(self::once())
             ->method('getId')
             ->with(self::identicalTo($contentInfo))
-            ->will(self::returnValue(42));
+            ->willReturn(42);
 
         self::assertSame(42, $this->valueConverter->getId($contentInfo));
     }
@@ -148,7 +148,7 @@ final class ContentValueConverterTest extends TestCase
             ->expects(self::once())
             ->method('getRemoteId')
             ->with(self::identicalTo($contentInfo))
-            ->will(self::returnValue('abc'));
+            ->willReturn('abc');
 
         self::assertSame('abc', $this->valueConverter->getRemoteId($contentInfo));
     }
@@ -181,7 +181,7 @@ final class ContentValueConverterTest extends TestCase
             ->expects(self::once())
             ->method('getName')
             ->with(self::identicalTo($contentInfo))
-            ->will(self::returnValue('Cool name'));
+            ->willReturn('Cool name');
 
         self::assertSame('Cool name', $this->valueConverter->getName($contentInfo));
     }
@@ -229,7 +229,7 @@ final class ContentValueConverterTest extends TestCase
             ->expects(self::once())
             ->method('getIsVisible')
             ->with(self::identicalTo($contentInfo))
-            ->will(self::returnValue(true));
+            ->willReturn(true);
 
         self::assertTrue($this->valueConverter->getIsVisible($contentInfo));
     }
@@ -260,7 +260,7 @@ final class ContentValueConverterTest extends TestCase
             ->expects(self::once())
             ->method('loadContent')
             ->with(self::identicalTo(42))
-            ->will(self::returnValue($content));
+            ->willReturn($content);
 
         self::assertSame($contentInfo, $this->valueConverter->getObject(new EzContentInfo(['id' => 42])));
     }

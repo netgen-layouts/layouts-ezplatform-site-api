@@ -64,7 +64,7 @@ final class LocationValueConverterTest extends TestCase
             ->expects(self::once())
             ->method('supports')
             ->with(self::identicalTo($location))
-            ->will(self::returnValue(true));
+            ->willReturn(true);
 
         self::assertTrue($this->valueConverter->supports($location));
     }
@@ -114,7 +114,7 @@ final class LocationValueConverterTest extends TestCase
             ->expects(self::once())
             ->method('getId')
             ->with(self::identicalTo($location))
-            ->will(self::returnValue(42));
+            ->willReturn(42);
 
         self::assertSame(42, $this->valueConverter->getId($location));
     }
@@ -147,7 +147,7 @@ final class LocationValueConverterTest extends TestCase
             ->expects(self::once())
             ->method('getRemoteId')
             ->with(self::identicalTo($location))
-            ->will(self::returnValue('abc'));
+            ->willReturn('abc');
 
         self::assertSame('abc', $this->valueConverter->getRemoteId($location));
     }
@@ -180,7 +180,7 @@ final class LocationValueConverterTest extends TestCase
             ->expects(self::once())
             ->method('getName')
             ->with(self::identicalTo($location))
-            ->will(self::returnValue('Cool name'));
+            ->willReturn('Cool name');
 
         self::assertSame('Cool name', $this->valueConverter->getName($location));
     }
@@ -212,7 +212,7 @@ final class LocationValueConverterTest extends TestCase
             ->expects(self::once())
             ->method('getIsVisible')
             ->with(self::identicalTo($location))
-            ->will(self::returnValue(true));
+            ->willReturn(true);
 
         self::assertTrue($this->valueConverter->getIsVisible($location));
     }
@@ -242,7 +242,7 @@ final class LocationValueConverterTest extends TestCase
             ->expects(self::once())
             ->method('loadLocation')
             ->with(self::identicalTo(42))
-            ->will(self::returnValue($location));
+            ->willReturn($location);
 
         self::assertSame($location, $this->valueConverter->getObject(new EzLocation(['id' => 42])));
     }

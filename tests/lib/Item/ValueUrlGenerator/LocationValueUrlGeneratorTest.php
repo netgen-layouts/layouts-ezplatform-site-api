@@ -42,7 +42,7 @@ final class LocationValueUrlGeneratorTest extends TestCase
             ->expects(self::once())
             ->method('generate')
             ->with(self::identicalTo($innerLocation))
-            ->will(self::returnValue('/location/path'));
+            ->willReturn('/location/path');
 
         self::assertSame('/location/path', $this->urlGenerator->generate($location));
     }
