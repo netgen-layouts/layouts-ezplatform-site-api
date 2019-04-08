@@ -27,7 +27,7 @@ final class ContentValueConverter implements ValueConverterInterface
         $this->loadService = $loadService;
     }
 
-    public function supports($object): bool
+    public function supports(object $object): bool
     {
         if ($object instanceof ContentInfo) {
             return true;
@@ -36,12 +36,12 @@ final class ContentValueConverter implements ValueConverterInterface
         return $this->innerConverter->supports($object);
     }
 
-    public function getValueType($object): string
+    public function getValueType(object $object): string
     {
         return 'ezcontent';
     }
 
-    public function getId($object)
+    public function getId(object $object)
     {
         if ($object instanceof ContentInfo) {
             return $object->id;
@@ -50,7 +50,7 @@ final class ContentValueConverter implements ValueConverterInterface
         return $this->innerConverter->getId($object);
     }
 
-    public function getRemoteId($object)
+    public function getRemoteId(object $object)
     {
         if ($object instanceof ContentInfo) {
             return $object->remoteId;
@@ -59,7 +59,7 @@ final class ContentValueConverter implements ValueConverterInterface
         return $this->innerConverter->getRemoteId($object);
     }
 
-    public function getName($object): string
+    public function getName(object $object): string
     {
         if ($object instanceof ContentInfo) {
             return $object->name;
@@ -68,7 +68,7 @@ final class ContentValueConverter implements ValueConverterInterface
         return $this->innerConverter->getName($object);
     }
 
-    public function getIsVisible($object): bool
+    public function getIsVisible(object $object): bool
     {
         if ($object instanceof ContentInfo) {
             return $object->mainLocation !== null && !$object->mainLocation->invisible;
@@ -77,7 +77,7 @@ final class ContentValueConverter implements ValueConverterInterface
         return $this->innerConverter->getIsVisible($object);
     }
 
-    public function getObject($object)
+    public function getObject(object $object): object
     {
         if ($object instanceof EzContentInfo) {
             return $this->loadService->loadContent($object->id)->contentInfo;

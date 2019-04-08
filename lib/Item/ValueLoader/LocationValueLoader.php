@@ -20,7 +20,7 @@ final class LocationValueLoader implements ValueLoaderInterface
         $this->loadService = $loadService;
     }
 
-    public function load($id)
+    public function load($id): ?object
     {
         try {
             $location = $this->loadService->loadLocation((int) $id);
@@ -31,7 +31,7 @@ final class LocationValueLoader implements ValueLoaderInterface
         return $location->contentInfo->published ? $location : null;
     }
 
-    public function loadByRemoteId($remoteId)
+    public function loadByRemoteId($remoteId): ?object
     {
         try {
             $location = $this->loadService->loadLocationByRemoteId((string) $remoteId);
