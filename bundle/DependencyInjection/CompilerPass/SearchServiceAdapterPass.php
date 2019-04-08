@@ -31,8 +31,8 @@ final class SearchServiceAdapterPass implements CompilerPassInterface
             $container->setAlias('netgen_block_manager.ezpublish.search_service', $searchServiceAdapter);
         }
 
-        if ($container->hasAlias('netgen_content_browser.ezpublish.search_service')) {
-            $container->setAlias('netgen_content_browser.ezpublish.search_service', $searchServiceAdapter);
+        if ($container->hasAlias('netgen_content_browser.ezplatform.search_service')) {
+            $container->setAlias('netgen_content_browser.ezplatform.search_service', $searchServiceAdapter);
         }
     }
 }
