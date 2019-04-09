@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Netgen\BlockManager\SiteAPI\Tests\Item\ValueConverter;
+namespace Netgen\Layouts\Ez\SiteApi\Tests\Item\ValueConverter;
 
 use eZ\Publish\API\Repository\Values\Content\ContentInfo as EzContentInfo;
 use Netgen\BlockManager\Item\ValueConverterInterface;
-use Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter;
-use Netgen\BlockManager\SiteAPI\Tests\Stubs\Content;
-use Netgen\BlockManager\SiteAPI\Tests\Stubs\ContentInfo;
-use Netgen\BlockManager\SiteAPI\Tests\Stubs\Location;
 use Netgen\EzPlatformSiteApi\API\LoadService;
+use Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter;
+use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\Content;
+use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\ContentInfo;
+use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\Location;
 use PHPUnit\Framework\TestCase;
 
 final class ContentValueConverterTest extends TestCase
@@ -26,7 +26,7 @@ final class ContentValueConverterTest extends TestCase
     private $loadServiceMock;
 
     /**
-     * @var \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter
+     * @var \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter
      */
     private $valueConverter;
 
@@ -42,8 +42,8 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::__construct
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::supports
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::__construct
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::supports
      */
     public function testSupports(): void
     {
@@ -55,9 +55,9 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::supports
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::supports
      */
-    public function testSupportsWithoutSiteAPIContentInfo(): void
+    public function testSupportsWithoutSiteApiContentInfo(): void
     {
         $contentInfo = new EzContentInfo();
 
@@ -71,7 +71,7 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getValueType
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getValueType
      */
     public function testGetValueType(): void
     {
@@ -88,7 +88,7 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getId
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getId
      */
     public function testGetId(): void
     {
@@ -105,9 +105,9 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getId
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getId
      */
-    public function testGetIdWithoutSiteAPIContentInfo(): void
+    public function testGetIdWithoutSiteApiContentInfo(): void
     {
         $contentInfo = new EzContentInfo();
 
@@ -121,7 +121,7 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getRemoteId
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getRemoteId
      */
     public function testGetRemoteId(): void
     {
@@ -138,9 +138,9 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getRemoteId
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getRemoteId
      */
-    public function testGetRemoteIdWithoutSiteAPIContentInfo(): void
+    public function testGetRemoteIdWithoutSiteApiContentInfo(): void
     {
         $contentInfo = new EzContentInfo();
 
@@ -154,7 +154,7 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getName
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getName
      */
     public function testGetName(): void
     {
@@ -171,9 +171,9 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getName
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getName
      */
-    public function testGetNameWithoutSiteAPIContentInfo(): void
+    public function testGetNameWithoutSiteApiContentInfo(): void
     {
         $contentInfo = new EzContentInfo();
 
@@ -187,7 +187,7 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getIsVisible
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getIsVisible
      */
     public function testGetIsVisible(): void
     {
@@ -203,7 +203,7 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getIsVisible
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getIsVisible
      */
     public function testGetIsVisibleWithoutMainLocation(): void
     {
@@ -219,9 +219,9 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getIsVisible
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getIsVisible
      */
-    public function testGetIsVisibleWithoutSiteAPIContentInfo(): void
+    public function testGetIsVisibleWithoutSiteApiContentInfo(): void
     {
         $contentInfo = new EzContentInfo();
 
@@ -235,7 +235,7 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getObject
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getObject
      */
     public function testGetObject(): void
     {
@@ -249,9 +249,9 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter::getObject
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getObject
      */
-    public function testGetObjectWithoutSiteAPIContentInfo(): void
+    public function testGetObjectWithoutSiteApiContentInfo(): void
     {
         $contentInfo = new ContentInfo();
         $content = new Content(['contentInfo' => $contentInfo]);

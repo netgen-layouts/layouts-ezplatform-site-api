@@ -1,2 +1,2 @@
 parameters:
-    netgen_block_manager.app.ezplatform.item_preview_template: '@@NetgenSiteAPIBlockManager/api/item/ngbm_app_preview.html.twig'
+    netgen_layouts.app.ezplatform.item_preview_template: '@@NetgenLayoutsEzPlatformSiteApi/api/item/nglayouts_app_preview.html.twig'

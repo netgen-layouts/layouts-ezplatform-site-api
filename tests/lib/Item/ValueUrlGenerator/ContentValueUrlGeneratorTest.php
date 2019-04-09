@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Netgen\BlockManager\SiteAPI\Tests\Item\ValueUrlGenerator;
+namespace Netgen\Layouts\Ez\SiteApi\Tests\Item\ValueUrlGenerator;
 
 use eZ\Publish\Core\MVC\Symfony\Routing\UrlAliasRouter;
-use Netgen\BlockManager\SiteAPI\Item\ValueUrlGenerator\ContentValueUrlGenerator;
-use Netgen\BlockManager\SiteAPI\Tests\Stubs\ContentInfo;
+use Netgen\Layouts\Ez\SiteApi\Item\ValueUrlGenerator\ContentValueUrlGenerator;
+use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\ContentInfo;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
@@ -18,7 +18,7 @@ final class ContentValueUrlGeneratorTest extends TestCase
     private $urlGeneratorMock;
 
     /**
-     * @var \Netgen\BlockManager\SiteAPI\Item\ValueUrlGenerator\ContentValueUrlGenerator
+     * @var \Netgen\Layouts\Ez\SiteApi\Item\ValueUrlGenerator\ContentValueUrlGenerator
      */
     private $urlGenerator;
 
@@ -30,8 +30,8 @@ final class ContentValueUrlGeneratorTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueUrlGenerator\ContentValueUrlGenerator::__construct
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueUrlGenerator\ContentValueUrlGenerator::generate
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueUrlGenerator\ContentValueUrlGenerator::__construct
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueUrlGenerator\ContentValueUrlGenerator::generate
      */
     public function testGenerate(): void
     {

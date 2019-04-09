@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Netgen\BlockManager\SiteAPI\Item\ValueLoader;
+namespace Netgen\Layouts\Ez\SiteApi\Item\ValueLoader;
 
 use Netgen\BlockManager\Item\ValueLoaderInterface;
 use Netgen\EzPlatformSiteApi\API\LoadService;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Netgen\BlockManager\SiteAPI\Tests\Stubs;
+namespace Netgen\Layouts\Ez\SiteApi\Tests\Stubs;
 
 use Netgen\EzPlatformSiteApi\API\Values\ContentInfo as APIContentInfo;
 

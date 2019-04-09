@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Bundle\SiteAPIBlockManagerBundle\Tests\DependencyInjection;
+namespace Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\Tests\DependencyInjection;
 
 use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
-use Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\Configuration;
+use Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\Configuration;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
@@ -15,7 +15,7 @@ final class ConfigurationTest extends TestCase
     use ConfigurationTestCaseTrait;
 
     /**
-     * @covers \Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\Configuration::getConfigTreeBuilder
+     * @covers \Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\Configuration::getConfigTreeBuilder
      */
     public function testDefaultAdapterSettings(): void
     {
@@ -29,7 +29,7 @@ final class ConfigurationTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\Configuration::getConfigTreeBuilder
+     * @covers \Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\Configuration::getConfigTreeBuilder
      */
     public function testNullAdapterSettings(): void
     {
@@ -47,7 +47,7 @@ final class ConfigurationTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\Configuration::getConfigTreeBuilder
+     * @covers \Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\Configuration::getConfigTreeBuilder
      */
     public function testFilterAdapterSettings(): void
     {
@@ -65,7 +65,7 @@ final class ConfigurationTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\Configuration::getConfigTreeBuilder
+     * @covers \Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\Configuration::getConfigTreeBuilder
      */
     public function testFindAdapterSettings(): void
     {
@@ -83,7 +83,7 @@ final class ConfigurationTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection\Configuration::getConfigTreeBuilder
+     * @covers \Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\Configuration::getConfigTreeBuilder
      */
     public function testUnknownAdapterSettings(): void
     {

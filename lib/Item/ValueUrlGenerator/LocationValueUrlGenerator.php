@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Netgen\BlockManager\SiteAPI\Item\ValueUrlGenerator;
+namespace Netgen\Layouts\Ez\SiteApi\Item\ValueUrlGenerator;
 
 use Netgen\BlockManager\Item\ValueUrlGeneratorInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;

@@ -15,10 +15,10 @@
     beStrictAboutChangesToGlobalState="true"
 >
     <testsuites>
-        <testsuite name="Netgen\BlockManager\SiteAPI">
+        <testsuite name="Netgen\Layouts\Ez\SiteApi">
             <directory>tests/lib</directory>
         </testsuite>
-        <testsuite name="Netgen\Bundle\SiteAPIBlockManagerBundle">
+        <testsuite name="Netgen\Bundle\LayoutsEzPlatformSiteApiBundle">
             <directory>tests/bundle</directory>
         </testsuite>
     </testsuites>
@@ -28,8 +28,8 @@
             <directory suffix=".php">lib</directory>
             <directory suffix=".php">bundle</directory>
             <exclude>
-                <file>bundle/NetgenSiteAPIBlockManagerBundle.php</file>
-                <file>bundle/DependencyInjection/NetgenSiteAPIBlockManagerExtension.php</file>
+                <file>bundle/NetgenLayoutsEzPlatformSiteApiBundle.php</file>
+                <file>bundle/DependencyInjection/NetgenLayoutsEzPlatformSiteApiExtension.php</file>
             </exclude>
             <exclude>
                 <directory>bundle/Resources</directory>

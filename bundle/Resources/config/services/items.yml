@@ -1,38 +1,38 @@
 services:
-    netgen_block_manager.site_api.item.value_converter.ezlocation:
-        class: Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter
-        decorates: netgen_block_manager.item.value_converter.ezlocation
+    netgen_layouts.ezplatform_site_api.item.value_converter.location:
+        class: Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter
+        decorates: netgen_layouts.ezplatform.item.value_converter.location
         arguments:
-            - "@netgen_block_manager.site_api.item.value_converter.ezlocation.inner"
+            - "@netgen_layouts.ezplatform_site_api.item.value_converter.location.inner"
             - "@netgen.ezplatform_site.load_service"
 
-    netgen_block_manager.site_api.item.value_converter.ezcontent:
-        class: Netgen\BlockManager\SiteAPI\Item\ValueConverter\ContentValueConverter
-        decorates: netgen_block_manager.item.value_converter.ezcontent
+    netgen_layouts.ezplatform_site_api.item.value_converter.content:
+        class: Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter
+        decorates: netgen_layouts.ezplatform.item.value_converter.content
         arguments:
-            - "@netgen_block_manager.site_api.item.value_converter.ezcontent.inner"
+            - "@netgen_layouts.ezplatform_site_api.item.value_converter.content.inner"
             - "@netgen.ezplatform_site.load_service"
 
-    netgen_block_manager.site_api.item.value_loader.ezlocation:
-        class: Netgen\BlockManager\SiteAPI\Item\ValueLoader\LocationValueLoader
-        decorates: netgen_block_manager.item.value_loader.ezlocation
-        arguments:
-            - "@netgen.ezplatform_site.load_service"
-
-    netgen_block_manager.site_api.item.value_loader.ezcontent:
-        class: Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader
-        decorates: netgen_block_manager.item.value_loader.ezcontent
+    netgen_layouts.ezplatform_site_api.item.value_loader.location:
+        class: Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\LocationValueLoader
+        decorates: netgen_layouts.ezplatform.item.value_loader.location
         arguments:
             - "@netgen.ezplatform_site.load_service"
 
-    netgen_block_manager.site_api.item.value_url_generator.ezlocation:
-        class: Netgen\BlockManager\SiteAPI\Item\ValueUrlGenerator\LocationValueUrlGenerator
-        decorates: netgen_block_manager.item.value_url_generator.ezlocation
+    netgen_layouts.ezplatform_site_api.item.value_loader.content:
+        class: Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\ContentValueLoader
+        decorates: netgen_layouts.ezplatform.item.value_loader.content
+        arguments:
+            - "@netgen.ezplatform_site.load_service"
+
+    netgen_layouts.ezplatform_site_api.item.value_url_generator.location:
+        class: Netgen\Layouts\Ez\SiteApi\Item\ValueUrlGenerator\LocationValueUrlGenerator
+        decorates: netgen_layouts.ezplatform.item.value_url_generator.location
         arguments:
             - "@router"
 
-    netgen_block_manager.site_api.item.value_url_generator.ezcontent:
-        class: Netgen\BlockManager\SiteAPI\Item\ValueUrlGenerator\ContentValueUrlGenerator
-        decorates: netgen_block_manager.item.value_url_generator.ezcontent
+    netgen_layouts.ezplatform_site_api.item.value_url_generator.content:
+        class: Netgen\Layouts\Ez\SiteApi\Item\ValueUrlGenerator\ContentValueUrlGenerator
+        decorates: netgen_layouts.ezplatform.item.value_url_generator.content
         arguments:
             - "@router"

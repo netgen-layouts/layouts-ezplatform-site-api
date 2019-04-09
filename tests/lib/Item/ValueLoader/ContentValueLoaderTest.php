@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Netgen\BlockManager\SiteAPI\Tests\Item\ValueLoader;
+namespace Netgen\Layouts\Ez\SiteApi\Tests\Item\ValueLoader;
 
 use Exception;
-use Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader;
-use Netgen\BlockManager\SiteAPI\Tests\Stubs\Content;
-use Netgen\BlockManager\SiteAPI\Tests\Stubs\ContentInfo;
 use Netgen\EzPlatformSiteApi\API\LoadService;
+use Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\ContentValueLoader;
+use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\Content;
+use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\ContentInfo;
 use PHPUnit\Framework\TestCase;
 
 final class ContentValueLoaderTest extends TestCase
@@ -19,7 +19,7 @@ final class ContentValueLoaderTest extends TestCase
     private $loadServiceMock;
 
     /**
-     * @var \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader
+     * @var \Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\ContentValueLoader
      */
     private $valueLoader;
 
@@ -31,8 +31,8 @@ final class ContentValueLoaderTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader::__construct
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader::load
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\ContentValueLoader::__construct
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\ContentValueLoader::load
      */
     public function testLoad(): void
     {
@@ -60,7 +60,7 @@ final class ContentValueLoaderTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader::load
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\ContentValueLoader::load
      */
     public function testLoadWithNoContent(): void
     {
@@ -74,7 +74,7 @@ final class ContentValueLoaderTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader::load
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\ContentValueLoader::load
      */
     public function testLoadWithNonPublishedContent(): void
     {
@@ -101,7 +101,7 @@ final class ContentValueLoaderTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader::load
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\ContentValueLoader::load
      */
     public function testLoadWithNoMainLocation(): void
     {
@@ -127,7 +127,7 @@ final class ContentValueLoaderTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader::loadByRemoteId
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\ContentValueLoader::loadByRemoteId
      */
     public function testLoadByRemoteId(): void
     {
@@ -155,7 +155,7 @@ final class ContentValueLoaderTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader::loadByRemoteId
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\ContentValueLoader::loadByRemoteId
      */
     public function testLoadByRemoteIdWithNoContent(): void
     {
@@ -169,7 +169,7 @@ final class ContentValueLoaderTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader::loadByRemoteId
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\ContentValueLoader::loadByRemoteId
      */
     public function testLoadByRemoteIdWithNonPublishedContent(): void
     {
@@ -196,7 +196,7 @@ final class ContentValueLoaderTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueLoader\ContentValueLoader::loadByRemoteId
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\ContentValueLoader::loadByRemoteId
      */
     public function testLoadByRemoteIdWithNoMainLocation(): void
     {

@@ -1,5 +1,5 @@
 {% if content.fields.image is defined and not content.fields.image.empty %}
-    {% set image_alias = ng_image_alias(content.fields.image, 'ngbm_app_preview') %}
+    {% set image_alias = ng_image_alias(content.fields.image, 'nglayouts_app_preview') %}
 
     {% if image_alias %}
         <div class="image">
@@ -9,5 +9,5 @@
 {% endif %}
 
 <div class="name">
-    <p><a href="{{ ngbm_item_path(ngbm_item) }}" target="_blank" rel="noopener noreferrer">{{ content.name }}</a></p>
+    <p><a href="{{ ngbm_item_path(nglayouts_item) }}" target="_blank" rel="noopener noreferrer">{{ content.name }}</a></p>
 </div>

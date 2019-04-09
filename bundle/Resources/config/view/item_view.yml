@@ -2,10 +2,10 @@ view:
     item_view:
         api:
             ezcontent\siteapi:
-                template: "@NetgenSiteAPIBlockManager/api/item/ezcontent.html.twig"
+                template: "@NetgenLayoutsEzPlatformSiteApi/api/item/ezcontent.html.twig"
                 match:
                     item\value_type: ezcontent
             ezlocation\siteapi:
-                template: "@NetgenSiteAPIBlockManager/api/item/ezlocation.html.twig"
+                template: "@NetgenLayoutsEzPlatformSiteApi/api/item/ezlocation.html.twig"
                 match:
                     item\value_type: ezlocation

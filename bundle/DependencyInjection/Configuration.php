@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection;
+namespace Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection;
 
 use Netgen\Bundle\BlockManagerBundle\DependencyInjection\TreeBuilder;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder as BaseTreeBuilder;

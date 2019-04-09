@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Bundle\SiteAPIBlockManagerBundle\DependencyInjection;
+namespace Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Resource\FileResource;
@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Yaml\Yaml;
 
-final class NetgenSiteAPIBlockManagerExtension extends Extension implements PrependExtensionInterface
+final class NetgenLayoutsEzPlatformSiteApiExtension extends Extension implements PrependExtensionInterface
 {
     public function load(array $configs, ContainerBuilder $container): void
     {
@@ -28,7 +28,7 @@ final class NetgenSiteAPIBlockManagerExtension extends Extension implements Prep
         $loader->load('default_settings.yml');
 
         $container->setParameter(
-            'netgen_block_manager.site_api.search_service_adapter',
+            'netgen_layouts.ezplatform_site_api.search_service_adapter',
             $config['search_service_adapter']
         );
     }

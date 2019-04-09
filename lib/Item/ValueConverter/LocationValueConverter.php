@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Netgen\BlockManager\SiteAPI\Item\ValueConverter;
+namespace Netgen\Layouts\Ez\SiteApi\Item\ValueConverter;
 
 use eZ\Publish\API\Repository\Values\Content\Location as EzLocation;
 use Netgen\BlockManager\Item\ValueConverterInterface;

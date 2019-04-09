@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Netgen\BlockManager\SiteAPI\Tests\Item\ValueConverter;
+namespace Netgen\Layouts\Ez\SiteApi\Tests\Item\ValueConverter;
 
 use eZ\Publish\Core\Repository\Values\Content\Location as EzLocation;
 use Netgen\BlockManager\Item\ValueConverterInterface;
-use Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter;
-use Netgen\BlockManager\SiteAPI\Tests\Stubs\ContentInfo;
-use Netgen\BlockManager\SiteAPI\Tests\Stubs\Location;
 use Netgen\EzPlatformSiteApi\API\LoadService;
+use Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter;
+use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\ContentInfo;
+use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\Location;
 use PHPUnit\Framework\TestCase;
 
 final class LocationValueConverterTest extends TestCase
@@ -25,7 +25,7 @@ final class LocationValueConverterTest extends TestCase
     private $loadServiceMock;
 
     /**
-     * @var \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter
+     * @var \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter
      */
     private $valueConverter;
 
@@ -41,8 +41,8 @@ final class LocationValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::__construct
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::supports
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter::__construct
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter::supports
      */
     public function testSupports(): void
     {
@@ -54,9 +54,9 @@ final class LocationValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::supports
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter::supports
      */
-    public function testSupportsWithoutSiteAPILocation(): void
+    public function testSupportsWithoutSiteApiLocation(): void
     {
         $location = new EzLocation();
 
@@ -70,7 +70,7 @@ final class LocationValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getValueType
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter::getValueType
      */
     public function testGetValueType(): void
     {
@@ -87,7 +87,7 @@ final class LocationValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getId
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter::getId
      */
     public function testGetId(): void
     {
@@ -104,9 +104,9 @@ final class LocationValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getId
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter::getId
      */
-    public function testGetIdWithoutSiteAPILocation(): void
+    public function testGetIdWithoutSiteApiLocation(): void
     {
         $location = new EzLocation();
 
@@ -120,7 +120,7 @@ final class LocationValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getRemoteId
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter::getRemoteId
      */
     public function testGetRemoteId(): void
     {
@@ -137,9 +137,9 @@ final class LocationValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getRemoteId
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter::getRemoteId
      */
-    public function testGetRemoteIdWithoutSiteAPILocation(): void
+    public function testGetRemoteIdWithoutSiteApiLocation(): void
     {
         $location = new EzLocation();
 
@@ -153,7 +153,7 @@ final class LocationValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getName
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter::getName
      */
     public function testGetName(): void
     {
@@ -170,9 +170,9 @@ final class LocationValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getName
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter::getName
      */
-    public function testGetNameWithoutSiteAPILocation(): void
+    public function testGetNameWithoutSiteApiLocation(): void
     {
         $location = new EzLocation();
 
@@ -186,7 +186,7 @@ final class LocationValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getIsVisible
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter::getIsVisible
      */
     public function testGetIsVisible(): void
     {
@@ -202,9 +202,9 @@ final class LocationValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getIsVisible
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter::getIsVisible
      */
-    public function testGetIsVisibleWithoutSiteAPILocation(): void
+    public function testGetIsVisibleWithoutSiteApiLocation(): void
     {
         $location = new EzLocation();
 
@@ -218,7 +218,7 @@ final class LocationValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getObject
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter::getObject
      */
     public function testGetObject(): void
     {
@@ -232,9 +232,9 @@ final class LocationValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\BlockManager\SiteAPI\Item\ValueConverter\LocationValueConverter::getObject
+     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter::getObject
      */
-    public function testGetObjectWithoutSiteAPILocation(): void
+    public function testGetObjectWithoutSiteApiLocation(): void
     {
         $location = new Location();
 
