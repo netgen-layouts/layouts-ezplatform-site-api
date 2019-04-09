@@ -22,13 +22,13 @@ final class SearchServiceAdapterPassTest extends AbstractCompilerPassTestCase
         $this->container->setDefinition('search_service', new Definition());
         $this->container->setDefinition('netgen.ezplatform_site.filter_service.search_adapter', new Definition());
 
-        $this->container->setAlias('netgen_block_manager.ezpublish.search_service', 'search_service');
+        $this->container->setAlias('netgen_block_manager.ezplatform.search_service', 'search_service');
         $this->container->setAlias('netgen_content_browser.ezplatform.search_service', 'search_service');
 
         $this->compile();
 
         $this->assertContainerBuilderHasAlias(
-            'netgen_block_manager.ezpublish.search_service',
+            'netgen_block_manager.ezplatform.search_service',
             'netgen.ezplatform_site.filter_service.search_adapter'
         );
 
@@ -48,13 +48,13 @@ final class SearchServiceAdapterPassTest extends AbstractCompilerPassTestCase
         $this->container->setDefinition('search_service', new Definition());
         $this->container->setDefinition('netgen.ezplatform_site.find_service.search_adapter', new Definition());
 
-        $this->container->setAlias('netgen_block_manager.ezpublish.search_service', 'search_service');
+        $this->container->setAlias('netgen_block_manager.ezplatform.search_service', 'search_service');
         $this->container->setAlias('netgen_content_browser.ezplatform.search_service', 'search_service');
 
         $this->compile();
 
         $this->assertContainerBuilderHasAlias(
-            'netgen_block_manager.ezpublish.search_service',
+            'netgen_block_manager.ezplatform.search_service',
             'netgen.ezplatform_site.find_service.search_adapter'
         );
 
@@ -73,12 +73,12 @@ final class SearchServiceAdapterPassTest extends AbstractCompilerPassTestCase
 
         $this->container->setDefinition('search_service', new Definition());
 
-        $this->container->setAlias('netgen_block_manager.ezpublish.search_service', 'search_service');
+        $this->container->setAlias('netgen_block_manager.ezplatform.search_service', 'search_service');
         $this->container->setAlias('netgen_content_browser.ezplatform.search_service', 'search_service');
 
         $this->compile();
 
-        $this->assertContainerBuilderHasAlias('netgen_block_manager.ezpublish.search_service', 'search_service');
+        $this->assertContainerBuilderHasAlias('netgen_block_manager.ezplatform.search_service', 'search_service');
         $this->assertContainerBuilderHasAlias('netgen_content_browser.ezplatform.search_service', 'search_service');
     }
 
@@ -91,12 +91,12 @@ final class SearchServiceAdapterPassTest extends AbstractCompilerPassTestCase
 
         $this->container->setDefinition('search_service', new Definition());
 
-        $this->container->setAlias('netgen_block_manager.ezpublish.search_service', 'search_service');
+        $this->container->setAlias('netgen_block_manager.ezplatform.search_service', 'search_service');
         $this->container->setAlias('netgen_content_browser.ezplatform.search_service', 'search_service');
 
         $this->compile();
 
-        $this->assertContainerBuilderHasAlias('netgen_block_manager.ezpublish.search_service', 'search_service');
+        $this->assertContainerBuilderHasAlias('netgen_block_manager.ezplatform.search_service', 'search_service');
         $this->assertContainerBuilderHasAlias('netgen_content_browser.ezplatform.search_service', 'search_service');
     }
 
