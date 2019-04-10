@@ -36,7 +36,7 @@ final class NetgenLayoutsEzPlatformSiteApiExtension extends Extension implements
     public function prepend(ContainerBuilder $container): void
     {
         $prependConfigs = [
-            'view/item_view.yml' => 'netgen_block_manager',
+            'view/item_view.yml' => 'netgen_layouts',
         ];
 
         foreach ($prependConfigs as $configFile => $prependConfig) {
