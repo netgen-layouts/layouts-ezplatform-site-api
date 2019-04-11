@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Netgen\Layouts\Ez\SiteApi\Item\ValueLoader;
 
-use Netgen\BlockManager\Item\ValueLoaderInterface;
 use Netgen\EzPlatformSiteApi\API\LoadService;
+use Netgen\Layouts\Item\ValueLoaderInterface;
 use Throwable;
 
 final class LocationValueLoader implements ValueLoaderInterface

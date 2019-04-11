@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Netgen\Layouts\Ez\SiteApi\Tests\Item\ValueConverter;
 
 use eZ\Publish\API\Repository\Values\Content\ContentInfo as EzContentInfo;
-use Netgen\BlockManager\Item\ValueConverterInterface;
 use Netgen\EzPlatformSiteApi\API\LoadService;
 use Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter;
 use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\Content;
 use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\ContentInfo;
 use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\Location;
+use Netgen\Layouts\Item\ValueConverterInterface;
 use PHPUnit\Framework\TestCase;
 
 final class ContentValueConverterTest extends TestCase

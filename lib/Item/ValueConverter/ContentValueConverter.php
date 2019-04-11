@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace Netgen\Layouts\Ez\SiteApi\Item\ValueConverter;
 
 use eZ\Publish\API\Repository\Values\Content\ContentInfo as EzContentInfo;
-use Netgen\BlockManager\Item\ValueConverterInterface;
 use Netgen\EzPlatformSiteApi\API\LoadService;
 use Netgen\EzPlatformSiteApi\API\Values\ContentInfo;
+use Netgen\Layouts\Item\ValueConverterInterface;
 
 final class ContentValueConverter implements ValueConverterInterface
 {
     /**
-     * @var \Netgen\BlockManager\Item\ValueConverterInterface
+     * @var \Netgen\Layouts\Item\ValueConverterInterface
      */
     private $innerConverter;
 

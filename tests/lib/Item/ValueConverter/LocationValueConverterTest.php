@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Netgen\Layouts\Ez\SiteApi\Tests\Item\ValueConverter;
 
 use eZ\Publish\Core\Repository\Values\Content\Location as EzLocation;
-use Netgen\BlockManager\Item\ValueConverterInterface;
 use Netgen\EzPlatformSiteApi\API\LoadService;
 use Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter;
 use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\ContentInfo;
 use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\Location;
+use Netgen\Layouts\Item\ValueConverterInterface;
 use PHPUnit\Framework\TestCase;
 
 final class LocationValueConverterTest extends TestCase
