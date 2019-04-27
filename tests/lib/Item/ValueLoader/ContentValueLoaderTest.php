@@ -23,7 +23,7 @@ final class ContentValueLoaderTest extends TestCase
      */
     private $valueLoader;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->loadServiceMock = $this->createMock(LoadService::class);
 

@@ -30,7 +30,7 @@ final class ContentValueConverterTest extends TestCase
      */
     private $valueConverter;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->innerConverterMock = $this->createMock(ValueConverterInterface::class);
         $this->loadServiceMock = $this->createMock(LoadService::class);
