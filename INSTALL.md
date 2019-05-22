@@ -1,8 +1,6 @@
-Netgen Layouts & eZ Platform Site API integration installation instructions
-===========================================================================
+# Netgen Layouts & eZ Platform Site API integration installation instructions
 
-Use Composer to install the integration
----------------------------------------
+## Use Composer to install the integration
 
 Run the following command to install Netgen Layouts & eZ Platform Site API
 integration:
@@ -11,8 +9,7 @@ integration:
 composer require netgen/layouts-ezplatform-site-api
 ```
 
-Activating integration bundle
------------------------------
+## Activating integration bundle
 
 After completing standard Netgen Layouts and eZ Platform integration install
 instructions, you also need to activate `NetgenLayoutsEzPlatformSiteApiBundle`. Make

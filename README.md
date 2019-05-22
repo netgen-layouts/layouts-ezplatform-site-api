@@ -1,6 +1,5 @@
-Netgen Layouts & eZ Platform Site API integration
-=================================================
+# Netgen Layouts & eZ Platform Site API integration
 
-# Installation instructions
+## Installation instructions
 
 [INSTALL.md](INSTALL.md)
