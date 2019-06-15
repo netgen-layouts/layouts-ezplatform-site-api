@@ -10,9 +10,5 @@ parameters:
 
         # Integration specifics
         -
-            message: '#Access to an undefined property object::\$id.#'
-            path: lib/Item/ValueUrlGenerator/ContentValueUrlGenerator.php
-
-        -
-            message: '#Access to an undefined property object::\$innerLocation.#'
-            path: lib/Item/ValueUrlGenerator/LocationValueUrlGenerator.php
+            message: '#should be contravariant with parameter \$object#'
+            path: lib/Item/ValueUrlGenerator/

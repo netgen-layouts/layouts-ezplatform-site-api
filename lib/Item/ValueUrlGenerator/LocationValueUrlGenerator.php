@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Netgen\Layouts\Ez\SiteApi\Item\ValueUrlGenerator;
 
+use eZ\Publish\Core\MVC\Symfony\Routing\UrlAliasRouter;
 use Netgen\Layouts\Item\ValueUrlGeneratorInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
@@ -19,8 +20,16 @@ final class LocationValueUrlGenerator implements ValueUrlGeneratorInterface
         $this->urlGenerator = $urlGenerator;
     }
 
+    /**
+     * @param \Netgen\EzPlatformSiteApi\API\Values\Location $object
+     */
     public function generate(object $object): ?string
     {
-        return $this->urlGenerator->generate($object->innerLocation);
+        return $this->urlGenerator->generate(
+            UrlAliasRouter::URL_ALIAS_ROUTE_NAME,
+            [
+                'locationId' => $object->id,
+            ]
+        );
     }
 }
