@@ -63,9 +63,21 @@ if (class_exists(Node::class)) {
             return [];
         }
 
-        public function filterLocations(int $maxPerPage = 25, int $currentPage = 1): array
+        public function filterLocations(int $maxPerPage = 25, int $currentPage = 1): Pagerfanta
         {
-            return [];
+            return new Pagerfanta(
+                new class() implements AdapterInterface {
+                    public function getNbResults(): int
+                    {
+                        return 0;
+                    }
+
+                    public function getSlice($offset, $length): array
+                    {
+                        return [];
+                    }
+                }
+            );
         }
 
         public function getFieldRelation(string $fieldDefinitionIdentifier): ?APIContent
