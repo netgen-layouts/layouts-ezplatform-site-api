@@ -2,3 +2,11 @@ includes:
     - vendor/phpstan/phpstan-strict-rules/rules.neon
     - vendor/phpstan/phpstan-phpunit/extension.neon
     - vendor/phpstan/phpstan-phpunit/rules.neon
+
+parameters:
+    excludes_analyse:
+        - tests/lib/Stubs/Legacy/
+
+    ignoreErrors:
+        # eZ Platform Site API v2/v3 differences
+        - '#Netgen\\EzPlatformSiteApi\\API\\Values\\Node#'
