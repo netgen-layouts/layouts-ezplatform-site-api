@@ -14,5 +14,6 @@ final class NetgenLayoutsEzPlatformSiteApiBundle extends Bundle
     {
         $container->addCompilerPass(new CompilerPass\SearchServiceAdapterPass());
         $container->addCompilerPass(new CompilerPass\DefaultAppPreviewPass());
+        $container->addCompilerPass(new CompilerPass\DefaultContentBrowserPreviewPass());
     }
 }
