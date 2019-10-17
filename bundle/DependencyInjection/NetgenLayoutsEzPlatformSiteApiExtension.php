@@ -24,8 +24,8 @@ final class NetgenLayoutsEzPlatformSiteApiExtension extends Extension implements
             new FileLocator(__DIR__ . '/../Resources/config')
         );
 
-        $loader->load('services/items.yml');
-        $loader->load('default_settings.yml');
+        $loader->load('services/items.yaml');
+        $loader->load('default_settings.yaml');
 
         $container->setParameter(
             'netgen_layouts.ezplatform_site_api.search_service_adapter',
@@ -36,7 +36,7 @@ final class NetgenLayoutsEzPlatformSiteApiExtension extends Extension implements
     public function prepend(ContainerBuilder $container): void
     {
         $prependConfigs = [
-            'view/item_view.yml' => 'netgen_layouts',
+            'view/item_view.yaml' => 'netgen_layouts',
         ];
 
         foreach ($prependConfigs as $configFile => $prependConfig) {
