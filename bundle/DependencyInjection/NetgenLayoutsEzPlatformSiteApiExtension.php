@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\Config\Loader\DelegatingLoader;
+use Symfony\Component\Config\Loader\LoaderResolver;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
+use Symfony\Component\DependencyInjection\Loader\GlobFileLoader;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Yaml\Yaml;
@@ -19,12 +22,19 @@ final class NetgenLayoutsEzPlatformSiteApiExtension extends Extension implements
         $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new YamlFileLoader(
-            $container,
-            new FileLocator(__DIR__ . '/../Resources/config')
+        $locator = new FileLocator(__DIR__ . '/../Resources/config');
+
+        $loader = new DelegatingLoader(
+            new LoaderResolver(
+                [
+                    new GlobFileLoader($container, $locator),
+                    new YamlFileLoader($container, $locator),
+                ]
+            )
         );
 
-        $loader->load('services/items.yaml');
+        $loader->load('services/**/*.yaml', 'glob');
+
         $loader->load('default_settings.yaml');
 
         $container->setParameter(
