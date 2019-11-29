@@ -22,8 +22,7 @@
         "phpstan/phpstan-phpunit": "^0.11",
         "vimeo/psalm": "^3.4",
         "matthiasnoback/symfony-dependency-injection-test": "^4.0",
-        "matthiasnoback/symfony-config-test": "^4.0.1",
-        "franzl/studio": "*"
+        "matthiasnoback/symfony-config-test": "^4.0.1"
     },
     "scripts": {
         "test": "@php vendor/bin/phpunit --colors=always",
