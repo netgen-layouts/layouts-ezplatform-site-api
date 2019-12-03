@@ -53,7 +53,7 @@ if (class_exists(Node::class)) {
                         return 0;
                     }
 
-                    public function getSlice($offset, $length): array
+                    public function getSlice($offset, $length): iterable
                     {
                         return [];
                     }
@@ -75,7 +75,7 @@ if (class_exists(Node::class)) {
                         return 0;
                     }
 
-                    public function getSlice($offset, $length): array
+                    public function getSlice($offset, $length): iterable
                     {
                         return [];
                     }
