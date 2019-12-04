@@ -43,7 +43,7 @@ final class DefaultContentBrowserPreviewPass implements CompilerPassInterface
      * Adds the default Site API content preview template to default scope as a fallback
      * when no preview rules are defined.
      *
-     * @param array<string, array> $scopeRules
+     * @param array<string, array>|null $scopeRules
      * @param array<string, mixed> $defaultRule
      *
      * @return array<string, array>
