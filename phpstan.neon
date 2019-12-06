@@ -7,8 +7,3 @@ parameters:
         -
             message: '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition::addDefaultsIfNotSet\(\)#'
             path: bundle/DependencyInjection/Configuration.php
-
-        # Integration specifics
-        -
-            message: '#should be contravariant with parameter \$object#'
-            path: lib/Item/ValueUrlGenerator/

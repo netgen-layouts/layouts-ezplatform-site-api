@@ -9,10 +9,13 @@ use Netgen\EzPlatformSiteApi\API\LoadService;
 use Netgen\EzPlatformSiteApi\API\Values\Location;
 use Netgen\Layouts\Item\ValueConverterInterface;
 
+/**
+ * @implements \Netgen\Layouts\Item\ValueConverterInterface<\eZ\Publish\API\Repository\Values\Content\Location|\Netgen\EzPlatformSiteApi\API\Values\Location>
+ */
 final class LocationValueConverter implements ValueConverterInterface
 {
     /**
-     * @var \Netgen\Layouts\Item\ValueConverterInterface
+     * @var \Netgen\Layouts\Item\ValueConverterInterface<\eZ\Publish\API\Repository\Values\Content\Location>
      */
     private $innerConverter;
 
@@ -21,6 +24,9 @@ final class LocationValueConverter implements ValueConverterInterface
      */
     private $loadService;
 
+    /**
+     * @param \Netgen\Layouts\Item\ValueConverterInterface<\eZ\Publish\API\Repository\Values\Content\Location> $innerConverter
+     */
     public function __construct(ValueConverterInterface $innerConverter, LoadService $loadService)
     {
         $this->innerConverter = $innerConverter;
