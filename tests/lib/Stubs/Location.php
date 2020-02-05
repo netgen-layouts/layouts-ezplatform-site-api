@@ -61,6 +61,11 @@ if (class_exists(Node::class)) {
             );
         }
 
+        public function getFirstChild(?string $contentTypeIdentifier = null): ?APILocation
+        {
+            return null;
+        }
+
         public function getSiblings(int $limit = 25): array
         {
             return [];
