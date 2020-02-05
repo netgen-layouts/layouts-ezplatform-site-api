@@ -48,6 +48,11 @@ if (class_exists(Node::class)) {
             return new Field();
         }
 
+        public function getFirstNonEmptyField(string $firstIdentifier, string ...$otherIdentifiers): APIField
+        {
+            return new Field();
+        }
+
         public function getFieldValue(string $identifier): Value
         {
             return new NullValue();
