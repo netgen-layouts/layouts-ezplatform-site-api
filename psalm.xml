@@ -21,15 +21,7 @@
             </errorLevel>
         </PossiblyUndefinedMethod>
 
-        <!-- Netgen Layouts specifics -->
-
-        <MoreSpecificImplementedParamType>
-            <errorLevel type="suppress">
-                <directory name="lib/Item/ValueUrlGenerator" />
-            </errorLevel>
-        </MoreSpecificImplementedParamType>
-
-        <!-- level 3 issues - slightly lazy code writing, but provably low false-negatives -->
+        <!-- level 3 issues - slightly lazy code writing, but probably low false-negatives -->
 
         <DeprecatedClass errorLevel="info" />
         <DocblockTypeContradiction errorLevel="info" />
