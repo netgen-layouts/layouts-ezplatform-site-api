@@ -8,9 +8,6 @@ parameters:
         - tests/lib/Stubs/Legacy/
 
     ignoreErrors:
-        # eZ Platform Site API v2/v3 differences
-        - '#Netgen\\EzPlatformSiteApi\\API\\Values\\Node#'
-
         # Disable errors about missing value types in Site API stubs
 
         - '#return type has no value type specified in iterable type (Pagerfanta\\Pagerfanta|iterable)#'
