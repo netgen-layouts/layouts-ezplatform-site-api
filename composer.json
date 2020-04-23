@@ -14,6 +14,7 @@
         "netgen/ezplatform-site-api": "^2.7 || ^3.4"
     },
     "require-dev": {
+        "netgen/layouts-coding-standard": "^1.0",
         "phpunit/phpunit": "^8.5",
         "symfony/phpunit-bridge": "^5.0",
         "symfony/var-dumper": "^3.4 || ^5.0",
