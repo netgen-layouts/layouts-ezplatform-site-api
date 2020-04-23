@@ -8,6 +8,7 @@ use Netgen\EzPlatformSiteApi\API\Values\Location as APILocation;
 use Netgen\EzPlatformSiteApi\API\Values\Node;
 use Pagerfanta\Adapter\AdapterInterface;
 use Pagerfanta\Pagerfanta;
+use function class_exists;
 
 if (class_exists(Node::class)) {
     require_once __DIR__ . '/Legacy/Location.php';

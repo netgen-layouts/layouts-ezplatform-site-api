@@ -6,6 +6,7 @@ namespace Netgen\Layouts\Ez\SiteApi\Tests\Stubs;
 
 use Netgen\EzPlatformSiteApi\API\Values\ContentInfo as APIContentInfo;
 use Netgen\EzPlatformSiteApi\API\Values\Node;
+use function class_exists;
 
 if (class_exists(Node::class)) {
     require_once __DIR__ . '/Legacy/ContentInfo.php';

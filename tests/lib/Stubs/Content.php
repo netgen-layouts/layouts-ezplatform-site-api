@@ -12,6 +12,7 @@ use Netgen\EzPlatformSiteApi\API\Values\Node;
 use Netgen\EzPlatformSiteApi\Core\Site\Values\Field;
 use Pagerfanta\Adapter\AdapterInterface;
 use Pagerfanta\Pagerfanta;
+use function class_exists;
 
 if (class_exists(Node::class)) {
     require_once __DIR__ . '/Legacy/Content.php';
