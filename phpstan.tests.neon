@@ -6,9 +6,3 @@ includes:
 parameters:
     excludes_analyse:
         - tests/lib/Stubs/Legacy/
-
-    ignoreErrors:
-        # Disable errors about missing value types in Site API stubs
-
-        - '#return type has no value type specified in iterable type (Pagerfanta\\Pagerfanta|iterable)#'
-        - '#has parameter \$contentTypeIdentifiers with no value type specified in iterable type array.#'

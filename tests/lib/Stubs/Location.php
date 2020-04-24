@@ -45,6 +45,11 @@ if (class_exists(Node::class)) {
             return [];
         }
 
+        /**
+         * @param array<mixed> $contentTypeIdentifiers
+         *
+         * @return \Pagerfanta\Pagerfanta<\Netgen\EzPlatformSiteApi\API\Values\Location>
+         */
         public function filterChildren(array $contentTypeIdentifiers = [], int $maxPerPage = 25, int $currentPage = 1): Pagerfanta
         {
             return new Pagerfanta(
@@ -54,6 +59,12 @@ if (class_exists(Node::class)) {
                         return 0;
                     }
 
+                    /**
+                     * @param int $offset
+                     * @param int $length
+                     *
+                     * @return iterable<\Netgen\EzPlatformSiteApi\API\Values\Location>
+                     */
                     public function getSlice($offset, $length): iterable
                     {
                         return [];
@@ -72,6 +83,11 @@ if (class_exists(Node::class)) {
             return [];
         }
 
+        /**
+         * @param array<mixed> $contentTypeIdentifiers
+         *
+         * @return \Pagerfanta\Pagerfanta<\Netgen\EzPlatformSiteApi\API\Values\Location>
+         */
         public function filterSiblings(array $contentTypeIdentifiers = [], int $maxPerPage = 25, int $currentPage = 1): Pagerfanta
         {
             return new Pagerfanta(
@@ -81,6 +97,12 @@ if (class_exists(Node::class)) {
                         return 0;
                     }
 
+                    /**
+                     * @param int $offset
+                     * @param int $length
+                     *
+                     * @return iterable<\Netgen\EzPlatformSiteApi\API\Values\Location>
+                     */
                     public function getSlice($offset, $length): iterable
                     {
                         return [];
