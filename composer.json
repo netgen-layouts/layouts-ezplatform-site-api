@@ -15,7 +15,7 @@
     },
     "require-dev": {
         "netgen/layouts-coding-standard": "^1.0",
-        "phpunit/phpunit": "^8.5",
+        "phpunit/phpunit": "^8.5 || ^9.0",
         "symfony/phpunit-bridge": "^5.0",
         "symfony/var-dumper": "^3.4 || ^5.0",
         "phpstan/phpstan": "^0.12",
@@ -23,7 +23,7 @@
         "phpstan/phpstan-phpunit": "^0.12",
         "vimeo/psalm": "^3.10",
         "matthiasnoback/symfony-dependency-injection-test": "^4.1",
-        "matthiasnoback/symfony-config-test": "^4.1"
+        "matthiasnoback/symfony-config-test": "^4.2"
     },
     "scripts": {
         "test": "@php vendor/bin/phpunit --colors=always",
