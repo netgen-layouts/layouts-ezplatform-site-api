@@ -43,6 +43,7 @@ before_script:
   - composer global require --no-scripts symfony/flex
 
   - if [ "$SYMFONY_VERSION" != "" ] ; then composer config extra.symfony.require $SYMFONY_VERSION ; fi
+  - if [ "$SYMFONY_VERSION" = "~5.0.0" ] ; then composer require --no-update "netgen/ezplatform-site-api:dev-ezp3 as 3.4.0" ; fi
 
   - |
     if [ "$DEPS" = "low" ] ; then
