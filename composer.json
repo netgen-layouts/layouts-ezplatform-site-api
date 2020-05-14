@@ -11,7 +11,7 @@
     ],
     "require": {
         "netgen/layouts-ezplatform": "~1.2.0",
-        "netgen/ezplatform-site-api": "^2.7 || ^3.4"
+        "netgen/ezplatform-site-api": "^3.4"
     },
     "require-dev": {
         "netgen/layouts-coding-standard": "^1.0",
