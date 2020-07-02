@@ -4,13 +4,22 @@ declare(strict_types=1);
 
 namespace Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\Tests\DependencyInjection\CompilerPass;
 
-use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractCompilerPassTestCase;
+use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractContainerBuilderTestCase;
 use Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\CompilerPass\DefaultContentBrowserPreviewPass;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;
 
-final class DefaultContentBrowserPreviewPassTest extends AbstractCompilerPassTestCase
+final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilderTestCase
 {
+    /**
+     * Register the compiler pass under test.
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->container->addCompilerPass(new DefaultContentBrowserPreviewPass());
+    }
+
     /**
      * @covers \Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\CompilerPass\DefaultContentBrowserPreviewPass::addDefaultPreviewRule
      * @covers \Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\CompilerPass\DefaultContentBrowserPreviewPass::process
@@ -100,13 +109,5 @@ final class DefaultContentBrowserPreviewPassTest extends AbstractCompilerPassTes
         $this->compile();
 
         self::assertInstanceOf(FrozenParameterBag::class, $this->container->getParameterBag());
-    }
-
-    /**
-     * Register the compiler pass under test.
-     */
-    protected function registerCompilerPass(ContainerBuilder $container): void
-    {
-        $container->addCompilerPass(new DefaultContentBrowserPreviewPass());
     }
 }
