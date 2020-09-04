@@ -31,13 +31,19 @@ final class DefaultAppPreviewPass implements CompilerPassInterface
         );
 
         foreach ($scopes as $scope) {
-            if (!$container->hasParameter("ezsettings.{$scope}.ngcontent_view")) {
-                continue;
+            if ($container->hasParameter("ezsettings.{$scope}.ngcontent_view")) {
+                // For Site API v3 support
+                $scopeRules = $container->getParameter("ezsettings.{$scope}.ngcontent_view");
+                $scopeRules = $this->addDefaultPreviewRule($scopeRules, $defaultRule);
+                $container->setParameter("ezsettings.{$scope}.ngcontent_view", $scopeRules);
             }
 
-            $scopeRules = $container->getParameter("ezsettings.{$scope}.ngcontent_view");
-            $scopeRules = $this->addDefaultPreviewRule($scopeRules, $defaultRule);
-            $container->setParameter("ezsettings.{$scope}.ngcontent_view", $scopeRules);
+            if ($container->hasParameter("ezsettings.{$scope}.ng_content_view")) {
+                // For Site API v4 support
+                $scopeRules = $container->getParameter("ezsettings.{$scope}.ng_content_view");
+                $scopeRules = $this->addDefaultPreviewRule($scopeRules, $defaultRule);
+                $container->setParameter("ezsettings.{$scope}.ng_content_view", $scopeRules);
+            }
         }
     }
 
