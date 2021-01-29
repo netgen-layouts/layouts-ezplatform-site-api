@@ -25,14 +25,14 @@ final class DefaultContentBrowserPreviewPass implements CompilerPassInterface
             'params' => [],
         ];
 
-        $scopes = array_merge(
-            ['default'],
-            $container->getParameter('ezpublish.siteaccess.list')
-        );
+        /** @var string[] $siteAccessList */
+        $siteAccessList = $container->getParameter('ezpublish.siteaccess.list');
+        $scopes = array_merge(['default'], $siteAccessList);
 
         foreach ($scopes as $scope) {
             if ($container->hasParameter("ezsettings.{$scope}.ngcontent_view")) {
                 // For Site API v3 support
+                /** @var array<string, array>|null $scopeRules */
                 $scopeRules = $container->getParameter("ezsettings.{$scope}.ngcontent_view");
                 $scopeRules = $this->addDefaultPreviewRule($scopeRules, $defaultRule);
                 $container->setParameter("ezsettings.{$scope}.ngcontent_view", $scopeRules);
@@ -40,6 +40,7 @@ final class DefaultContentBrowserPreviewPass implements CompilerPassInterface
 
             if ($container->hasParameter("ezsettings.{$scope}.ng_content_view")) {
                 // For Site API v4 support
+                /** @var array<string, array>|null $scopeRules */
                 $scopeRules = $container->getParameter("ezsettings.{$scope}.ng_content_view");
                 $scopeRules = $this->addDefaultPreviewRule($scopeRules, $defaultRule);
                 $container->setParameter("ezsettings.{$scope}.ng_content_view", $scopeRules);

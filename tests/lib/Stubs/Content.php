@@ -8,6 +8,7 @@ use eZ\Publish\Core\FieldType\Null\Value as NullValue;
 use eZ\Publish\SPI\FieldType\Value;
 use Netgen\EzPlatformSiteApi\API\Values\Content as APIContent;
 use Netgen\EzPlatformSiteApi\API\Values\Field as APIField;
+use Netgen\EzPlatformSiteApi\API\Values\Location;
 use Netgen\EzPlatformSiteApi\Core\Site\Values\Field;
 use Pagerfanta\Pagerfanta;
 
@@ -87,6 +88,30 @@ final class Content extends APIContent
      * @return \Pagerfanta\Pagerfanta<\Netgen\EzPlatformSiteApi\API\Values\Location>
      */
     public function filterFieldRelations(
+        string $fieldDefinitionIdentifier,
+        array $contentTypeIdentifiers = [],
+        int $maxPerPage = 25,
+        int $currentPage = 1
+    ): Pagerfanta {
+        return new Pagerfanta(new Adapter());
+    }
+
+    public function getFieldRelationLocation(string $fieldDefinitionIdentifier): ?Location
+    {
+        return null;
+    }
+
+    public function getFieldRelationLocations(string $fieldDefinitionIdentifier, int $limit = 25): array
+    {
+        return [];
+    }
+
+    /**
+     * @param array<mixed> $contentTypeIdentifiers
+     *
+     * @return \Pagerfanta\Pagerfanta<\Netgen\EzPlatformSiteApi\API\Values\Location>
+     */
+    public function filterFieldRelationLocations(
         string $fieldDefinitionIdentifier,
         array $contentTypeIdentifiers = [],
         int $maxPerPage = 25,
