@@ -5,22 +5,20 @@ declare(strict_types=1);
 namespace Netgen\Layouts\Ez\SiteApi\Item\ValueLoader;
 
 use Netgen\EzPlatformSiteApi\API\LoadService;
+use Netgen\EzPlatformSiteApi\API\Values\ContentInfo;
 use Netgen\Layouts\Item\ValueLoaderInterface;
 use Throwable;
 
 final class ContentValueLoader implements ValueLoaderInterface
 {
-    /**
-     * @var \Netgen\EzPlatformSiteApi\API\LoadService
-     */
-    private $loadService;
+    private LoadService $loadService;
 
     public function __construct(LoadService $loadService)
     {
         $this->loadService = $loadService;
     }
 
-    public function load($id): ?object
+    public function load($id): ?ContentInfo
     {
         try {
             $contentInfo = $this->loadService->loadContent((int) $id)->contentInfo;
@@ -35,7 +33,7 @@ final class ContentValueLoader implements ValueLoaderInterface
         return $contentInfo;
     }
 
-    public function loadByRemoteId($remoteId): ?object
+    public function loadByRemoteId($remoteId): ?ContentInfo
     {
         try {
             $contentInfo = $this->loadService->loadContentByRemoteId((string) $remoteId)->contentInfo;

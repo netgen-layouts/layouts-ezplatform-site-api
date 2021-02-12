@@ -17,12 +17,9 @@ final class LocationValueConverter implements ValueConverterInterface
     /**
      * @var \Netgen\Layouts\Item\ValueConverterInterface<\eZ\Publish\API\Repository\Values\Content\Location>
      */
-    private $innerConverter;
+    private ValueConverterInterface $innerConverter;
 
-    /**
-     * @var \Netgen\EzPlatformSiteApi\API\LoadService
-     */
-    private $loadService;
+    private LoadService $loadService;
 
     /**
      * @param \Netgen\Layouts\Item\ValueConverterInterface<\eZ\Publish\API\Repository\Values\Content\Location> $innerConverter
@@ -47,22 +44,22 @@ final class LocationValueConverter implements ValueConverterInterface
         return 'ezlocation';
     }
 
-    public function getId(object $object)
+    public function getId(object $object): int
     {
         if ($object instanceof Location) {
-            return $object->id;
+            return (int) $object->id;
         }
 
-        return $this->innerConverter->getId($object);
+        return (int) $this->innerConverter->getId($object);
     }
 
-    public function getRemoteId(object $object)
+    public function getRemoteId(object $object): string
     {
         if ($object instanceof Location) {
             return $object->remoteId;
         }
 
-        return $this->innerConverter->getRemoteId($object);
+        return (string) $this->innerConverter->getRemoteId($object);
     }
 
     public function getName(object $object): string
@@ -83,7 +80,7 @@ final class LocationValueConverter implements ValueConverterInterface
         return $this->innerConverter->getIsVisible($object);
     }
 
-    public function getObject(object $object): object
+    public function getObject(object $object): Location
     {
         if ($object instanceof EzLocation) {
             return $this->loadService->loadLocation($object->id);

@@ -10,24 +10,16 @@ use Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter;
 use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\ContentInfo;
 use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\Location;
 use Netgen\Layouts\Item\ValueConverterInterface;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 final class LocationValueConverterTest extends TestCase
 {
-    /**
-     * @var \PHPUnit\Framework\MockObject\MockObject
-     */
-    private $innerConverterMock;
+    private MockObject $innerConverterMock;
 
-    /**
-     * @var \PHPUnit\Framework\MockObject\MockObject
-     */
-    private $loadServiceMock;
+    private MockObject $loadServiceMock;
 
-    /**
-     * @var \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\LocationValueConverter
-     */
-    private $valueConverter;
+    private LocationValueConverter $valueConverter;
 
     protected function setUp(): void
     {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection;
 
+use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Loader\DelegatingLoader;
 use Symfony\Component\Config\Loader\LoaderResolver;
@@ -63,10 +64,8 @@ final class NetgenLayoutsEzPlatformSiteApiExtension extends Extension implements
 
     /**
      * @param mixed[] $config
-     *
-     * @return \Symfony\Component\Config\Definition\ConfigurationInterface
      */
-    public function getConfiguration(array $config, ContainerBuilder $container)
+    public function getConfiguration(array $config, ContainerBuilder $container): ConfigurationInterface
     {
         return new Configuration($this);
     }

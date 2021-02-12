@@ -17,12 +17,9 @@ final class ContentValueConverter implements ValueConverterInterface
     /**
      * @var \Netgen\Layouts\Item\ValueConverterInterface<\eZ\Publish\API\Repository\Values\Content\ContentInfo>
      */
-    private $innerConverter;
+    private ValueConverterInterface $innerConverter;
 
-    /**
-     * @var \Netgen\EzPlatformSiteApi\API\LoadService
-     */
-    private $loadService;
+    private LoadService $loadService;
 
     /**
      * @param \Netgen\Layouts\Item\ValueConverterInterface<\eZ\Publish\API\Repository\Values\Content\ContentInfo> $innerConverter
@@ -47,22 +44,22 @@ final class ContentValueConverter implements ValueConverterInterface
         return 'ezcontent';
     }
 
-    public function getId(object $object)
+    public function getId(object $object): int
     {
         if ($object instanceof ContentInfo) {
-            return $object->id;
+            return (int) $object->id;
         }
 
-        return $this->innerConverter->getId($object);
+        return (int) $this->innerConverter->getId($object);
     }
 
-    public function getRemoteId(object $object)
+    public function getRemoteId(object $object): string
     {
         if ($object instanceof ContentInfo) {
             return $object->remoteId;
         }
 
-        return $this->innerConverter->getRemoteId($object);
+        return (string) $this->innerConverter->getRemoteId($object);
     }
 
     public function getName(object $object): string
@@ -83,7 +80,7 @@ final class ContentValueConverter implements ValueConverterInterface
         return $this->innerConverter->getIsVisible($object);
     }
 
-    public function getObject(object $object): object
+    public function getObject(object $object): ContentInfo
     {
         if ($object instanceof EzContentInfo) {
             return $this->loadService->loadContent($object->id)->contentInfo;

@@ -14,15 +14,9 @@ use Pagerfanta\Pagerfanta;
 
 final class Content extends APIContent
 {
-    /**
-     * @var int
-     */
-    protected $id;
+    protected int $id;
 
-    /**
-     * @var \Netgen\EzPlatformSiteApi\API\Values\ContentInfo
-     */
-    protected $contentInfo;
+    protected ContentInfo $contentInfo;
 
     public function hasField(string $identifier): bool
     {

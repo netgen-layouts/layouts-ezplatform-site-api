@@ -29,5 +29,12 @@
                 <file name="lib/Item/ValueLoader/ContentValueLoader.php" />
             </errorLevel>
         </DocblockTypeContradiction>
+
+        <RedundantCastGivenDocblockType>
+            <errorLevel type="suppress">
+                <file name="lib/Item/ValueConverter/ContentValueConverter.php" />
+                <file name="lib/Item/ValueConverter/LocationValueConverter.php" />
+            </errorLevel>
+        </RedundantCastGivenDocblockType>
     </issueHandlers>
 </psalm>

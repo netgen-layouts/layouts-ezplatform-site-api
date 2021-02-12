@@ -8,33 +8,15 @@ use Netgen\EzPlatformSiteApi\API\Values\ContentInfo as APIContentInfo;
 
 final class ContentInfo extends APIContentInfo
 {
-    /**
-     * @var int
-     */
-    protected $id;
+    protected int $id;
 
-    /**
-     * @var string
-     */
-    protected $remoteId;
+    protected string $remoteId;
 
-    /**
-     * @var string
-     */
-    protected $name;
+    protected string $name;
 
-    /**
-     * @var bool
-     */
-    protected $published;
+    protected bool $published;
 
-    /**
-     * @var int
-     */
-    protected $mainLocationId;
+    protected ?int $mainLocationId;
 
-    /**
-     * @var \Netgen\EzPlatformSiteApi\API\Values\Location
-     */
-    protected $mainLocation;
+    protected ?Location $mainLocation;
 }

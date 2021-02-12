@@ -7,20 +7,15 @@ namespace Netgen\Layouts\Ez\SiteApi\Tests\Item\ValueUrlGenerator;
 use eZ\Publish\Core\MVC\Symfony\Routing\UrlAliasRouter;
 use Netgen\Layouts\Ez\SiteApi\Item\ValueUrlGenerator\LocationValueUrlGenerator;
 use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\Location;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 final class LocationValueUrlGeneratorTest extends TestCase
 {
-    /**
-     * @var \PHPUnit\Framework\MockObject\MockObject
-     */
-    private $urlGeneratorMock;
+    private MockObject $urlGeneratorMock;
 
-    /**
-     * @var \Netgen\Layouts\Ez\SiteApi\Item\ValueUrlGenerator\LocationValueUrlGenerator
-     */
-    private $urlGenerator;
+    private LocationValueUrlGenerator $urlGenerator;
 
     protected function setUp(): void
     {

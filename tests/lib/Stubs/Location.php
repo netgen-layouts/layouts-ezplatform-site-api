@@ -9,30 +9,15 @@ use Pagerfanta\Pagerfanta;
 
 final class Location extends APILocation
 {
-    /**
-     * @var int
-     */
-    protected $id;
+    protected int $id;
 
-    /**
-     * @var string
-     */
-    protected $remoteId;
+    protected string $remoteId;
 
-    /**
-     * @var bool
-     */
-    protected $invisible;
+    protected bool $invisible;
 
-    /**
-     * @var \Netgen\EzPlatformSiteApi\API\Values\ContentInfo
-     */
-    protected $contentInfo;
+    protected ContentInfo $contentInfo;
 
-    /**
-     * @var \eZ\Publish\API\Repository\Values\Content\Location
-     */
-    protected $innerLocation;
+    protected Location $innerLocation;
 
     public function getChildren(int $limit = 25): array
     {

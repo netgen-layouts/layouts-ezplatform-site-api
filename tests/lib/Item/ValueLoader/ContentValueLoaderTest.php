@@ -9,19 +9,14 @@ use Netgen\EzPlatformSiteApi\API\LoadService;
 use Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\ContentValueLoader;
 use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\Content;
 use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\ContentInfo;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 final class ContentValueLoaderTest extends TestCase
 {
-    /**
-     * @var \PHPUnit\Framework\MockObject\MockObject
-     */
-    private $loadServiceMock;
+    private MockObject $loadServiceMock;
 
-    /**
-     * @var \Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\ContentValueLoader
-     */
-    private $valueLoader;
+    private ContentValueLoader $valueLoader;
 
     protected function setUp(): void
     {
@@ -108,6 +103,7 @@ final class ContentValueLoaderTest extends TestCase
         $contentInfo = new ContentInfo(
             [
                 'published' => true,
+                'mainLocationId' => null,
             ]
         );
 
@@ -203,6 +199,7 @@ final class ContentValueLoaderTest extends TestCase
         $contentInfo = new ContentInfo(
             [
                 'published' => true,
+                'mainLocationId' => null,
             ]
         );
 
