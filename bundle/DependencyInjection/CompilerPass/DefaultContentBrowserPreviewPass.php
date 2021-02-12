@@ -6,7 +6,6 @@ namespace Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\Compi
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use function array_merge;
 use function is_array;
 
 final class DefaultContentBrowserPreviewPass implements CompilerPassInterface
@@ -27,7 +26,7 @@ final class DefaultContentBrowserPreviewPass implements CompilerPassInterface
 
         /** @var string[] $siteAccessList */
         $siteAccessList = $container->getParameter('ezpublish.siteaccess.list');
-        $scopes = array_merge(['default'], $siteAccessList);
+        $scopes = [...['default'], ...$siteAccessList];
 
         foreach ($scopes as $scope) {
             if ($container->hasParameter("ezsettings.{$scope}.ngcontent_view")) {
