@@ -26,8 +26,6 @@ final class Location extends APILocation
 
     /**
      * @param array<mixed> $contentTypeIdentifiers
-     *
-     * @return \Pagerfanta\Pagerfanta<\Netgen\EzPlatformSiteApi\API\Values\Location>
      */
     public function filterChildren(array $contentTypeIdentifiers = [], int $maxPerPage = 25, int $currentPage = 1): Pagerfanta
     {
@@ -46,8 +44,6 @@ final class Location extends APILocation
 
     /**
      * @param array<mixed> $contentTypeIdentifiers
-     *
-     * @return \Pagerfanta\Pagerfanta<\Netgen\EzPlatformSiteApi\API\Values\Location>
      */
     public function filterSiblings(array $contentTypeIdentifiers = [], int $maxPerPage = 25, int $currentPage = 1): Pagerfanta
     {

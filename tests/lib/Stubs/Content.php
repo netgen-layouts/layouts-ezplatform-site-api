@@ -58,9 +58,6 @@ final class Content extends APIContent
         return [];
     }
 
-    /**
-     * @return \Pagerfanta\Pagerfanta<\Netgen\EzPlatformSiteApi\API\Values\Location>
-     */
     public function filterLocations(int $maxPerPage = 25, int $currentPage = 1): Pagerfanta
     {
         return new Pagerfanta(new Adapter());
@@ -78,8 +75,6 @@ final class Content extends APIContent
 
     /**
      * @param array<mixed> $contentTypeIdentifiers
-     *
-     * @return \Pagerfanta\Pagerfanta<\Netgen\EzPlatformSiteApi\API\Values\Location>
      */
     public function filterFieldRelations(
         string $fieldDefinitionIdentifier,
@@ -102,8 +97,6 @@ final class Content extends APIContent
 
     /**
      * @param array<mixed> $contentTypeIdentifiers
-     *
-     * @return \Pagerfanta\Pagerfanta<\Netgen\EzPlatformSiteApi\API\Values\Location>
      */
     public function filterFieldRelationLocations(
         string $fieldDefinitionIdentifier,
