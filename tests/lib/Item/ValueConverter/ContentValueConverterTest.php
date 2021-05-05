@@ -29,7 +29,7 @@ final class ContentValueConverterTest extends TestCase
 
         $this->valueConverter = new ContentValueConverter(
             $this->innerConverterMock,
-            $this->loadServiceMock
+            $this->loadServiceMock,
         );
     }
 
@@ -74,8 +74,8 @@ final class ContentValueConverterTest extends TestCase
         self::assertSame(
             'ezcontent',
             $this->valueConverter->getValueType(
-                new ContentInfo()
-            )
+                new ContentInfo(),
+            ),
         );
     }
 
@@ -91,8 +91,8 @@ final class ContentValueConverterTest extends TestCase
         self::assertSame(
             24,
             $this->valueConverter->getId(
-                new ContentInfo(['id' => 24])
-            )
+                new ContentInfo(['id' => 24]),
+            ),
         );
     }
 
@@ -124,8 +124,8 @@ final class ContentValueConverterTest extends TestCase
         self::assertSame(
             'abc',
             $this->valueConverter->getRemoteId(
-                new ContentInfo(['remoteId' => 'abc'])
-            )
+                new ContentInfo(['remoteId' => 'abc']),
+            ),
         );
     }
 
@@ -157,8 +157,8 @@ final class ContentValueConverterTest extends TestCase
         self::assertSame(
             'Cool name',
             $this->valueConverter->getName(
-                new ContentInfo(['name' => 'Cool name'])
-            )
+                new ContentInfo(['name' => 'Cool name']),
+            ),
         );
     }
 
@@ -189,8 +189,8 @@ final class ContentValueConverterTest extends TestCase
 
         self::assertTrue(
             $this->valueConverter->getIsVisible(
-                new ContentInfo(['mainLocation' => new Location(['invisible' => false])])
-            )
+                new ContentInfo(['mainLocation' => new Location(['invisible' => false])]),
+            ),
         );
     }
 
@@ -205,8 +205,8 @@ final class ContentValueConverterTest extends TestCase
 
         self::assertFalse(
             $this->valueConverter->getIsVisible(
-                new ContentInfo(['mainLocation' => new Location(['invisible' => true])])
-            )
+                new ContentInfo(['mainLocation' => new Location(['invisible' => true])]),
+            ),
         );
     }
 

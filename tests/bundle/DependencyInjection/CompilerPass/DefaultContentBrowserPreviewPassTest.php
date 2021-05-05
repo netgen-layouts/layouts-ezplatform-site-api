@@ -29,7 +29,7 @@ final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilde
         $this->container->setParameter('ezpublish.siteaccess.list', ['cro']);
         $this->container->setParameter(
             'netgen_content_browser.ezplatform.preview_template',
-            'default.html.twig'
+            'default.html.twig',
         );
 
         $this->container->setParameter(
@@ -40,7 +40,7 @@ final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilde
                         'template' => 'article.html.twig',
                     ],
                 ],
-            ]
+            ],
         );
 
         $this->container->setParameter(
@@ -56,7 +56,7 @@ final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilde
                         'template' => 'ngcb_article.html.twig',
                     ],
                 ],
-            ]
+            ],
         );
 
         $this->compile();
@@ -76,7 +76,7 @@ final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilde
                         'params' => [],
                     ],
                 ],
-            ]
+            ],
         );
 
         $this->assertContainerBuilderHasParameter(
@@ -97,7 +97,7 @@ final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilde
                         'params' => [],
                     ],
                 ],
-            ]
+            ],
         );
     }
 

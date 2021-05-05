@@ -34,8 +34,8 @@ final class NetgenLayoutsEzPlatformSiteApiExtension extends Extension implements
                 [
                     new GlobFileLoader($container, $locator),
                     new YamlFileLoader($container, $locator),
-                ]
-            )
+                ],
+            ),
         );
 
         $loader->load('services/**/*.yaml', 'glob');
@@ -44,7 +44,7 @@ final class NetgenLayoutsEzPlatformSiteApiExtension extends Extension implements
 
         $container->setParameter(
             'netgen_layouts.ezplatform_site_api.search_service_adapter',
-            $config['search_service_adapter']
+            $config['search_service_adapter'],
         );
     }
 

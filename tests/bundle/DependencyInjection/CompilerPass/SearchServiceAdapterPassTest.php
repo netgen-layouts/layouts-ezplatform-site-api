@@ -35,12 +35,12 @@ final class SearchServiceAdapterPassTest extends AbstractContainerBuilderTestCas
 
         $this->assertContainerBuilderHasAlias(
             'netgen_layouts.ezplatform.search_service',
-            'netgen.ezplatform_site.filter_service.search_adapter'
+            'netgen.ezplatform_site.filter_service.search_adapter',
         );
 
         $this->assertContainerBuilderHasAlias(
             'netgen_content_browser.ezplatform.search_service',
-            'netgen.ezplatform_site.filter_service.search_adapter'
+            'netgen.ezplatform_site.filter_service.search_adapter',
         );
     }
 
@@ -61,12 +61,12 @@ final class SearchServiceAdapterPassTest extends AbstractContainerBuilderTestCas
 
         $this->assertContainerBuilderHasAlias(
             'netgen_layouts.ezplatform.search_service',
-            'netgen.ezplatform_site.find_service.search_adapter'
+            'netgen.ezplatform_site.find_service.search_adapter',
         );
 
         $this->assertContainerBuilderHasAlias(
             'netgen_content_browser.ezplatform.search_service',
-            'netgen.ezplatform_site.find_service.search_adapter'
+            'netgen.ezplatform_site.find_service.search_adapter',
         );
     }
 

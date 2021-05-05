@@ -37,9 +37,9 @@ final class LocationValueLoaderTest extends TestCase
                 'contentInfo' => new ContentInfo(
                     [
                         'published' => true,
-                    ]
+                    ],
                 ),
-            ]
+            ],
         );
 
         $this->loadServiceMock
@@ -75,9 +75,9 @@ final class LocationValueLoaderTest extends TestCase
                 'contentInfo' => new ContentInfo(
                     [
                         'published' => false,
-                    ]
+                    ],
                 ),
-            ]
+            ],
         );
 
         $this->loadServiceMock
@@ -100,9 +100,9 @@ final class LocationValueLoaderTest extends TestCase
                 'contentInfo' => new ContentInfo(
                     [
                         'published' => true,
-                    ]
+                    ],
                 ),
-            ]
+            ],
         );
 
         $this->loadServiceMock
@@ -138,9 +138,9 @@ final class LocationValueLoaderTest extends TestCase
                 'contentInfo' => new ContentInfo(
                     [
                         'published' => false,
-                    ]
+                    ],
                 ),
-            ]
+            ],
         );
 
         $this->loadServiceMock

@@ -36,13 +36,13 @@ final class ContentValueLoaderTest extends TestCase
                 'id' => 52,
                 'published' => true,
                 'mainLocationId' => 42,
-            ]
+            ],
         );
 
         $content = new Content(
             [
                 'contentInfo' => $contentInfo,
-            ]
+            ],
         );
 
         $this->loadServiceMock
@@ -77,13 +77,13 @@ final class ContentValueLoaderTest extends TestCase
             [
                 'published' => false,
                 'mainLocationId' => 42,
-            ]
+            ],
         );
 
         $content = new Content(
             [
                 'contentInfo' => $contentInfo,
-            ]
+            ],
         );
 
         $this->loadServiceMock
@@ -104,13 +104,13 @@ final class ContentValueLoaderTest extends TestCase
             [
                 'published' => true,
                 'mainLocationId' => null,
-            ]
+            ],
         );
 
         $content = new Content(
             [
                 'contentInfo' => $contentInfo,
-            ]
+            ],
         );
 
         $this->loadServiceMock
@@ -132,13 +132,13 @@ final class ContentValueLoaderTest extends TestCase
                 'remoteId' => 'abc',
                 'published' => true,
                 'mainLocationId' => 42,
-            ]
+            ],
         );
 
         $content = new Content(
             [
                 'contentInfo' => $contentInfo,
-            ]
+            ],
         );
 
         $this->loadServiceMock
@@ -173,13 +173,13 @@ final class ContentValueLoaderTest extends TestCase
             [
                 'published' => false,
                 'mainLocationId' => 42,
-            ]
+            ],
         );
 
         $content = new Content(
             [
                 'contentInfo' => $contentInfo,
-            ]
+            ],
         );
 
         $this->loadServiceMock
@@ -200,13 +200,13 @@ final class ContentValueLoaderTest extends TestCase
             [
                 'published' => true,
                 'mainLocationId' => null,
-            ]
+            ],
         );
 
         $content = new Content(
             [
                 'contentInfo' => $contentInfo,
-            ]
+            ],
         );
 
         $this->loadServiceMock

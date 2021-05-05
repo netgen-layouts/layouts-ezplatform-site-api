@@ -33,7 +33,7 @@ final class LocationValueUrlGeneratorTest extends TestCase
         $location = new Location(
             [
                 'id' => 42,
-            ]
+            ],
         );
 
         $this->urlGeneratorMock
@@ -41,7 +41,7 @@ final class LocationValueUrlGeneratorTest extends TestCase
             ->method('generate')
             ->with(
                 self::identicalTo(UrlAliasRouter::URL_ALIAS_ROUTE_NAME),
-                self::identicalTo(['locationId' => 42])
+                self::identicalTo(['locationId' => 42]),
             )
             ->willReturn('/location/path');
 
