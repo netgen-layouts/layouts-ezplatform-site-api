@@ -1,11 +1,13 @@
 {% if content.hasField('image') and not content.fields.image.empty %}
-    {% set image_alias = ng_image_alias(content.fields.image, 'nglayouts_app_preview') %}
-
-    {% if image_alias %}
-        <div class="image">
-            <img src="{{ asset(image_alias.uri) }}" />
-        </div>
-    {% endif %}
+    <div class="image">
+        {{ ng_render_field(
+            content.fields.image, {
+                'parameters': {
+                    'alias': 'nglayouts_app_preview',
+                }
+            }
+        ) }}
+    </div>
 {% endif %}
 
 <div class="name">
