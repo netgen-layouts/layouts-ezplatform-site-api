@@ -31,7 +31,7 @@ final class DefaultContentBrowserPreviewPass implements CompilerPassInterface
         foreach ($scopes as $scope) {
             if ($container->hasParameter("ezsettings.{$scope}.ngcontent_view")) {
                 // For Site API v3 support
-                /** @var array<string, array>|null $scopeRules */
+                /** @var array<string, mixed[]>|null $scopeRules */
                 $scopeRules = $container->getParameter("ezsettings.{$scope}.ngcontent_view");
                 $scopeRules = $this->addDefaultPreviewRule($scopeRules, $defaultRule);
                 $container->setParameter("ezsettings.{$scope}.ngcontent_view", $scopeRules);
@@ -39,7 +39,7 @@ final class DefaultContentBrowserPreviewPass implements CompilerPassInterface
 
             if ($container->hasParameter("ezsettings.{$scope}.ng_content_view")) {
                 // For Site API v4 support
-                /** @var array<string, array>|null $scopeRules */
+                /** @var array<string, mixed[]>|null $scopeRules */
                 $scopeRules = $container->getParameter("ezsettings.{$scope}.ng_content_view");
                 $scopeRules = $this->addDefaultPreviewRule($scopeRules, $defaultRule);
                 $container->setParameter("ezsettings.{$scope}.ng_content_view", $scopeRules);
@@ -51,10 +51,10 @@ final class DefaultContentBrowserPreviewPass implements CompilerPassInterface
      * Adds the default Site API content preview template to default scope as a fallback
      * when no preview rules are defined.
      *
-     * @param array<string, array>|null $scopeRules
+     * @param array<string, mixed[]>|null $scopeRules
      * @param array<string, mixed> $defaultRule
      *
-     * @return array<string, array>
+     * @return array<string, mixed[]>
      */
     private function addDefaultPreviewRule(?array $scopeRules, array $defaultRule): array
     {
