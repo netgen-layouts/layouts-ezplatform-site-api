@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs;
 
-use Ibexa\Core\FieldType\Null\Value as NullValue;
 use Ibexa\Contracts\Core\FieldType\Value;
+use Ibexa\Core\FieldType\Null\Value as NullValue;
 use Netgen\EzPlatformSiteApi\API\Values\Content as APIContent;
 use Netgen\EzPlatformSiteApi\API\Values\Field as APIField;
 use Netgen\EzPlatformSiteApi\API\Values\Location;
