@@ -2,27 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Layouts\Ez\SiteApi\Item\ValueConverter;
+namespace Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter;
 
-use eZ\Publish\API\Repository\Values\Content\ContentInfo as EzContentInfo;
+use Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo as IbexaContentInfo;
 use Netgen\EzPlatformSiteApi\API\LoadService;
 use Netgen\EzPlatformSiteApi\API\Values\ContentInfo;
 use Netgen\Layouts\Item\ValueConverterInterface;
 
 /**
- * @implements \Netgen\Layouts\Item\ValueConverterInterface<\eZ\Publish\API\Repository\Values\Content\ContentInfo|\Netgen\EzPlatformSiteApi\API\Values\ContentInfo>
+ * @implements \Netgen\Layouts\Item\ValueConverterInterface<\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo|\Netgen\EzPlatformSiteApi\API\Values\ContentInfo>
  */
 final class ContentValueConverter implements ValueConverterInterface
 {
     /**
-     * @var \Netgen\Layouts\Item\ValueConverterInterface<\eZ\Publish\API\Repository\Values\Content\ContentInfo>
+     * @var \Netgen\Layouts\Item\ValueConverterInterface<\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo>
      */
     private ValueConverterInterface $innerConverter;
 
     private LoadService $loadService;
 
     /**
-     * @param \Netgen\Layouts\Item\ValueConverterInterface<\eZ\Publish\API\Repository\Values\Content\ContentInfo> $innerConverter
+     * @param \Netgen\Layouts\Item\ValueConverterInterface<\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo> $innerConverter
      */
     public function __construct(ValueConverterInterface $innerConverter, LoadService $loadService)
     {
@@ -41,7 +41,7 @@ final class ContentValueConverter implements ValueConverterInterface
 
     public function getValueType(object $object): string
     {
-        return 'ezcontent';
+        return 'ibexa_content';
     }
 
     public function getId(object $object): int
@@ -82,7 +82,7 @@ final class ContentValueConverter implements ValueConverterInterface
 
     public function getObject(object $object): ContentInfo
     {
-        if ($object instanceof EzContentInfo) {
+        if ($object instanceof IbexaContentInfo) {
             return $this->loadService->loadContent($object->id)->contentInfo;
         }
 

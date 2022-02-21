@@ -1,11 +1,11 @@
 view:
     item_view:
         app:
-            ezcontent\siteapi:
-                template: "@NetgenLayoutsEzPlatformSiteApi/app/item/ezcontent.html.twig"
+            ibexa_content\siteapi:
+                template: "@NetgenLayoutsIbexaSiteApi/app/item/ibexa_content.html.twig"
                 match:
-                    item\value_type: ezcontent
-            ezlocation\siteapi:
-                template: "@NetgenLayoutsEzPlatformSiteApi/app/item/ezlocation.html.twig"
+                    item\value_type: ibexa_content
+            ibexa_location\siteapi:
+                template: "@NetgenLayoutsIbexaSiteApi/app/item/ibexa_location.html.twig"
                 match:
-                    item\value_type: ezlocation
+                    item\value_type: ibexa_location

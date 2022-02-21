@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Layouts\Ez\SiteApi\Tests\Item\ValueConverter;
+namespace Netgen\Layouts\Ibexa\SiteApi\Tests\Item\ValueConverter;
 
-use eZ\Publish\API\Repository\Values\Content\ContentInfo as EzContentInfo;
+use Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo as IbexaContentInfo;
 use Netgen\EzPlatformSiteApi\API\LoadService;
-use Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter;
-use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\Content;
-use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\ContentInfo;
-use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\Location;
+use Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter;
+use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\Content;
+use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\ContentInfo;
+use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\Location;
 use Netgen\Layouts\Item\ValueConverterInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -34,8 +34,8 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::__construct
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::supports
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::__construct
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::supports
      */
     public function testSupports(): void
     {
@@ -47,11 +47,11 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::supports
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::supports
      */
     public function testSupportsWithoutSiteApiContentInfo(): void
     {
-        $contentInfo = new EzContentInfo();
+        $contentInfo = new IbexaContentInfo();
 
         $this->innerConverterMock
             ->expects(self::once())
@@ -63,7 +63,7 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getValueType
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getValueType
      */
     public function testGetValueType(): void
     {
@@ -72,7 +72,7 @@ final class ContentValueConverterTest extends TestCase
             ->method('getValueType');
 
         self::assertSame(
-            'ezcontent',
+            'ibexa_content',
             $this->valueConverter->getValueType(
                 new ContentInfo(),
             ),
@@ -80,7 +80,7 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getId
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getId
      */
     public function testGetId(): void
     {
@@ -97,11 +97,11 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getId
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getId
      */
     public function testGetIdWithoutSiteApiContentInfo(): void
     {
-        $contentInfo = new EzContentInfo();
+        $contentInfo = new IbexaContentInfo();
 
         $this->innerConverterMock
             ->expects(self::once())
@@ -113,7 +113,7 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getRemoteId
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getRemoteId
      */
     public function testGetRemoteId(): void
     {
@@ -130,11 +130,11 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getRemoteId
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getRemoteId
      */
     public function testGetRemoteIdWithoutSiteApiContentInfo(): void
     {
-        $contentInfo = new EzContentInfo();
+        $contentInfo = new IbexaContentInfo();
 
         $this->innerConverterMock
             ->expects(self::once())
@@ -146,7 +146,7 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getName
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getName
      */
     public function testGetName(): void
     {
@@ -163,11 +163,11 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getName
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getName
      */
     public function testGetNameWithoutSiteApiContentInfo(): void
     {
-        $contentInfo = new EzContentInfo();
+        $contentInfo = new IbexaContentInfo();
 
         $this->innerConverterMock
             ->expects(self::once())
@@ -179,7 +179,7 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getIsVisible
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getIsVisible
      */
     public function testGetIsVisible(): void
     {
@@ -195,7 +195,7 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getIsVisible
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getIsVisible
      */
     public function testGetIsVisibleWithoutMainLocation(): void
     {
@@ -211,11 +211,11 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getIsVisible
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getIsVisible
      */
     public function testGetIsVisibleWithoutSiteApiContentInfo(): void
     {
-        $contentInfo = new EzContentInfo();
+        $contentInfo = new IbexaContentInfo();
 
         $this->innerConverterMock
             ->expects(self::once())
@@ -227,7 +227,7 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getObject
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getObject
      */
     public function testGetObject(): void
     {
@@ -241,7 +241,7 @@ final class ContentValueConverterTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueConverter\ContentValueConverter::getObject
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getObject
      */
     public function testGetObjectWithoutSiteApiContentInfo(): void
     {
@@ -254,6 +254,6 @@ final class ContentValueConverterTest extends TestCase
             ->with(self::identicalTo(42))
             ->willReturn($content);
 
-        self::assertSame($contentInfo, $this->valueConverter->getObject(new EzContentInfo(['id' => 42])));
+        self::assertSame($contentInfo, $this->valueConverter->getObject(new IbexaContentInfo(['id' => 42])));
     }
 }

@@ -2,27 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Layouts\Ez\SiteApi\Item\ValueConverter;
+namespace Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter;
 
-use eZ\Publish\API\Repository\Values\Content\Location as EzLocation;
+use Ibexa\Contracts\Core\Repository\Values\Content\Location as IbexaLocation;
 use Netgen\EzPlatformSiteApi\API\LoadService;
 use Netgen\EzPlatformSiteApi\API\Values\Location;
 use Netgen\Layouts\Item\ValueConverterInterface;
 
 /**
- * @implements \Netgen\Layouts\Item\ValueConverterInterface<\eZ\Publish\API\Repository\Values\Content\Location|\Netgen\EzPlatformSiteApi\API\Values\Location>
+ * @implements \Netgen\Layouts\Item\ValueConverterInterface<\Ibexa\Contracts\Core\Repository\Values\Content\Location|\Netgen\EzPlatformSiteApi\API\Values\Location>
  */
 final class LocationValueConverter implements ValueConverterInterface
 {
     /**
-     * @var \Netgen\Layouts\Item\ValueConverterInterface<\eZ\Publish\API\Repository\Values\Content\Location>
+     * @var \Netgen\Layouts\Item\ValueConverterInterface<\Ibexa\Contracts\Core\Repository\Values\Content\Location>
      */
     private ValueConverterInterface $innerConverter;
 
     private LoadService $loadService;
 
     /**
-     * @param \Netgen\Layouts\Item\ValueConverterInterface<\eZ\Publish\API\Repository\Values\Content\Location> $innerConverter
+     * @param \Netgen\Layouts\Item\ValueConverterInterface<\Ibexa\Contracts\Core\Repository\Values\Content\Location> $innerConverter
      */
     public function __construct(ValueConverterInterface $innerConverter, LoadService $loadService)
     {
@@ -41,7 +41,7 @@ final class LocationValueConverter implements ValueConverterInterface
 
     public function getValueType(object $object): string
     {
-        return 'ezlocation';
+        return 'ibexa_location';
     }
 
     public function getId(object $object): int
@@ -82,7 +82,7 @@ final class LocationValueConverter implements ValueConverterInterface
 
     public function getObject(object $object): Location
     {
-        if ($object instanceof EzLocation) {
+        if ($object instanceof IbexaLocation) {
             return $this->loadService->loadLocation($object->id);
         }
 
