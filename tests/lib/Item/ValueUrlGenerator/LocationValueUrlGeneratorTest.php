@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Layouts\Ez\SiteApi\Tests\Item\ValueUrlGenerator;
+namespace Netgen\Layouts\Ibexa\SiteApi\Tests\Item\ValueUrlGenerator;
 
-use eZ\Publish\Core\MVC\Symfony\Routing\UrlAliasRouter;
-use Netgen\Layouts\Ez\SiteApi\Item\ValueUrlGenerator\LocationValueUrlGenerator;
-use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\Location;
+use Ibexa\Core\MVC\Symfony\Routing\UrlAliasRouter;
+use Netgen\Layouts\Ibexa\SiteApi\Item\ValueUrlGenerator\LocationValueUrlGenerator;
+use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\Location;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -25,8 +25,8 @@ final class LocationValueUrlGeneratorTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueUrlGenerator\LocationValueUrlGenerator::__construct
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueUrlGenerator\LocationValueUrlGenerator::generate
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueUrlGenerator\LocationValueUrlGenerator::__construct
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueUrlGenerator\LocationValueUrlGenerator::generate
      */
     public function testGenerate(): void
     {

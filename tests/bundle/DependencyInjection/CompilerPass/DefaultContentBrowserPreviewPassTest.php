@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\Tests\DependencyInjection\CompilerPass;
+namespace Netgen\Bundle\LayoutsIbexaSiteApiBundle\Tests\DependencyInjection\CompilerPass;
 
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractContainerBuilderTestCase;
-use Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\CompilerPass\DefaultContentBrowserPreviewPass;
+use Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\DefaultContentBrowserPreviewPass;
 use Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;
 
 final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilderTestCase
@@ -21,19 +21,19 @@ final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilde
     }
 
     /**
-     * @covers \Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\CompilerPass\DefaultContentBrowserPreviewPass::addDefaultPreviewRule
-     * @covers \Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\CompilerPass\DefaultContentBrowserPreviewPass::process
+     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\DefaultContentBrowserPreviewPass::addDefaultPreviewRule
+     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\DefaultContentBrowserPreviewPass::process
      */
     public function testProcess(): void
     {
-        $this->container->setParameter('ezpublish.siteaccess.list', ['cro']);
+        $this->container->setParameter('ibexa.site_access.list', ['cro']);
         $this->container->setParameter(
-            'netgen_content_browser.ezplatform.preview_template',
+            'netgen_content_browser.ibexa.preview_template',
             'default.html.twig',
         );
 
         $this->container->setParameter(
-            'ezsettings.default.ngcontent_view',
+            'ibexa.site_access.config.default.ngcontent_view',
             [
                 'full' => [
                     'article' => [
@@ -44,7 +44,7 @@ final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilde
         );
 
         $this->container->setParameter(
-            'ezsettings.cro.ngcontent_view',
+            'ibexa.site_access.config.cro.ngcontent_view',
             [
                 'full' => [
                     'article' => [
@@ -62,7 +62,7 @@ final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilde
         $this->compile();
 
         $this->assertContainerBuilderHasParameter(
-            'ezsettings.default.ngcontent_view',
+            'ibexa.site_access.config.default.ngcontent_view',
             [
                 'full' => [
                     'article' => [
@@ -80,7 +80,7 @@ final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilde
         );
 
         $this->assertContainerBuilderHasParameter(
-            'ezsettings.cro.ngcontent_view',
+            'ibexa.site_access.config.cro.ngcontent_view',
             [
                 'full' => [
                     'article' => [
@@ -102,7 +102,7 @@ final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilde
     }
 
     /**
-     * @covers \Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\CompilerPass\DefaultContentBrowserPreviewPass::process
+     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\DefaultContentBrowserPreviewPass::process
      */
     public function testProcessWithEmptyContainer(): void
     {

@@ -14,10 +14,10 @@
     </php>
 
     <testsuites>
-        <testsuite name="Netgen\Layouts\Ez\SiteApi">
+        <testsuite name="Netgen\Layouts\Ibexa\SiteApi">
             <directory>tests/lib</directory>
         </testsuite>
-        <testsuite name="Netgen\Bundle\LayoutsEzPlatformSiteApiBundle">
+        <testsuite name="Netgen\Bundle\LayoutsIbexaSiteApiBundle">
             <directory>tests/bundle</directory>
         </testsuite>
     </testsuites>
@@ -29,8 +29,8 @@
         </include>
         <exclude>
             <directory>bundle/Resources</directory>
-            <file>bundle/NetgenLayoutsEzPlatformSiteApiBundle.php</file>
-            <file>bundle/DependencyInjection/NetgenLayoutsEzPlatformSiteApiExtension.php</file>
+            <file>bundle/NetgenLayoutsIbexaSiteApiBundle.php</file>
+            <file>bundle/DependencyInjection/NetgenLayoutsIbexaSiteApiExtension.php</file>
         </exclude>
     </coverage>
 </phpunit>

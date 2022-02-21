@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection;
+namespace Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\Config\FileLocator;
@@ -17,7 +17,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Yaml\Yaml;
 use function file_get_contents;
 
-final class NetgenLayoutsEzPlatformSiteApiExtension extends Extension implements PrependExtensionInterface
+final class NetgenLayoutsIbexaSiteApiExtension extends Extension implements PrependExtensionInterface
 {
     /**
      * @param mixed[] $configs
@@ -43,7 +43,7 @@ final class NetgenLayoutsEzPlatformSiteApiExtension extends Extension implements
         $loader->load('default_settings.yaml');
 
         $container->setParameter(
-            'netgen_layouts.ezplatform_site_api.search_service_adapter',
+            'netgen_layouts.ibexa_site_api.search_service_adapter',
             $config['search_service_adapter'],
         );
     }

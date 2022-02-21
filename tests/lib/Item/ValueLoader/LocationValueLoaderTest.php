@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Layouts\Ez\SiteApi\Tests\Item\ValueLoader;
+namespace Netgen\Layouts\Ibexa\SiteApi\Tests\Item\ValueLoader;
 
 use Exception;
 use Netgen\EzPlatformSiteApi\API\LoadService;
-use Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\LocationValueLoader;
-use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\ContentInfo;
-use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\Location;
+use Netgen\Layouts\Ibexa\SiteApi\Item\ValueLoader\LocationValueLoader;
+use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\ContentInfo;
+use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\Location;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
@@ -26,8 +26,8 @@ final class LocationValueLoaderTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\LocationValueLoader::__construct
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\LocationValueLoader::load
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueLoader\LocationValueLoader::__construct
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueLoader\LocationValueLoader::load
      */
     public function testLoad(): void
     {
@@ -52,7 +52,7 @@ final class LocationValueLoaderTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\LocationValueLoader::load
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueLoader\LocationValueLoader::load
      */
     public function testLoadWithNoLocation(): void
     {
@@ -66,7 +66,7 @@ final class LocationValueLoaderTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\LocationValueLoader::load
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueLoader\LocationValueLoader::load
      */
     public function testLoadWithNonPublishedContent(): void
     {
@@ -90,7 +90,7 @@ final class LocationValueLoaderTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\LocationValueLoader::loadByRemoteId
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueLoader\LocationValueLoader::loadByRemoteId
      */
     public function testLoadByRemoteId(): void
     {
@@ -115,7 +115,7 @@ final class LocationValueLoaderTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\LocationValueLoader::loadByRemoteId
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueLoader\LocationValueLoader::loadByRemoteId
      */
     public function testLoadByRemoteIdWithNoLocation(): void
     {
@@ -129,7 +129,7 @@ final class LocationValueLoaderTest extends TestCase
     }
 
     /**
-     * @covers \Netgen\Layouts\Ez\SiteApi\Item\ValueLoader\LocationValueLoader::loadByRemoteId
+     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueLoader\LocationValueLoader::loadByRemoteId
      */
     public function testLoadByRemoteIdWithNonPublishedContent(): void
     {

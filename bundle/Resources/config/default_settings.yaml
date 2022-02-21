@@ -1,2 +1,2 @@
 parameters:
-    netgen_layouts.app.ezplatform.item_preview_template: '@@NetgenLayoutsEzPlatformSiteApi/app/item/nglayouts_app_preview.html.twig'
+    netgen_layouts.app.ibexa.item_preview_template: '@@NetgenLayoutsIbexaSiteApi/app/item/nglayouts_app_preview.html.twig'

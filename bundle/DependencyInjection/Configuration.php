@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection;
+namespace Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection;
 
 use Netgen\Layouts\Utils\BackwardsCompatibility\TreeBuilder;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder as BaseTreeBuilder;

@@ -22,7 +22,7 @@
             </errorLevel>
         </PossiblyUndefinedMethod>
 
-        <!-- eZ Platform -->
+        <!-- Ibexa Platform -->
 
         <DocblockTypeContradiction>
             <errorLevel type="suppress">

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Layouts\Ez\SiteApi\Tests\Stubs;
+namespace Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs;
 
-use eZ\Publish\Core\FieldType\Null\Value as NullValue;
-use eZ\Publish\SPI\FieldType\Value;
+use Ibexa\Core\FieldType\Null\Value as NullValue;
+use Ibexa\Contracts\Core\FieldType\Value;
 use Netgen\EzPlatformSiteApi\API\Values\Content as APIContent;
 use Netgen\EzPlatformSiteApi\API\Values\Field as APIField;
 use Netgen\EzPlatformSiteApi\API\Values\Location;

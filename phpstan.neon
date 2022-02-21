@@ -5,6 +5,6 @@ includes:
 
 parameters:
     ignoreErrors:
-        # eZ Platform
+        # Ibexa Platform
 
         - "#Casting to int something that's already int.#"

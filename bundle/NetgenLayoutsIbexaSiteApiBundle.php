@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Bundle\LayoutsEzPlatformSiteApiBundle;
+namespace Netgen\Bundle\LayoutsIbexaSiteApiBundle;
 
-use Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\CompilerPass;
+use Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class NetgenLayoutsEzPlatformSiteApiBundle extends Bundle
+final class NetgenLayoutsIbexaSiteApiBundle extends Bundle
 {
     public function build(ContainerBuilder $container): void
     {

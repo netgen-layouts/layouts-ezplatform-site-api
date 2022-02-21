@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\CompilerPass;
+namespace Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -12,37 +12,37 @@ final class DefaultContentBrowserPreviewPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container): void
     {
-        if (!$container->hasParameter('ezpublish.siteaccess.list')) {
+        if (!$container->hasParameter('ibexa.site_access.list')) {
             return;
         }
 
         $defaultRule = [
             'template' => $container->getParameter(
-                'netgen_content_browser.ezplatform.preview_template',
+                'netgen_content_browser.ibexa.preview_template',
             ),
             'match' => [],
             'params' => [],
         ];
 
         /** @var string[] $siteAccessList */
-        $siteAccessList = $container->getParameter('ezpublish.siteaccess.list');
+        $siteAccessList = $container->getParameter('ibexa.site_access.list');
         $scopes = [...['default'], ...$siteAccessList];
 
         foreach ($scopes as $scope) {
-            if ($container->hasParameter("ezsettings.{$scope}.ngcontent_view")) {
+            if ($container->hasParameter("ibexa.site_access.config.{$scope}.ngcontent_view")) {
                 // For Site API v3 support
                 /** @var array<string, mixed[]>|null $scopeRules */
-                $scopeRules = $container->getParameter("ezsettings.{$scope}.ngcontent_view");
+                $scopeRules = $container->getParameter("ibexa.site_access.config.{$scope}.ngcontent_view");
                 $scopeRules = $this->addDefaultPreviewRule($scopeRules, $defaultRule);
-                $container->setParameter("ezsettings.{$scope}.ngcontent_view", $scopeRules);
+                $container->setParameter("ibexa.site_access.config.{$scope}.ngcontent_view", $scopeRules);
             }
 
-            if ($container->hasParameter("ezsettings.{$scope}.ng_content_view")) {
+            if ($container->hasParameter("ibexa.site_access.config.{$scope}.ng_content_view")) {
                 // For Site API v4 support
                 /** @var array<string, mixed[]>|null $scopeRules */
-                $scopeRules = $container->getParameter("ezsettings.{$scope}.ng_content_view");
+                $scopeRules = $container->getParameter("ibexa.site_access.config.{$scope}.ng_content_view");
                 $scopeRules = $this->addDefaultPreviewRule($scopeRules, $defaultRule);
-                $container->setParameter("ezsettings.{$scope}.ng_content_view", $scopeRules);
+                $container->setParameter("ibexa.site_access.config.{$scope}.ng_content_view", $scopeRules);
             }
         }
     }

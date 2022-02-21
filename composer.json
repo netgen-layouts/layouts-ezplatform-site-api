@@ -1,5 +1,5 @@
 {
-    "name": "netgen/layouts-ezplatform-site-api",
+    "name": "netgen/layouts-ibexa-site-api",
     "description": "Netgen Layouts & eZ Platform Site API integration",
     "license": "GPL-2.0-only",
     "type": "symfony-bundle",
@@ -10,14 +10,14 @@
         }
     ],
     "require": {
-        "netgen/layouts-ezplatform": "~1.4.0",
-        "netgen/ezplatform-site-api": "^3.7 || ^4.3"
+        "netgen/layouts-ibexa": "~1.4.0",
+        "netgen/ezplatform-site-api": "^5.0"
     },
     "require-dev": {
         "netgen/layouts-coding-standard": "^1.0 || ^2.0",
         "phpunit/phpunit": "^9.5",
-        "symfony/phpunit-bridge": "^5.2",
-        "symfony/var-dumper": "^3.4 || ^5.2",
+        "symfony/phpunit-bridge": "^5.4",
+        "symfony/var-dumper": "^5.4",
         "phpstan/phpstan": "^1.1",
         "phpstan/phpstan-strict-rules": "^1.0",
         "phpstan/phpstan-symfony": "^1.0",
@@ -35,14 +35,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Netgen\\Layouts\\Ez\\SiteApi\\": "lib/",
-            "Netgen\\Bundle\\LayoutsEzPlatformSiteApiBundle\\": "bundle/"
+            "Netgen\\Layouts\\Ibexa\\SiteApi\\": "lib/",
+            "Netgen\\Bundle\\LayoutsIbexaSiteApiBundle\\": "bundle/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Netgen\\Layouts\\Ez\\SiteApi\\Tests\\": "tests/lib/",
-            "Netgen\\Bundle\\LayoutsEzPlatformSiteApiBundle\\Tests\\": "tests/bundle/"
+            "Netgen\\Layouts\\Ibexa\\SiteApi\\Tests\\": "tests/lib/",
+            "Netgen\\Bundle\\LayoutsIbexaSiteApiBundle\\Tests\\": "tests/bundle/"
         }
     },
     "minimum-stability": "dev",
