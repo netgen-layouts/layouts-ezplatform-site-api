@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Netgen\Layouts\Ibexa\SiteApi\Tests\Item\ValueConverter;
 
 use Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo as IbexaContentInfo;
-use Netgen\EzPlatformSiteApi\API\LoadService;
+use Netgen\IbexaSiteApi\API\LoadService;
 use Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter;
 use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\Content;
 use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\ContentInfo;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs;
 
-use Netgen\EzPlatformSiteApi\API\Values\Location as APILocation;
+use Netgen\IbexaSiteApi\API\Values\Location as APILocation;
 use Pagerfanta\Pagerfanta;
 
 final class Location extends APILocation

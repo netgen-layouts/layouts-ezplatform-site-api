@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter;
 
 use Ibexa\Contracts\Core\Repository\Values\Content\Location as IbexaLocation;
-use Netgen\EzPlatformSiteApi\API\LoadService;
-use Netgen\EzPlatformSiteApi\API\Values\Location;
+use Netgen\IbexaSiteApi\API\LoadService;
+use Netgen\IbexaSiteApi\API\Values\Location;
 use Netgen\Layouts\Item\ValueConverterInterface;
 
 /**
- * @implements \Netgen\Layouts\Item\ValueConverterInterface<\Ibexa\Contracts\Core\Repository\Values\Content\Location|\Netgen\EzPlatformSiteApi\API\Values\Location>
+ * @implements \Netgen\Layouts\Item\ValueConverterInterface<\Ibexa\Contracts\Core\Repository\Values\Content\Location|\Netgen\IbexaSiteApi\API\Values\Location>
  */
 final class LocationValueConverter implements ValueConverterInterface
 {

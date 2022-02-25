@@ -6,10 +6,10 @@ namespace Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs;
 
 use Ibexa\Contracts\Core\FieldType\Value;
 use Ibexa\Core\FieldType\Null\Value as NullValue;
-use Netgen\EzPlatformSiteApi\API\Values\Content as APIContent;
-use Netgen\EzPlatformSiteApi\API\Values\Field as APIField;
-use Netgen\EzPlatformSiteApi\API\Values\Location;
-use Netgen\EzPlatformSiteApi\Core\Site\Values\Field;
+use Netgen\IbexaSiteApi\API\Values\Content as APIContent;
+use Netgen\IbexaSiteApi\API\Values\Field as APIField;
+use Netgen\IbexaSiteApi\API\Values\Location;
+use Netgen\IbexaSiteApi\Core\Site\Values\Field;
 use Pagerfanta\Pagerfanta;
 
 final class Content extends APIContent

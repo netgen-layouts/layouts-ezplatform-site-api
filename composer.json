@@ -1,6 +1,6 @@
 {
     "name": "netgen/layouts-ibexa-site-api",
-    "description": "Netgen Layouts & eZ Platform Site API integration",
+    "description": "Netgen Layouts & Ibexa Site API integration",
     "license": "GPL-2.0-only",
     "type": "symfony-bundle",
     "authors": [
@@ -11,7 +11,7 @@
     ],
     "require": {
         "netgen/layouts-ibexa": "~1.4.0",
-        "netgen/ezplatform-site-api": "^5.0"
+        "netgen/ibexa-site-api": "^5.0"
     },
     "require-dev": {
         "netgen/layouts-coding-standard": "^1.0 || ^2.0",

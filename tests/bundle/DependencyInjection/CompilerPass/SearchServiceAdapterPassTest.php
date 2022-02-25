@@ -26,7 +26,7 @@ final class SearchServiceAdapterPassTest extends AbstractContainerBuilderTestCas
         $this->container->setParameter('netgen_layouts.ibexa_site_api.search_service_adapter', 'filter');
 
         $this->container->setDefinition('search_service', new Definition());
-        $this->container->setDefinition('netgen.ezplatform_site.filter_service.search_adapter', new Definition());
+        $this->container->setDefinition('netgen.ibexa_site_api.filter_service.search_adapter', new Definition());
 
         $this->container->setAlias('netgen_layouts.ibexa.search_service', 'search_service');
         $this->container->setAlias('netgen_content_browser.ibexa.search_service', 'search_service');
@@ -35,12 +35,12 @@ final class SearchServiceAdapterPassTest extends AbstractContainerBuilderTestCas
 
         $this->assertContainerBuilderHasAlias(
             'netgen_layouts.ibexa.search_service',
-            'netgen.ezplatform_site.filter_service.search_adapter',
+            'netgen.ibexa_site_api.filter_service.search_adapter',
         );
 
         $this->assertContainerBuilderHasAlias(
             'netgen_content_browser.ibexa.search_service',
-            'netgen.ezplatform_site.filter_service.search_adapter',
+            'netgen.ibexa_site_api.filter_service.search_adapter',
         );
     }
 
@@ -52,7 +52,7 @@ final class SearchServiceAdapterPassTest extends AbstractContainerBuilderTestCas
         $this->container->setParameter('netgen_layouts.ibexa_site_api.search_service_adapter', 'find');
 
         $this->container->setDefinition('search_service', new Definition());
-        $this->container->setDefinition('netgen.ezplatform_site.find_service.search_adapter', new Definition());
+        $this->container->setDefinition('netgen.ibexa_site_api.find_service.search_adapter', new Definition());
 
         $this->container->setAlias('netgen_layouts.ibexa.search_service', 'search_service');
         $this->container->setAlias('netgen_content_browser.ibexa.search_service', 'search_service');
@@ -61,12 +61,12 @@ final class SearchServiceAdapterPassTest extends AbstractContainerBuilderTestCas
 
         $this->assertContainerBuilderHasAlias(
             'netgen_layouts.ibexa.search_service',
-            'netgen.ezplatform_site.find_service.search_adapter',
+            'netgen.ibexa_site_api.find_service.search_adapter',
         );
 
         $this->assertContainerBuilderHasAlias(
             'netgen_content_browser.ibexa.search_service',
-            'netgen.ezplatform_site.find_service.search_adapter',
+            'netgen.ibexa_site_api.find_service.search_adapter',
         );
     }
 

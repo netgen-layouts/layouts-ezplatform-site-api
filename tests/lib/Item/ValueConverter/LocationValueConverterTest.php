@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Netgen\Layouts\Ibexa\SiteApi\Tests\Item\ValueConverter;
 
 use Ibexa\Core\Repository\Values\Content\Location as IbexaLocation;
-use Netgen\EzPlatformSiteApi\API\LoadService;
+use Netgen\IbexaSiteApi\API\LoadService;
 use Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\LocationValueConverter;
 use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\ContentInfo;
 use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\Location;

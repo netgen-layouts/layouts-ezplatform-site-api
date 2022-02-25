@@ -9,7 +9,7 @@ use Netgen\Layouts\Item\ValueUrlGeneratorInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
- * @implements \Netgen\Layouts\Item\ValueUrlGeneratorInterface<\Ibexa\Contracts\Core\Repository\Values\Content\Location|\Netgen\EzPlatformSiteApi\API\Values\Location>
+ * @implements \Netgen\Layouts\Item\ValueUrlGeneratorInterface<\Ibexa\Contracts\Core\Repository\Values\Content\Location|\Netgen\IbexaSiteApi\API\Values\Location>
  */
 final class LocationValueUrlGenerator implements ValueUrlGeneratorInterface
 {
