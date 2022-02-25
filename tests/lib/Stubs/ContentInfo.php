@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs;
 
-use Netgen\EzPlatformSiteApi\API\Values\ContentInfo as APIContentInfo;
+use Netgen\IbexaSiteApi\API\Values\ContentInfo as APIContentInfo;
 
 final class ContentInfo extends APIContentInfo
 {

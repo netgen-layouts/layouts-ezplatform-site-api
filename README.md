@@ -1,4 +1,4 @@
-# Netgen Layouts & eZ Platform Site API integration
+# Netgen Layouts & Ibexa Site API integration
 
 ## Installation instructions
 

@@ -1,8 +1,8 @@
-# Netgen Layouts & eZ Platform Site API integration installation instructions
+# Netgen Layouts & Ibexa Site API integration installation instructions
 
 ## Use Composer to install the integration
 
-Run the following command to install Netgen Layouts & eZ Platform Site API
+Run the following command to install Netgen Layouts & Ibexa Site API
 integration:
 
 ```

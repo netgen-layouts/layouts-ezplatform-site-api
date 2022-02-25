@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Netgen\Layouts\Ibexa\SiteApi\Tests\Item\ValueLoader;
 
 use Exception;
-use Netgen\EzPlatformSiteApi\API\LoadService;
+use Netgen\IbexaSiteApi\API\LoadService;
 use Netgen\Layouts\Ibexa\SiteApi\Item\ValueLoader\ContentValueLoader;
 use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\Content;
 use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\ContentInfo;

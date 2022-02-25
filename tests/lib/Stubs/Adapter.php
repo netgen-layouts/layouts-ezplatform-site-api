@@ -17,7 +17,7 @@ final class Adapter implements AdapterInterface
      * @param int $offset
      * @param int $length
      *
-     * @return iterable<int, \Netgen\EzPlatformSiteApi\API\Values\Location>
+     * @return iterable<int, \Netgen\IbexaSiteApi\API\Values\Location>
      */
     public function getSlice($offset, $length): iterable
     {

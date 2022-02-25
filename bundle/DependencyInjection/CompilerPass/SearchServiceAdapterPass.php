@@ -18,9 +18,9 @@ final class SearchServiceAdapterPass implements CompilerPassInterface
         $searchServiceAdapter = null;
         $adapterType = $container->getParameter('netgen_layouts.ibexa_site_api.search_service_adapter');
         if ($adapterType === 'filter') {
-            $searchServiceAdapter = 'netgen.ezplatform_site.filter_service.search_adapter';
+            $searchServiceAdapter = 'netgen.ibexa_site_api.filter_service.search_adapter';
         } elseif ($adapterType === 'find') {
-            $searchServiceAdapter = 'netgen.ezplatform_site.find_service.search_adapter';
+            $searchServiceAdapter = 'netgen.ibexa_site_api.find_service.search_adapter';
         }
 
         if ($searchServiceAdapter === null || !$container->has($searchServiceAdapter)) {

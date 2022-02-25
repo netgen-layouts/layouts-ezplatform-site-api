@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter;
 
 use Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo as IbexaContentInfo;
-use Netgen\EzPlatformSiteApi\API\LoadService;
-use Netgen\EzPlatformSiteApi\API\Values\ContentInfo;
+use Netgen\IbexaSiteApi\API\LoadService;
+use Netgen\IbexaSiteApi\API\Values\ContentInfo;
 use Netgen\Layouts\Item\ValueConverterInterface;
 
 /**
- * @implements \Netgen\Layouts\Item\ValueConverterInterface<\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo|\Netgen\EzPlatformSiteApi\API\Values\ContentInfo>
+ * @implements \Netgen\Layouts\Item\ValueConverterInterface<\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo|\Netgen\IbexaSiteApi\API\Values\ContentInfo>
  */
 final class ContentValueConverter implements ValueConverterInterface
 {
