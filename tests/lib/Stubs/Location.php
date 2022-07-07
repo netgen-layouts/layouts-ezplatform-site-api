@@ -53,4 +53,9 @@ final class Location extends APILocation
     {
         return new Pagerfanta(new Adapter());
     }
+
+    public function getSortClauses(): array
+    {
+        return [];
+    }
 }
