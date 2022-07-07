@@ -22,6 +22,12 @@
             </errorLevel>
         </PossiblyUndefinedMethod>
 
+        <UndefinedDocblockClass>
+            <errorLevel type="suppress">
+                <referencedClass name="UnitEnum" />
+            </errorLevel>
+        </UndefinedDocblockClass>
+
         <!-- eZ Platform -->
 
         <DocblockTypeContradiction>
