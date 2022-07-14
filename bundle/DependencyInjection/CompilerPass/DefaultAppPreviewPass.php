@@ -6,6 +6,7 @@ namespace Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\Compi
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+
 use function is_array;
 
 final class DefaultAppPreviewPass implements CompilerPassInterface
