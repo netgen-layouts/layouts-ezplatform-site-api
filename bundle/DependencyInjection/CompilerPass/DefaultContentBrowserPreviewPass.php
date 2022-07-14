@@ -6,6 +6,7 @@ namespace Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPa
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+
 use function is_array;
 
 final class DefaultContentBrowserPreviewPass implements CompilerPassInterface
