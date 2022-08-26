@@ -53,6 +53,7 @@ final class NetgenLayoutsEzPlatformSiteApiExtension extends Extension implements
     {
         $prependConfigs = [
             'view/item_view.yaml' => 'netgen_layouts',
+            'view/block_view.yaml' => 'netgen_layouts',
         ];
 
         foreach ($prependConfigs as $configFile => $prependConfig) {
