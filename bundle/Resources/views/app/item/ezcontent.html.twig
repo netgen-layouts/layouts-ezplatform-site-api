@@ -1,13 +1,9 @@
-{{ render(
-    controller(
-        'ng_content:viewAction', {
-            'content': item.object.content,
-            'location': item.object.mainLocation,
-            'viewType': 'nglayouts_app_preview',
-            'layout': false,
-            'params': {
-                'nglayouts_item': item,
-            }
+{{ ng_view_content(
+    item.object.content,
+    'nglayouts_app_preview', {
+        'layout': false,
+        'params': {
+            'nglayouts_item': item,
         }
-    )
+    }
 ) }}
