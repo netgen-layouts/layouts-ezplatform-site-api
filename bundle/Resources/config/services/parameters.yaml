@@ -1,0 +1,14 @@
+services:
+    netgen_layouts.ezplatform_site_api.parameters.value_object_provider.location:
+        class: Netgen\Layouts\Ez\SiteApi\Parameters\ValueObjectProvider\LocationProvider
+        decorates: netgen_layouts.ezplatform.parameters.value_object_provider.location
+        arguments:
+            - "@ezpublish.api.repository"
+            - "@netgen.ezplatform_site.load_service"
+
+    netgen_layouts.ezplatform_site_api.parameters.value_object_provider.content:
+        class: Netgen\Layouts\Ez\SiteApi\Parameters\ValueObjectProvider\ContentProvider
+        decorates: netgen_layouts.ezplatform.parameters.value_object_provider.content
+        arguments:
+            - "@ezpublish.api.repository"
+            - "@netgen.ezplatform_site.load_service"
