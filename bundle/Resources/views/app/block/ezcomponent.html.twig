@@ -8,14 +8,11 @@
     {% if not block.parameter('content').empty %}
         <div class="list-row">
             <div class="list-item">
-                {{ render(
-                    controller(
-                        'ng_content:viewAction', {
-                            'contentId': block.parameter('content').value,
-                            'viewType': 'nglayouts_app_preview',
-                            'layout': false
-                        }
-                    )
+                {{ ng_view_content(
+                    block.parameter('content').valueObject,
+                    'nglayouts_app_preview', {
+                        'layout': false
+                    }
                 ) }}
             </div>
         </div>
