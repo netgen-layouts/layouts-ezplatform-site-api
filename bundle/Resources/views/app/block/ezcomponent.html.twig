@@ -11,7 +11,10 @@
                 {{ ng_view_content(
                     block.parameter('content').valueObject,
                     'nglayouts_app_preview', {
-                        'layout': false
+                        'layout': false,
+                        'params': {
+                            'block': block,
+                        }
                     }
                 ) }}
             </div>

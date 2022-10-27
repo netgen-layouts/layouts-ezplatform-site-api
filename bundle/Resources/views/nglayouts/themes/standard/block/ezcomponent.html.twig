@@ -5,7 +5,10 @@
         {{ ng_view_content(
             block.parameter('content').valueObject,
             block.viewType, {
-                'layout': false
+                'layout': false,
+                'params': {
+                    'block': block,
+                }|merge(ezparams|default({}))
             }
         ) }}
     {% endif %}
