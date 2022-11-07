@@ -27,7 +27,7 @@ final class LocationProvider implements ValueObjectProviderInterface
         try {
             /** @var \Netgen\IbexaSiteApi\API\Values\Location $location */
             return $this->repository->sudo(
-                fn (Repository $repository): Location => $this->loadService->loadLocation((string) $value),
+                fn (Repository $repository): Location => $this->loadService->loadLocation((int) $value),
             );
         } catch (NotFoundException $e) {
             return null;
