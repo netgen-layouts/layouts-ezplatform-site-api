@@ -1,0 +1,14 @@
+services:
+    netgen_layouts.ibexa_site_api.parameters.value_object_provider.location:
+        class: Netgen\Layouts\Ibexa\SiteApi\Parameters\ValueObjectProvider\LocationProvider
+        decorates: netgen_layouts.ibexa.parameters.value_object_provider.location
+        arguments:
+            - "@ibexa.api.repository"
+            - "@netgen.ibexa_site_api.load_service"
+
+    netgen_layouts.ibexa_site_api.parameters.value_object_provider.content:
+        class: Netgen\Layouts\Ibexa\SiteApi\Parameters\ValueObjectProvider\ContentProvider
+        decorates: netgen_layouts.ibexa.parameters.value_object_provider.content
+        arguments:
+            - "@ibexa.api.repository"
+            - "@netgen.ibexa_site_api.load_service"

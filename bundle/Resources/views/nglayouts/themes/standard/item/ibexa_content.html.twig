@@ -1,13 +1,9 @@
-{{ render(
-    controller(
-        'ng_content:viewAction', {
-            'content': item.object.content,
-            'location': item.object.mainLocation,
-            'viewType': view_type,
-            'layout': false,
-            'params': {
-                'nglayouts_item': item,
-            }|merge(ibexa_params|default({}))
-        }
-    )
+{{ ng_view_content(
+    item.object.content,
+    view_type, {
+        'layout': false,
+        'params': {
+            'nglayouts_item': item,
+        }|merge(ibexa_params|default({}))
+    }
 ) }}
