@@ -18,6 +18,6 @@ final class IbexaConfigProviderPass implements CompilerPassInterface
         }
 
         $container->findDefinition(self::SERVICE_NAME)
-            ->replaceArgument(3, 'ngcontent_view');
+            ->replaceArgument(3, 'ng_content_view');
     }
 }

@@ -30,12 +30,12 @@ final class DefaultContentBrowserPreviewPass implements CompilerPassInterface
         $scopes = [...['default'], ...$siteAccessList];
 
         foreach ($scopes as $scope) {
-            if ($container->hasParameter("ibexa.site_access.config.{$scope}.ngcontent_view")) {
+            if ($container->hasParameter("ibexa.site_access.config.{$scope}.ng_content_view")) {
                 // For Site API v3 support
                 /** @var array<string, mixed[]>|null $scopeRules */
-                $scopeRules = $container->getParameter("ibexa.site_access.config.{$scope}.ngcontent_view");
+                $scopeRules = $container->getParameter("ibexa.site_access.config.{$scope}.ng_content_view");
                 $scopeRules = $this->addDefaultPreviewRule($scopeRules, $defaultRule);
-                $container->setParameter("ibexa.site_access.config.{$scope}.ngcontent_view", $scopeRules);
+                $container->setParameter("ibexa.site_access.config.{$scope}.ng_content_view", $scopeRules);
             }
 
             if ($container->hasParameter("ibexa.site_access.config.{$scope}.ng_content_view")) {

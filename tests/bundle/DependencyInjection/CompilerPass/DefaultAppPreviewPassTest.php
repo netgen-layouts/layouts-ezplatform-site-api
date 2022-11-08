@@ -33,7 +33,7 @@ final class DefaultAppPreviewPassTest extends AbstractContainerBuilderTestCase
         );
 
         $this->container->setParameter(
-            'ibexa.site_access.config.default.ngcontent_view',
+            'ibexa.site_access.config.default.ng_content_view',
             [
                 'full' => [
                     'article' => [
@@ -44,7 +44,7 @@ final class DefaultAppPreviewPassTest extends AbstractContainerBuilderTestCase
         );
 
         $this->container->setParameter(
-            'ibexa.site_access.config.cro.ngcontent_view',
+            'ibexa.site_access.config.cro.ng_content_view',
             [
                 'full' => [
                     'article' => [
@@ -62,7 +62,7 @@ final class DefaultAppPreviewPassTest extends AbstractContainerBuilderTestCase
         $this->compile();
 
         $this->assertContainerBuilderHasParameter(
-            'ibexa.site_access.config.default.ngcontent_view',
+            'ibexa.site_access.config.default.ng_content_view',
             [
                 'full' => [
                     'article' => [
@@ -80,7 +80,7 @@ final class DefaultAppPreviewPassTest extends AbstractContainerBuilderTestCase
         );
 
         $this->assertContainerBuilderHasParameter(
-            'ibexa.site_access.config.cro.ngcontent_view',
+            'ibexa.site_access.config.cro.ng_content_view',
             [
                 'full' => [
                     'article' => [
@@ -100,8 +100,8 @@ final class DefaultAppPreviewPassTest extends AbstractContainerBuilderTestCase
             ],
         );
 
-        self::assertFalse($this->container->hasParameter('netgen_layouts.default.ngcontent_view'));
-        self::assertFalse($this->container->hasParameter('netgen_layouts.cro.ngcontent_view'));
+        self::assertFalse($this->container->hasParameter('netgen_layouts.default.ng_content_view'));
+        self::assertFalse($this->container->hasParameter('netgen_layouts.cro.ng_content_view'));
     }
 
     /**

@@ -33,7 +33,7 @@ final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilde
         );
 
         $this->container->setParameter(
-            'ibexa.site_access.config.default.ngcontent_view',
+            'ibexa.site_access.config.default.ng_content_view',
             [
                 'full' => [
                     'article' => [
@@ -44,7 +44,7 @@ final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilde
         );
 
         $this->container->setParameter(
-            'ibexa.site_access.config.cro.ngcontent_view',
+            'ibexa.site_access.config.cro.ng_content_view',
             [
                 'full' => [
                     'article' => [
@@ -62,7 +62,7 @@ final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilde
         $this->compile();
 
         $this->assertContainerBuilderHasParameter(
-            'ibexa.site_access.config.default.ngcontent_view',
+            'ibexa.site_access.config.default.ng_content_view',
             [
                 'full' => [
                     'article' => [
@@ -80,7 +80,7 @@ final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilde
         );
 
         $this->assertContainerBuilderHasParameter(
-            'ibexa.site_access.config.cro.ngcontent_view',
+            'ibexa.site_access.config.cro.ng_content_view',
             [
                 'full' => [
                     'article' => [
