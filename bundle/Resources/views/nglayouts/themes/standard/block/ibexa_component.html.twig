@@ -1,9 +1,11 @@
 {% extends '@nglayouts/block/block.html.twig' %}
 
 {% block content %}
-    {% if not block.parameter('content').empty %}
+    {% set content = block.parameter('content').valueObject %}
+
+    {% if content is not null %}
         {{ ng_view_content(
-            block.parameter('content').valueObject,
+            content,
             block.viewType, {
                 'layout': false,
                 'params': {

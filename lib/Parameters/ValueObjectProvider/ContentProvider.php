@@ -26,9 +26,11 @@ final class ContentProvider implements ValueObjectProviderInterface
     {
         try {
             /** @var \Netgen\IbexaSiteApi\API\Values\Content $content */
-            return $this->repository->sudo(
+            $content = $this->repository->sudo(
                 fn (Repository $repository): Content => $this->loadService->loadContent((int) $value),
             );
+
+            return $content->contentInfo->mainLocationId !== null ? $content : null;
         } catch (NotFoundException $e) {
             return null;
         }
