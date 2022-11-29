@@ -4,4 +4,4 @@ view:
             ezcomponent\override:
                 template: "@NetgenLayoutsEzPlatformSiteApi/app/block/ezcomponent.html.twig"
                 match:
-                    block\definition: ezcomponent
+                    block\definition\prefix: ezcomponent
