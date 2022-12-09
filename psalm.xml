@@ -33,6 +33,7 @@
         <DocblockTypeContradiction>
             <errorLevel type="suppress">
                 <file name="lib/Item/ValueLoader/ContentValueLoader.php" />
+                <file name="lib/Parameters/ValueObjectProvider/ContentProvider.php" />
             </errorLevel>
         </DocblockTypeContradiction>
 
@@ -42,6 +43,12 @@
                 <file name="lib/Item/ValueConverter/LocationValueConverter.php" />
             </errorLevel>
         </RedundantCastGivenDocblockType>
+
+        <RedundantConditionGivenDocblockType>
+            <errorLevel type="suppress">
+                <file name="lib/Parameters/ValueObjectProvider/ContentProvider.php" />
+            </errorLevel>
+        </RedundantConditionGivenDocblockType>
 
         <DuplicateArrayKey>
             <errorLevel type="suppress">
