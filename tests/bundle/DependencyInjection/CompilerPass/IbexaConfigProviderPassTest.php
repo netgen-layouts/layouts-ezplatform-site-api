@@ -22,7 +22,7 @@ final class IbexaConfigProviderPassTest extends AbstractContainerBuilderTestCase
     /**
      * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\IbexaConfigProviderPass::process
      */
-    public function testProcessWithFilterAdapter(): void
+    public function testProcess(): void
     {
         $this->container->setDefinition(
             'netgen_layouts.ibexa.block.block_definition.config_provider.ibexa',
@@ -34,7 +34,7 @@ final class IbexaConfigProviderPassTest extends AbstractContainerBuilderTestCase
         $this->assertContainerBuilderHasServiceDefinitionWithArgument(
             'netgen_layouts.ibexa.block.block_definition.config_provider.ibexa',
             3,
-            'ngcontent_view',
+            'ng_content_view',
         );
     }
 

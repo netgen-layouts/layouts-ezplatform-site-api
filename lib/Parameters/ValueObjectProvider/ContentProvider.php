@@ -25,7 +25,6 @@ final class ContentProvider implements ValueObjectProviderInterface
     public function getValueObject($value): ?object
     {
         try {
-            /** @var \Netgen\IbexaSiteApi\API\Values\Content $content */
             $content = $this->repository->sudo(
                 fn (Repository $repository): Content => $this->loadService->loadContent((int) $value),
             );
