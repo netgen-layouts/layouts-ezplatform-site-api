@@ -25,9 +25,8 @@ final class ContentProvider implements ValueObjectProviderInterface
     public function getValueObject($value): ?object
     {
         try {
-            /** @var \Netgen\EzPlatformSiteApi\API\Values\Content $content */
             return $this->repository->sudo(
-                fn (Repository $repository): Content => $this->loadService->loadContent((string) $value),
+                fn (Repository $repository): Content => $this->loadService->loadContent((int) $value),
             );
         } catch (NotFoundException $e) {
             return null;

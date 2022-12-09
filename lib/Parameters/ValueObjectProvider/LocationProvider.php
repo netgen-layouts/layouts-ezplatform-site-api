@@ -25,9 +25,8 @@ final class LocationProvider implements ValueObjectProviderInterface
     public function getValueObject($value): ?object
     {
         try {
-            /** @var \Netgen\EzPlatformSiteApi\API\Values\Location $location */
             return $this->repository->sudo(
-                fn (Repository $repository): Location => $this->loadService->loadLocation((string) $value),
+                fn (Repository $repository): Location => $this->loadService->loadLocation((int) $value),
             );
         } catch (NotFoundException $e) {
             return null;
