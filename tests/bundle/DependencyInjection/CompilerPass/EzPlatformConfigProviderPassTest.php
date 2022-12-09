@@ -22,7 +22,7 @@ final class EzPlatformConfigProviderPassTest extends AbstractContainerBuilderTes
     /**
      * @covers \Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\CompilerPass\EzPlatformConfigProviderPass::process
      */
-    public function testProcessWithFilterAdapter(): void
+    public function testProcess(): void
     {
         $this->container->setDefinition(
             'netgen_layouts.ezplatform.block.block_definition.config_provider.ezplatform',
