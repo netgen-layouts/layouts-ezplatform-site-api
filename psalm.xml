@@ -28,7 +28,7 @@
             </errorLevel>
         </UndefinedDocblockClass>
 
-        <!-- Ibexa Platform -->
+        <!-- Ibexa CMS -->
 
         <DocblockTypeContradiction>
             <errorLevel type="suppress">
