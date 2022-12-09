@@ -25,9 +25,11 @@ final class ContentProvider implements ValueObjectProviderInterface
     public function getValueObject($value): ?object
     {
         try {
-            return $this->repository->sudo(
+            $content = $this->repository->sudo(
                 fn (Repository $repository): Content => $this->loadService->loadContent((int) $value),
             );
+
+            return $content->contentInfo->mainLocationId !== null ? $content : null;
         } catch (NotFoundException $e) {
             return null;
         }
