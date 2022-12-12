@@ -33,6 +33,87 @@ final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilde
         );
 
         $this->container->setParameter(
+            'ezsettings.default.ng_content_view',
+            [
+                'full' => [
+                    'article' => [
+                        'template' => 'article.html.twig',
+                    ],
+                ],
+            ],
+        );
+
+        $this->container->setParameter(
+            'ezsettings.cro.ng_content_view',
+            [
+                'full' => [
+                    'article' => [
+                        'template' => 'article.html.twig',
+                    ],
+                ],
+                'ngcb_preview' => [
+                    'article' => [
+                        'template' => 'ngcb_article.html.twig',
+                    ],
+                ],
+            ],
+        );
+
+        $this->compile();
+
+        $this->assertContainerBuilderHasParameter(
+            'ezsettings.default.ng_content_view',
+            [
+                'full' => [
+                    'article' => [
+                        'template' => 'article.html.twig',
+                    ],
+                ],
+                'ngcb_preview' => [
+                    '___ngcb_preview_default___' => [
+                        'template' => 'default.html.twig',
+                        'match' => [],
+                        'params' => [],
+                    ],
+                ],
+            ],
+        );
+
+        $this->assertContainerBuilderHasParameter(
+            'ezsettings.cro.ng_content_view',
+            [
+                'full' => [
+                    'article' => [
+                        'template' => 'article.html.twig',
+                    ],
+                ],
+                'ngcb_preview' => [
+                    'article' => [
+                        'template' => 'ngcb_article.html.twig',
+                    ],
+                    '___ngcb_preview_default___' => [
+                        'template' => 'default.html.twig',
+                        'match' => [],
+                        'params' => [],
+                    ],
+                ],
+            ],
+        );
+    }
+
+    /**
+     * @covers \Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\CompilerPass\DefaultContentBrowserPreviewPass::addDefaultPreviewRule
+     * @covers \Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\DependencyInjection\CompilerPass\DefaultContentBrowserPreviewPass::process
+     */
+    public function testProcessForSiteApiV3(): void
+    {
+        $this->container->setParameter('ezpublish.siteaccess.list', ['cro']);
+        $this->container->setParameter(
+            'netgen_content_browser.ezplatform.preview_template',
+            'default.html.twig',
+        );
+
+        $this->container->setParameter(
             'ezsettings.default.ngcontent_view',
             [
                 'full' => [
