@@ -15,6 +15,7 @@ final class ConfigurationTest extends TestCase
     use ConfigurationTestCaseTrait;
 
     /**
+     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\Configuration::__construct
      * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\Configuration::getConfigTreeBuilder
      */
     public function testDefaultAdapterSettings(): void
