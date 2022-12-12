@@ -31,15 +31,6 @@ final class DefaultAppPreviewPass implements CompilerPassInterface
 
         foreach ($scopes as $scope) {
             if ($container->hasParameter("ibexa.site_access.config.{$scope}.ng_content_view")) {
-                // For Site API v3 support
-                /** @var array<string, mixed[]>|null $scopeRules */
-                $scopeRules = $container->getParameter("ibexa.site_access.config.{$scope}.ng_content_view");
-                $scopeRules = $this->addDefaultPreviewRule($scopeRules, $defaultRule);
-                $container->setParameter("ibexa.site_access.config.{$scope}.ng_content_view", $scopeRules);
-            }
-
-            if ($container->hasParameter("ibexa.site_access.config.{$scope}.ng_content_view")) {
-                // For Site API v4 support
                 /** @var array<string, mixed[]>|null $scopeRules */
                 $scopeRules = $container->getParameter("ibexa.site_access.config.{$scope}.ng_content_view");
                 $scopeRules = $this->addDefaultPreviewRule($scopeRules, $defaultRule);
