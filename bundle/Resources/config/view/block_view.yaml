@@ -1,7 +1,0 @@
-view:
-    block_view:
-        app:
-            ibexa_component\override:
-                template: "@NetgenLayoutsIbexaSiteApi/app/block/ibexa_component.html.twig"
-                match:
-                    block\definition\prefix: ibexa_component
