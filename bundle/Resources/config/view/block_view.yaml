@@ -1,7 +1,0 @@
-view:
-    block_view:
-        app:
-            ezcomponent\override:
-                template: "@NetgenLayoutsEzPlatformSiteApi/app/block/ezcomponent.html.twig"
-                match:
-                    block\definition\prefix: ezcomponent

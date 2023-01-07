@@ -1,2 +1,0 @@
-parameters:
-    netgen_layouts.app.ezplatform.item_preview_template: '@@NetgenLayoutsEzPlatformSiteApi/app/item/nglayouts_app_preview.html.twig'
