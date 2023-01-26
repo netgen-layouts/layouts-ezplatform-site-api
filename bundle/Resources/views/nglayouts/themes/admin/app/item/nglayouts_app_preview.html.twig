@@ -10,7 +10,7 @@
 
 <div class="name">
     {% if nglayouts_item is defined %}
-        <p><a href="{{ nglayouts_item_path(nglayouts_item) }}" target="_blank" rel="noopener noreferrer">{{ content.name }}</a></p>
+        <p><a href="{{ nglayouts_item_path(nglayouts_item, 'admin') }}" target="_blank" rel="noopener noreferrer">{{ content.name }}</a></p>
     {% else %}
         <p><a href="{{ ibexa_path(content) }}" target="_blank" rel="noopener noreferrer">{{ content.name }}</a></p>
     {% endif %}
