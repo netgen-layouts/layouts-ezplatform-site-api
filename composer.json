@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "netgen/layouts-ibexa": "~1.4.0",
+        "netgen/layouts-ibexa": "~1.4.1",
         "netgen/ibexa-site-api": "^5.0"
     },
     "require-dev": {
