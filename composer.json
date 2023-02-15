@@ -14,7 +14,7 @@
         "netgen/ibexa-site-api": "^5.0"
     },
     "require-dev": {
-        "netgen/layouts-coding-standard": "^1.0 || ^2.0",
+        "netgen/layouts-coding-standard": "^2.0",
         "phpunit/phpunit": "^9.5",
         "symfony/phpunit-bridge": "^5.4",
         "symfony/var-dumper": "^5.4",
@@ -25,6 +25,9 @@
         "vimeo/psalm": "^5.4",
         "matthiasnoback/symfony-dependency-injection-test": "^4.3",
         "matthiasnoback/symfony-config-test": "^4.3"
+    },
+    "config": {
+        "allow-plugins": false
     },
     "scripts": {
         "test": "@php vendor/bin/phpunit --colors=always",
