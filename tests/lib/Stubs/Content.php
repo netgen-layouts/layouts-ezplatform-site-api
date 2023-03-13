@@ -28,12 +28,12 @@ final class Content extends APIContent
         return new Field();
     }
 
-    public function hasFieldById($id): bool
+    public function hasFieldById(int $id): bool
     {
         return false;
     }
 
-    public function getFieldById($id): APIField
+    public function getFieldById(int $id): APIField
     {
         return new Field();
     }
@@ -48,7 +48,7 @@ final class Content extends APIContent
         return new NullValue();
     }
 
-    public function getFieldValueById($id): Value
+    public function getFieldValueById(int $id): Value
     {
         return new NullValue();
     }
@@ -59,7 +59,7 @@ final class Content extends APIContent
     }
 
     /**
-     * @return \Pagerfanta\Pagerfanta<Location>
+     * @return \Pagerfanta\Pagerfanta<\Netgen\IbexaSiteApi\API\Values\Location>
      */
     public function filterLocations(int $maxPerPage = 25, int $currentPage = 1): Pagerfanta
     {
@@ -79,13 +79,13 @@ final class Content extends APIContent
     /**
      * @param array<mixed> $contentTypeIdentifiers
      *
-     * @return \Pagerfanta\Pagerfanta<Content>
+     * @return \Pagerfanta\Pagerfanta<\Netgen\IbexaSiteApi\API\Values\Content>
      */
     public function filterFieldRelations(
         string $fieldDefinitionIdentifier,
         array $contentTypeIdentifiers = [],
         int $maxPerPage = 25,
-        int $currentPage = 1
+        int $currentPage = 1,
     ): Pagerfanta {
         return new Pagerfanta(new Adapter());
     }
@@ -103,13 +103,13 @@ final class Content extends APIContent
     /**
      * @param array<mixed> $contentTypeIdentifiers
      *
-     * @return \Pagerfanta\Pagerfanta<Location>
+     * @return \Pagerfanta\Pagerfanta<\Netgen\IbexaSiteApi\API\Values\Location>
      */
     public function filterFieldRelationLocations(
         string $fieldDefinitionIdentifier,
         array $contentTypeIdentifiers = [],
         int $maxPerPage = 25,
-        int $currentPage = 1
+        int $currentPage = 1,
     ): Pagerfanta {
         return new Pagerfanta(new Adapter());
     }

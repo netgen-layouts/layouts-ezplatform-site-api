@@ -6,13 +6,12 @@ namespace Netgen\Bundle\LayoutsIbexaSiteApiBundle\Tests\DependencyInjection\Comp
 
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractContainerBuilderTestCase;
 use Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\DefaultAppPreviewPass;
+use PHPUnit\Framework\Attributes\CoversClass;
 use Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;
 
+#[CoversClass(DefaultAppPreviewPass::class)]
 final class DefaultAppPreviewPassTest extends AbstractContainerBuilderTestCase
 {
-    /**
-     * Register the compiler pass under test.
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -20,10 +19,6 @@ final class DefaultAppPreviewPassTest extends AbstractContainerBuilderTestCase
         $this->container->addCompilerPass(new DefaultAppPreviewPass());
     }
 
-    /**
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\DefaultAppPreviewPass::addDefaultPreviewRule
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\DefaultAppPreviewPass::process
-     */
     public function testProcess(): void
     {
         $this->container->setParameter('ibexa.site_access.list', ['cro']);
@@ -104,9 +99,6 @@ final class DefaultAppPreviewPassTest extends AbstractContainerBuilderTestCase
         self::assertFalse($this->container->hasParameter('netgen_layouts.cro.ng_content_view'));
     }
 
-    /**
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\DefaultAppPreviewPass::process
-     */
     public function testProcessWithEmptyContainer(): void
     {
         $this->compile();

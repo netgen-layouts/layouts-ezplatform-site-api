@@ -6,18 +6,16 @@ namespace Netgen\Bundle\LayoutsIbexaSiteApiBundle\Tests\DependencyInjection;
 
 use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
 use Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\Configuration;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 
+#[CoversClass(Configuration::class)]
 final class ConfigurationTest extends TestCase
 {
     use ConfigurationTestCaseTrait;
 
-    /**
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\Configuration::__construct
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\Configuration::getConfigTreeBuilder
-     */
     public function testDefaultAdapterSettings(): void
     {
         $config = [];
@@ -29,9 +27,6 @@ final class ConfigurationTest extends TestCase
         $this->assertProcessedConfigurationEquals($config, $expectedConfig);
     }
 
-    /**
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\Configuration::getConfigTreeBuilder
-     */
     public function testNullAdapterSettings(): void
     {
         $config = [
@@ -47,9 +42,6 @@ final class ConfigurationTest extends TestCase
         $this->assertProcessedConfigurationEquals($config, $expectedConfig);
     }
 
-    /**
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\Configuration::getConfigTreeBuilder
-     */
     public function testFilterAdapterSettings(): void
     {
         $config = [
@@ -65,9 +57,6 @@ final class ConfigurationTest extends TestCase
         $this->assertProcessedConfigurationEquals($config, $expectedConfig);
     }
 
-    /**
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\Configuration::getConfigTreeBuilder
-     */
     public function testFindAdapterSettings(): void
     {
         $config = [
@@ -83,9 +72,6 @@ final class ConfigurationTest extends TestCase
         $this->assertProcessedConfigurationEquals($config, $expectedConfig);
     }
 
-    /**
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\Configuration::getConfigTreeBuilder
-     */
     public function testUnknownAdapterSettings(): void
     {
         $config = [

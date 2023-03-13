@@ -11,14 +11,19 @@ use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\Content;
 use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\ContentInfo;
 use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\Location;
 use Netgen\Layouts\Item\ValueConverterInterface;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(ContentValueConverter::class)]
 final class ContentValueConverterTest extends TestCase
 {
-    private MockObject $innerConverterMock;
+    /**
+     * @var \PHPUnit\Framework\MockObject\MockObject&\Netgen\Layouts\Item\ValueConverterInterface<\Netgen\IbexaSiteApi\API\Values\Content>
+     */
+    private MockObject&ValueConverterInterface $innerConverterMock;
 
-    private MockObject $loadServiceMock;
+    private MockObject&LoadService $loadServiceMock;
 
     private ContentValueConverter $valueConverter;
 
@@ -33,10 +38,6 @@ final class ContentValueConverterTest extends TestCase
         );
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::__construct
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::supports
-     */
     public function testSupports(): void
     {
         $this->innerConverterMock
@@ -46,9 +47,6 @@ final class ContentValueConverterTest extends TestCase
         self::assertTrue($this->valueConverter->supports(new ContentInfo()));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::supports
-     */
     public function testSupportsWithoutSiteApiContentInfo(): void
     {
         $contentInfo = new IbexaContentInfo();
@@ -62,9 +60,6 @@ final class ContentValueConverterTest extends TestCase
         self::assertTrue($this->valueConverter->supports($contentInfo));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getValueType
-     */
     public function testGetValueType(): void
     {
         $this->innerConverterMock
@@ -79,9 +74,6 @@ final class ContentValueConverterTest extends TestCase
         );
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getId
-     */
     public function testGetId(): void
     {
         $this->innerConverterMock
@@ -96,9 +88,6 @@ final class ContentValueConverterTest extends TestCase
         );
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getId
-     */
     public function testGetIdWithoutSiteApiContentInfo(): void
     {
         $contentInfo = new IbexaContentInfo();
@@ -112,9 +101,6 @@ final class ContentValueConverterTest extends TestCase
         self::assertSame(42, $this->valueConverter->getId($contentInfo));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getRemoteId
-     */
     public function testGetRemoteId(): void
     {
         $this->innerConverterMock
@@ -129,9 +115,6 @@ final class ContentValueConverterTest extends TestCase
         );
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getRemoteId
-     */
     public function testGetRemoteIdWithoutSiteApiContentInfo(): void
     {
         $contentInfo = new IbexaContentInfo();
@@ -145,9 +128,6 @@ final class ContentValueConverterTest extends TestCase
         self::assertSame('abc', $this->valueConverter->getRemoteId($contentInfo));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getName
-     */
     public function testGetName(): void
     {
         $this->innerConverterMock
@@ -162,9 +142,6 @@ final class ContentValueConverterTest extends TestCase
         );
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getName
-     */
     public function testGetNameWithoutSiteApiContentInfo(): void
     {
         $contentInfo = new IbexaContentInfo();
@@ -178,9 +155,6 @@ final class ContentValueConverterTest extends TestCase
         self::assertSame('Cool name', $this->valueConverter->getName($contentInfo));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getIsVisible
-     */
     public function testGetIsVisible(): void
     {
         $this->innerConverterMock
@@ -194,9 +168,6 @@ final class ContentValueConverterTest extends TestCase
         );
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getIsVisible
-     */
     public function testGetIsVisibleWithoutMainLocation(): void
     {
         $this->innerConverterMock
@@ -210,9 +181,6 @@ final class ContentValueConverterTest extends TestCase
         );
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getIsVisible
-     */
     public function testGetIsVisibleWithoutSiteApiContentInfo(): void
     {
         $contentInfo = new IbexaContentInfo();
@@ -226,9 +194,6 @@ final class ContentValueConverterTest extends TestCase
         self::assertTrue($this->valueConverter->getIsVisible($contentInfo));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getObject
-     */
     public function testGetObject(): void
     {
         $this->loadServiceMock
@@ -240,9 +205,6 @@ final class ContentValueConverterTest extends TestCase
         self::assertSame($object, $this->valueConverter->getObject($object));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\ContentValueConverter::getObject
-     */
     public function testGetObjectWithoutSiteApiContentInfo(): void
     {
         $contentInfo = new ContentInfo();

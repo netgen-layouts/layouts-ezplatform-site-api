@@ -10,12 +10,13 @@
         }
     ],
     "require": {
+        "php": "^8.1",
         "netgen/layouts-ibexa": "~1.4.1",
-        "netgen/ibexa-site-api": "^5.0"
+        "netgen/ibexa-site-api": "^5.1.11"
     },
     "require-dev": {
         "netgen/layouts-coding-standard": "^2.0",
-        "phpunit/phpunit": "^9.6 || ^10.0",
+        "phpunit/phpunit": "^10.0",
         "symfony/phpunit-bridge": "^5.4",
         "symfony/var-dumper": "^5.4",
         "phpstan/phpstan": "^1.9",

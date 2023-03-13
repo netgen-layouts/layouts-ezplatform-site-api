@@ -15,19 +15,10 @@ use Netgen\Layouts\Item\ValueConverterInterface;
 final class ContentValueConverter implements ValueConverterInterface
 {
     /**
-     * @var \Netgen\Layouts\Item\ValueConverterInterface<\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo>
-     */
-    private ValueConverterInterface $innerConverter;
-
-    private LoadService $loadService;
-
-    /**
      * @param \Netgen\Layouts\Item\ValueConverterInterface<\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo> $innerConverter
      */
-    public function __construct(ValueConverterInterface $innerConverter, LoadService $loadService)
+    public function __construct(private ValueConverterInterface $innerConverter, private LoadService $loadService)
     {
-        $this->innerConverter = $innerConverter;
-        $this->loadService = $loadService;
     }
 
     public function supports(object $object): bool
@@ -65,7 +56,7 @@ final class ContentValueConverter implements ValueConverterInterface
     public function getName(object $object): string
     {
         if ($object instanceof ContentInfo) {
-            return $object->name;
+            return (string) $object->name;
         }
 
         return $this->innerConverter->getName($object);

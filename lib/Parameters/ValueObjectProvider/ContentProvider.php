@@ -12,17 +12,11 @@ use Netgen\Layouts\Parameters\ValueObjectProviderInterface;
 
 final class ContentProvider implements ValueObjectProviderInterface
 {
-    private Repository $repository;
-
-    private LoadService $loadService;
-
-    public function __construct(Repository $repository, LoadService $loadService)
+    public function __construct(private Repository $repository, private LoadService $loadService)
     {
-        $this->repository = $repository;
-        $this->loadService = $loadService;
     }
 
-    public function getValueObject($value): ?object
+    public function getValueObject(mixed $value): ?object
     {
         try {
             $content = $this->repository->sudo(
@@ -30,7 +24,7 @@ final class ContentProvider implements ValueObjectProviderInterface
             );
 
             return $content->contentInfo->mainLocationId !== null ? $content : null;
-        } catch (NotFoundException $e) {
+        } catch (NotFoundException) {
             return null;
         }
     }

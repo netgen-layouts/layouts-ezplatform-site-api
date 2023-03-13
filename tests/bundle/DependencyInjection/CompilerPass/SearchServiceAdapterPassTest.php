@@ -6,9 +6,11 @@ namespace Netgen\Bundle\LayoutsIbexaSiteApiBundle\Tests\DependencyInjection\Comp
 
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractContainerBuilderTestCase;
 use Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\SearchServiceAdapterPass;
+use PHPUnit\Framework\Attributes\CoversClass;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;
 
+#[CoversClass(SearchServiceAdapterPass::class)]
 final class SearchServiceAdapterPassTest extends AbstractContainerBuilderTestCase
 {
     protected function setUp(): void
@@ -18,9 +20,6 @@ final class SearchServiceAdapterPassTest extends AbstractContainerBuilderTestCas
         $this->container->addCompilerPass(new SearchServiceAdapterPass());
     }
 
-    /**
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\SearchServiceAdapterPass::process
-     */
     public function testProcessWithFilterAdapter(): void
     {
         $this->container->setParameter('netgen_layouts.ibexa_site_api.search_service_adapter', 'filter');
@@ -44,9 +43,6 @@ final class SearchServiceAdapterPassTest extends AbstractContainerBuilderTestCas
         );
     }
 
-    /**
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\SearchServiceAdapterPass::process
-     */
     public function testProcessWithFindAdapter(): void
     {
         $this->container->setParameter('netgen_layouts.ibexa_site_api.search_service_adapter', 'find');
@@ -70,9 +66,6 @@ final class SearchServiceAdapterPassTest extends AbstractContainerBuilderTestCas
         );
     }
 
-    /**
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\SearchServiceAdapterPass::process
-     */
     public function testProcessWithNonExistingAdapterService(): void
     {
         $this->container->setParameter('netgen_layouts.ibexa_site_api.search_service_adapter', 'filter');
@@ -88,9 +81,6 @@ final class SearchServiceAdapterPassTest extends AbstractContainerBuilderTestCas
         $this->assertContainerBuilderHasAlias('netgen_content_browser.ibexa.search_service', 'search_service');
     }
 
-    /**
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\SearchServiceAdapterPass::process
-     */
     public function testProcessWithUnsupportedAdapter(): void
     {
         $this->container->setParameter('netgen_layouts.ibexa_site_api.search_service_adapter', 'other');
@@ -106,9 +96,6 @@ final class SearchServiceAdapterPassTest extends AbstractContainerBuilderTestCas
         $this->assertContainerBuilderHasAlias('netgen_content_browser.ibexa.search_service', 'search_service');
     }
 
-    /**
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\SearchServiceAdapterPass::process
-     */
     public function testProcessWithEmptyContainer(): void
     {
         $this->compile();

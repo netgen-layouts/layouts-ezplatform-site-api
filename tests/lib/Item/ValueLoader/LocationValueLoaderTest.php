@@ -9,12 +9,14 @@ use Netgen\IbexaSiteApi\API\LoadService;
 use Netgen\Layouts\Ibexa\SiteApi\Item\ValueLoader\LocationValueLoader;
 use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\ContentInfo;
 use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\Location;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(LocationValueLoader::class)]
 final class LocationValueLoaderTest extends TestCase
 {
-    private MockObject $loadServiceMock;
+    private MockObject&LoadService $loadServiceMock;
 
     private LocationValueLoader $valueLoader;
 
@@ -25,10 +27,6 @@ final class LocationValueLoaderTest extends TestCase
         $this->valueLoader = new LocationValueLoader($this->loadServiceMock);
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueLoader\LocationValueLoader::__construct
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueLoader\LocationValueLoader::load
-     */
     public function testLoad(): void
     {
         $location = new Location(
@@ -51,9 +49,6 @@ final class LocationValueLoaderTest extends TestCase
         self::assertSame($location, $this->valueLoader->load(52));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueLoader\LocationValueLoader::load
-     */
     public function testLoadWithNoLocation(): void
     {
         $this->loadServiceMock
@@ -65,9 +60,6 @@ final class LocationValueLoaderTest extends TestCase
         self::assertNull($this->valueLoader->load(52));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueLoader\LocationValueLoader::load
-     */
     public function testLoadWithNonPublishedContent(): void
     {
         $location = new Location(
@@ -89,9 +81,6 @@ final class LocationValueLoaderTest extends TestCase
         self::assertNull($this->valueLoader->load(52));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueLoader\LocationValueLoader::loadByRemoteId
-     */
     public function testLoadByRemoteId(): void
     {
         $location = new Location(
@@ -114,9 +103,6 @@ final class LocationValueLoaderTest extends TestCase
         self::assertSame($location, $this->valueLoader->loadByRemoteId('abc'));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueLoader\LocationValueLoader::loadByRemoteId
-     */
     public function testLoadByRemoteIdWithNoLocation(): void
     {
         $this->loadServiceMock
@@ -128,9 +114,6 @@ final class LocationValueLoaderTest extends TestCase
         self::assertNull($this->valueLoader->loadByRemoteId('abc'));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueLoader\LocationValueLoader::loadByRemoteId
-     */
     public function testLoadByRemoteIdWithNonPublishedContent(): void
     {
         $location = new Location(

@@ -15,19 +15,10 @@ use Netgen\Layouts\Item\ValueConverterInterface;
 final class LocationValueConverter implements ValueConverterInterface
 {
     /**
-     * @var \Netgen\Layouts\Item\ValueConverterInterface<\Ibexa\Contracts\Core\Repository\Values\Content\Location>
-     */
-    private ValueConverterInterface $innerConverter;
-
-    private LoadService $loadService;
-
-    /**
      * @param \Netgen\Layouts\Item\ValueConverterInterface<\Ibexa\Contracts\Core\Repository\Values\Content\Location> $innerConverter
      */
-    public function __construct(ValueConverterInterface $innerConverter, LoadService $loadService)
+    public function __construct(private ValueConverterInterface $innerConverter, private LoadService $loadService)
     {
-        $this->innerConverter = $innerConverter;
-        $this->loadService = $loadService;
     }
 
     public function supports(object $object): bool
@@ -65,7 +56,7 @@ final class LocationValueConverter implements ValueConverterInterface
     public function getName(object $object): string
     {
         if ($object instanceof Location) {
-            return $object->contentInfo->name;
+            return (string) $object->contentInfo->name;
         }
 
         return $this->innerConverter->getName($object);

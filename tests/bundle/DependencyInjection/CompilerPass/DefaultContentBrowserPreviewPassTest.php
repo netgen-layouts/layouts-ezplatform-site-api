@@ -6,13 +6,12 @@ namespace Netgen\Bundle\LayoutsIbexaSiteApiBundle\Tests\DependencyInjection\Comp
 
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractContainerBuilderTestCase;
 use Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\DefaultContentBrowserPreviewPass;
+use PHPUnit\Framework\Attributes\CoversClass;
 use Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;
 
+#[CoversClass(DefaultContentBrowserPreviewPass::class)]
 final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilderTestCase
 {
-    /**
-     * Register the compiler pass under test.
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -20,10 +19,6 @@ final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilde
         $this->container->addCompilerPass(new DefaultContentBrowserPreviewPass());
     }
 
-    /**
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\DefaultContentBrowserPreviewPass::addDefaultPreviewRule
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\DefaultContentBrowserPreviewPass::process
-     */
     public function testProcess(): void
     {
         $this->container->setParameter('ibexa.site_access.list', ['cro']);
@@ -101,9 +96,6 @@ final class DefaultContentBrowserPreviewPassTest extends AbstractContainerBuilde
         );
     }
 
-    /**
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\DefaultContentBrowserPreviewPass::process
-     */
     public function testProcessWithEmptyContainer(): void
     {
         $this->compile();

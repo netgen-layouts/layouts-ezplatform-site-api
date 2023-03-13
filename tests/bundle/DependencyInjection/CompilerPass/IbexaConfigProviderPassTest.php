@@ -6,10 +6,12 @@ namespace Netgen\Bundle\LayoutsIbexaSiteApiBundle\Tests\DependencyInjection\Comp
 
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractContainerBuilderTestCase;
 use Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\IbexaConfigProviderPass;
+use PHPUnit\Framework\Attributes\CoversClass;
 use stdClass;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;
 
+#[CoversClass(IbexaConfigProviderPass::class)]
 final class IbexaConfigProviderPassTest extends AbstractContainerBuilderTestCase
 {
     protected function setUp(): void
@@ -19,9 +21,6 @@ final class IbexaConfigProviderPassTest extends AbstractContainerBuilderTestCase
         $this->container->addCompilerPass(new IbexaConfigProviderPass());
     }
 
-    /**
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\IbexaConfigProviderPass::process
-     */
     public function testProcess(): void
     {
         $this->container->setDefinition(
@@ -38,9 +37,6 @@ final class IbexaConfigProviderPassTest extends AbstractContainerBuilderTestCase
         );
     }
 
-    /**
-     * @covers \Netgen\Bundle\LayoutsIbexaSiteApiBundle\DependencyInjection\CompilerPass\IbexaConfigProviderPass::process
-     */
     public function testProcessWithEmptyContainer(): void
     {
         $this->compile();

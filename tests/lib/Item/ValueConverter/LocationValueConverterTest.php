@@ -10,14 +10,19 @@ use Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\LocationValueConverter;
 use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\ContentInfo;
 use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\Location;
 use Netgen\Layouts\Item\ValueConverterInterface;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(LocationValueConverter::class)]
 final class LocationValueConverterTest extends TestCase
 {
-    private MockObject $innerConverterMock;
+    /**
+     * @var \PHPUnit\Framework\MockObject\MockObject&\Netgen\Layouts\Item\ValueConverterInterface<\Netgen\IbexaSiteApi\API\Values\Location>
+     */
+    private MockObject&ValueConverterInterface $innerConverterMock;
 
-    private MockObject $loadServiceMock;
+    private MockObject&LoadService $loadServiceMock;
 
     private LocationValueConverter $valueConverter;
 
@@ -32,10 +37,6 @@ final class LocationValueConverterTest extends TestCase
         );
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\LocationValueConverter::__construct
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\LocationValueConverter::supports
-     */
     public function testSupports(): void
     {
         $this->innerConverterMock
@@ -45,9 +46,6 @@ final class LocationValueConverterTest extends TestCase
         self::assertTrue($this->valueConverter->supports(new Location()));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\LocationValueConverter::supports
-     */
     public function testSupportsWithoutSiteApiLocation(): void
     {
         $location = new IbexaLocation();
@@ -61,9 +59,6 @@ final class LocationValueConverterTest extends TestCase
         self::assertTrue($this->valueConverter->supports($location));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\LocationValueConverter::getValueType
-     */
     public function testGetValueType(): void
     {
         $this->innerConverterMock
@@ -78,9 +73,6 @@ final class LocationValueConverterTest extends TestCase
         );
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\LocationValueConverter::getId
-     */
     public function testGetId(): void
     {
         $this->innerConverterMock
@@ -95,9 +87,6 @@ final class LocationValueConverterTest extends TestCase
         );
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\LocationValueConverter::getId
-     */
     public function testGetIdWithoutSiteApiLocation(): void
     {
         $location = new IbexaLocation();
@@ -111,9 +100,6 @@ final class LocationValueConverterTest extends TestCase
         self::assertSame(42, $this->valueConverter->getId($location));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\LocationValueConverter::getRemoteId
-     */
     public function testGetRemoteId(): void
     {
         $this->innerConverterMock
@@ -128,9 +114,6 @@ final class LocationValueConverterTest extends TestCase
         );
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\LocationValueConverter::getRemoteId
-     */
     public function testGetRemoteIdWithoutSiteApiLocation(): void
     {
         $location = new IbexaLocation();
@@ -144,9 +127,6 @@ final class LocationValueConverterTest extends TestCase
         self::assertSame('abc', $this->valueConverter->getRemoteId($location));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\LocationValueConverter::getName
-     */
     public function testGetName(): void
     {
         $this->innerConverterMock
@@ -161,9 +141,6 @@ final class LocationValueConverterTest extends TestCase
         );
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\LocationValueConverter::getName
-     */
     public function testGetNameWithoutSiteApiLocation(): void
     {
         $location = new IbexaLocation();
@@ -177,9 +154,6 @@ final class LocationValueConverterTest extends TestCase
         self::assertSame('Cool name', $this->valueConverter->getName($location));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\LocationValueConverter::getIsVisible
-     */
     public function testGetIsVisible(): void
     {
         $this->innerConverterMock
@@ -193,9 +167,6 @@ final class LocationValueConverterTest extends TestCase
         );
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\LocationValueConverter::getIsVisible
-     */
     public function testGetIsVisibleWithoutSiteApiLocation(): void
     {
         $location = new IbexaLocation();
@@ -209,9 +180,6 @@ final class LocationValueConverterTest extends TestCase
         self::assertTrue($this->valueConverter->getIsVisible($location));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\LocationValueConverter::getObject
-     */
     public function testGetObject(): void
     {
         $this->loadServiceMock
@@ -223,9 +191,6 @@ final class LocationValueConverterTest extends TestCase
         self::assertSame($object, $this->valueConverter->getObject($object));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Item\ValueConverter\LocationValueConverter::getObject
-     */
     public function testGetObjectWithoutSiteApiLocation(): void
     {
         $location = new Location();

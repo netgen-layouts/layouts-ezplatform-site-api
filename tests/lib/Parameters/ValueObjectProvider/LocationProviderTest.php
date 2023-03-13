@@ -10,14 +10,16 @@ use Netgen\IbexaSiteApi\API\LoadService;
 use Netgen\Layouts\Ibexa\SiteApi\Parameters\ValueObjectProvider\LocationProvider;
 use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\Location;
 use Netgen\Layouts\Parameters\ValueObjectProviderInterface;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(LocationProvider::class)]
 final class LocationProviderTest extends TestCase
 {
-    private MockObject $repositoryMock;
+    private MockObject&Repository $repositoryMock;
 
-    private MockObject $loadServiceMock;
+    private MockObject&LoadService $loadServiceMock;
 
     private ValueObjectProviderInterface $valueObjectProvider;
 
@@ -40,10 +42,6 @@ final class LocationProviderTest extends TestCase
         );
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Parameters\ValueObjectProvider\LocationProvider::__construct
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Parameters\ValueObjectProvider\LocationProvider::getValueObject
-     */
     public function testGetValueObject(): void
     {
         $location = new Location();
@@ -57,9 +55,6 @@ final class LocationProviderTest extends TestCase
         self::assertSame($location, $this->valueObjectProvider->getValueObject(42));
     }
 
-    /**
-     * @covers \Netgen\Layouts\Ibexa\SiteApi\Parameters\ValueObjectProvider\LocationProvider::getValueObject
-     */
     public function testGetValueObjectWithNonExistentLocation(): void
     {
         $this->loadServiceMock
