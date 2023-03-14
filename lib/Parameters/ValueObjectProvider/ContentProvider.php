@@ -16,7 +16,7 @@ final class ContentProvider implements ValueObjectProviderInterface
     {
     }
 
-    public function getValueObject(mixed $value): ?object
+    public function getValueObject(mixed $value): ?Content
     {
         try {
             $content = $this->repository->sudo(
