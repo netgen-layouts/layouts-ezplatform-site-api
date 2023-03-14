@@ -22,7 +22,7 @@ final class LocationProvider implements ValueObjectProviderInterface
         $this->loadService = $loadService;
     }
 
-    public function getValueObject($value): ?object
+    public function getValueObject($value): ?Location
     {
         try {
             return $this->repository->sudo(

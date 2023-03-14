@@ -22,7 +22,7 @@ final class ContentProvider implements ValueObjectProviderInterface
         $this->loadService = $loadService;
     }
 
-    public function getValueObject($value): ?object
+    public function getValueObject($value): ?Content
     {
         try {
             $content = $this->repository->sudo(
