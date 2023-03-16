@@ -22,20 +22,7 @@
             </errorLevel>
         </PossiblyUndefinedMethod>
 
-        <UndefinedDocblockClass>
-            <errorLevel type="suppress">
-                <referencedClass name="UnitEnum" />
-            </errorLevel>
-        </UndefinedDocblockClass>
-
         <!-- Ibexa CMS -->
-
-        <DocblockTypeContradiction>
-            <errorLevel type="suppress">
-                <file name="lib/Item/ValueLoader/ContentValueLoader.php" />
-                <file name="lib/Parameters/ValueObjectProvider/ContentProvider.php" />
-            </errorLevel>
-        </DocblockTypeContradiction>
 
         <RedundantCastGivenDocblockType>
             <errorLevel type="suppress">
@@ -43,18 +30,5 @@
                 <file name="lib/Item/ValueConverter/LocationValueConverter.php" />
             </errorLevel>
         </RedundantCastGivenDocblockType>
-
-        <RedundantConditionGivenDocblockType>
-            <errorLevel type="suppress">
-                <file name="lib/Parameters/ValueObjectProvider/ContentProvider.php" />
-            </errorLevel>
-        </RedundantConditionGivenDocblockType>
-
-        <DuplicateArrayKey>
-            <errorLevel type="suppress">
-                <file name="bundle/DependencyInjection/CompilerPass/DefaultAppPreviewPass.php" />
-                <file name="bundle/DependencyInjection/CompilerPass/DefaultContentBrowserPreviewPass.php" />
-            </errorLevel>
-        </DuplicateArrayKey>
     </issueHandlers>
 </psalm>
