@@ -41,7 +41,6 @@ final class LocationValueLoaderTest extends TestCase
         );
 
         $this->loadServiceMock
-            ->expects(self::any())
             ->method('loadLocation')
             ->with(self::identicalTo(52))
             ->willReturn($location);
@@ -52,7 +51,6 @@ final class LocationValueLoaderTest extends TestCase
     public function testLoadWithNoLocation(): void
     {
         $this->loadServiceMock
-            ->expects(self::any())
             ->method('loadLocation')
             ->with(self::identicalTo(52))
             ->willThrowException(new Exception());
@@ -73,7 +71,6 @@ final class LocationValueLoaderTest extends TestCase
         );
 
         $this->loadServiceMock
-            ->expects(self::any())
             ->method('loadLocation')
             ->with(self::identicalTo(52))
             ->willReturn($location);
@@ -95,7 +92,6 @@ final class LocationValueLoaderTest extends TestCase
         );
 
         $this->loadServiceMock
-            ->expects(self::any())
             ->method('loadLocationByRemoteId')
             ->with(self::identicalTo('abc'))
             ->willReturn($location);
@@ -106,7 +102,6 @@ final class LocationValueLoaderTest extends TestCase
     public function testLoadByRemoteIdWithNoLocation(): void
     {
         $this->loadServiceMock
-            ->expects(self::any())
             ->method('loadLocationByRemoteId')
             ->with(self::identicalTo('abc'))
             ->willThrowException(new Exception());
@@ -127,7 +122,6 @@ final class LocationValueLoaderTest extends TestCase
         );
 
         $this->loadServiceMock
-            ->expects(self::any())
             ->method('loadLocationByRemoteId')
             ->with(self::identicalTo('abc'))
             ->willReturn($location);

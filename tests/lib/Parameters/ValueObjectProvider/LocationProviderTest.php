@@ -29,7 +29,6 @@ final class LocationProviderTest extends TestCase
         $this->loadServiceMock = $this->createMock(LoadService::class);
 
         $this->repositoryMock
-            ->expects(self::any())
             ->method('sudo')
             ->with(self::anything())
             ->willReturnCallback(
@@ -47,7 +46,6 @@ final class LocationProviderTest extends TestCase
         $location = new Location();
 
         $this->loadServiceMock
-            ->expects(self::any())
             ->method('loadLocation')
             ->with(self::identicalTo(42))
             ->willReturn($location);
@@ -58,7 +56,6 @@ final class LocationProviderTest extends TestCase
     public function testGetValueObjectWithNonExistentLocation(): void
     {
         $this->loadServiceMock
-            ->expects(self::any())
             ->method('loadLocation')
             ->with(self::identicalTo(42))
             ->willThrowException(new NotFoundException('location', 42));
