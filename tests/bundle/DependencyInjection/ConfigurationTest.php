@@ -101,7 +101,6 @@ final class ConfigurationTest extends TestCase
     {
         $extensionMock = $this->createMock(ExtensionInterface::class);
         $extensionMock
-            ->expects(self::any())
             ->method('getAlias')
             ->willReturn('alias');
 

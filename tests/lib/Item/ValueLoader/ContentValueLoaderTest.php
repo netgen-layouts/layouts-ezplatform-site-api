@@ -46,7 +46,6 @@ final class ContentValueLoaderTest extends TestCase
         );
 
         $this->loadServiceMock
-            ->expects(self::any())
             ->method('loadContent')
             ->with(self::identicalTo(52))
             ->willReturn($content);
@@ -60,7 +59,6 @@ final class ContentValueLoaderTest extends TestCase
     public function testLoadWithNoContent(): void
     {
         $this->loadServiceMock
-            ->expects(self::any())
             ->method('loadContent')
             ->with(self::identicalTo(52))
             ->willThrowException(new Exception());
@@ -87,7 +85,6 @@ final class ContentValueLoaderTest extends TestCase
         );
 
         $this->loadServiceMock
-            ->expects(self::any())
             ->method('loadContent')
             ->with(self::identicalTo(52))
             ->willReturn($content);
@@ -114,7 +111,6 @@ final class ContentValueLoaderTest extends TestCase
         );
 
         $this->loadServiceMock
-            ->expects(self::any())
             ->method('loadContent')
             ->with(self::identicalTo(52))
             ->willReturn($content);
@@ -142,7 +138,6 @@ final class ContentValueLoaderTest extends TestCase
         );
 
         $this->loadServiceMock
-            ->expects(self::any())
             ->method('loadContentByRemoteId')
             ->with(self::identicalTo('abc'))
             ->willReturn($content);
@@ -156,7 +151,6 @@ final class ContentValueLoaderTest extends TestCase
     public function testLoadByRemoteIdWithNoContent(): void
     {
         $this->loadServiceMock
-            ->expects(self::any())
             ->method('loadContentByRemoteId')
             ->with(self::identicalTo('abc'))
             ->willThrowException(new Exception());
@@ -183,7 +177,6 @@ final class ContentValueLoaderTest extends TestCase
         );
 
         $this->loadServiceMock
-            ->expects(self::any())
             ->method('loadContentByRemoteId')
             ->with(self::identicalTo('abc'))
             ->willReturn($content);
@@ -210,7 +203,6 @@ final class ContentValueLoaderTest extends TestCase
         );
 
         $this->loadServiceMock
-            ->expects(self::any())
             ->method('loadContentByRemoteId')
             ->with(self::identicalTo('abc'))
             ->willReturn($content);
