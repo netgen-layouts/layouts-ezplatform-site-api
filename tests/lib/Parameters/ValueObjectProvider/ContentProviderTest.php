@@ -7,6 +7,7 @@ namespace Netgen\Layouts\Ibexa\SiteApi\Tests\Parameters\ValueObjectProvider;
 use Ibexa\Contracts\Core\Repository\Repository;
 use Ibexa\Core\Base\Exceptions\NotFoundException;
 use Netgen\IbexaSiteApi\API\LoadService;
+use Netgen\Layouts\Error\ErrorHandlerInterface;
 use Netgen\Layouts\Ibexa\SiteApi\Parameters\ValueObjectProvider\ContentProvider;
 use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\Content;
 use Netgen\Layouts\Ibexa\SiteApi\Tests\Stubs\ContentInfo;
@@ -39,6 +40,7 @@ final class ContentProviderTest extends TestCase
         $this->valueObjectProvider = new ContentProvider(
             $this->repositoryMock,
             $this->loadServiceMock,
+            $this->createMock(ErrorHandlerInterface::class),
         );
     }
 
