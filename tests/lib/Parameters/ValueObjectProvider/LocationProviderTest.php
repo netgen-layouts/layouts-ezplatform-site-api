@@ -7,6 +7,7 @@ namespace Netgen\Layouts\Ez\SiteApi\Tests\Parameters\ValueObjectProvider;
 use eZ\Publish\API\Repository\Repository;
 use eZ\Publish\Core\Base\Exceptions\NotFoundException;
 use Netgen\EzPlatformSiteApi\API\LoadService;
+use Netgen\Layouts\Error\ErrorHandlerInterface;
 use Netgen\Layouts\Ez\SiteApi\Parameters\ValueObjectProvider\LocationProvider;
 use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\Location;
 use Netgen\Layouts\Parameters\ValueObjectProviderInterface;
@@ -36,6 +37,7 @@ final class LocationProviderTest extends TestCase
         $this->valueObjectProvider = new LocationProvider(
             $this->repositoryMock,
             $this->loadServiceMock,
+            $this->createMock(ErrorHandlerInterface::class),
         );
     }
 

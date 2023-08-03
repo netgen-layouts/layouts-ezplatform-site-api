@@ -7,6 +7,7 @@ namespace Netgen\Layouts\Ez\SiteApi\Tests\Parameters\ValueObjectProvider;
 use eZ\Publish\API\Repository\Repository;
 use eZ\Publish\Core\Base\Exceptions\NotFoundException;
 use Netgen\EzPlatformSiteApi\API\LoadService;
+use Netgen\Layouts\Error\ErrorHandlerInterface;
 use Netgen\Layouts\Ez\SiteApi\Parameters\ValueObjectProvider\ContentProvider;
 use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\Content;
 use Netgen\Layouts\Ez\SiteApi\Tests\Stubs\ContentInfo;
@@ -37,6 +38,7 @@ final class ContentProviderTest extends TestCase
         $this->valueObjectProvider = new ContentProvider(
             $this->repositoryMock,
             $this->loadServiceMock,
+            $this->createMock(ErrorHandlerInterface::class),
         );
     }
 
