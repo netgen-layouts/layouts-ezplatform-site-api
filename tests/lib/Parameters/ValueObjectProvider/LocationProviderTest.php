@@ -55,6 +55,15 @@ final class LocationProviderTest extends TestCase
         self::assertSame($location, $this->valueObjectProvider->getValueObject(42));
     }
 
+    public function testGetValueObjectWithNullValue(): void
+    {
+        $this->loadServiceMock
+            ->expects(self::never())
+            ->method('loadLocation');
+
+        self::assertNull($this->valueObjectProvider->getValueObject(null));
+    }
+
     public function testGetValueObjectWithNonExistentLocation(): void
     {
         $this->loadServiceMock

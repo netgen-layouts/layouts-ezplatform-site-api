@@ -56,6 +56,15 @@ final class ContentProviderTest extends TestCase
         self::assertSame($content, $this->valueObjectProvider->getValueObject(42));
     }
 
+    public function testGetValueObjectWithNullValue(): void
+    {
+        $this->loadServiceMock
+            ->expects(self::never())
+            ->method('loadContent');
+
+        self::assertNull($this->valueObjectProvider->getValueObject(null));
+    }
+
     public function testGetValueObjectWithNonExistentLocation(): void
     {
         $this->loadServiceMock

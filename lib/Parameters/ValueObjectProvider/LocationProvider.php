@@ -22,12 +22,16 @@ final class LocationProvider implements ValueObjectProviderInterface
 
     public function getValueObject(mixed $value): ?Location
     {
+        if ($value === null) {
+            return null;
+        }
+
         try {
             return $this->repository->sudo(
                 fn (): Location => $this->loadService->loadLocation((int) $value),
             );
         } catch (NotFoundException $e) {
-            $this->errorHandler->handleError($e);
+            $this->errorHandler->logError($e);
 
             return null;
         }
