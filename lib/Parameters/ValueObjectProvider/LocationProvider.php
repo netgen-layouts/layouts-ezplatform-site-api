@@ -36,7 +36,7 @@ final class LocationProvider implements ValueObjectProviderInterface
                 fn (Repository $repository): Location => $this->loadService->loadLocation((int) $value),
             );
         } catch (NotFoundException $e) {
-            $this->errorHandler->handleError($e);
+            $this->errorHandler->logError($e);
 
             return null;
         }
