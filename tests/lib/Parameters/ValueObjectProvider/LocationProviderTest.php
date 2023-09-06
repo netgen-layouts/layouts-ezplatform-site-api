@@ -60,6 +60,18 @@ final class LocationProviderTest extends TestCase
     /**
      * @covers \Netgen\Layouts\Ez\SiteApi\Parameters\ValueObjectProvider\LocationProvider::getValueObject
      */
+    public function testGetValueObjectWithNullValue(): void
+    {
+        $this->loadServiceMock
+            ->expects(self::never())
+            ->method('loadLocation');
+
+        self::assertNull($this->valueObjectProvider->getValueObject(null));
+    }
+
+    /**
+     * @covers \Netgen\Layouts\Ez\SiteApi\Parameters\ValueObjectProvider\LocationProvider::getValueObject
+     */
     public function testGetValueObjectWithNonExistentLocation(): void
     {
         $this->loadServiceMock

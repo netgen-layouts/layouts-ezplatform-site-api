@@ -31,6 +31,10 @@ final class ContentProvider implements ValueObjectProviderInterface
 
     public function getValueObject($value): ?Content
     {
+        if ($value === null) {
+            return null;
+        }
+
         try {
             $content = $this->repository->sudo(
                 fn (Repository $repository): Content => $this->loadService->loadContent((int) $value),

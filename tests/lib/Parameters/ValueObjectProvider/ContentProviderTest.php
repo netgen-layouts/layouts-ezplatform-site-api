@@ -61,6 +61,18 @@ final class ContentProviderTest extends TestCase
     /**
      * @covers \Netgen\Layouts\Ez\SiteApi\Parameters\ValueObjectProvider\ContentProvider::getValueObject
      */
+    public function testGetValueObjectWithNullValue(): void
+    {
+        $this->loadServiceMock
+            ->expects(self::never())
+            ->method('loadContent');
+
+        self::assertNull($this->valueObjectProvider->getValueObject(null));
+    }
+
+    /**
+     * @covers \Netgen\Layouts\Ez\SiteApi\Parameters\ValueObjectProvider\ContentProvider::getValueObject
+     */
     public function testGetValueObjectWithNonExistentLocation(): void
     {
         $this->loadServiceMock
