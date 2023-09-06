@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "netgen/layouts-ezplatform": "~1.4.5",
+        "netgen/layouts-ezplatform": "~1.4.7",
         "netgen/ezplatform-site-api": "^3.7 || ^4.3"
     },
     "require-dev": {
