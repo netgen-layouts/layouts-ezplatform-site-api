@@ -11,9 +11,7 @@ use Throwable;
 
 final class ContentValueLoader implements ValueLoaderInterface
 {
-    public function __construct(private LoadService $loadService)
-    {
-    }
+    public function __construct(private LoadService $loadService) {}
 
     public function load($id): ?ContentInfo
     {

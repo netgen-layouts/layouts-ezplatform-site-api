@@ -17,9 +17,7 @@ final class ContentValueConverter implements ValueConverterInterface
     /**
      * @param \Netgen\Layouts\Item\ValueConverterInterface<\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo> $innerConverter
      */
-    public function __construct(private ValueConverterInterface $innerConverter, private LoadService $loadService)
-    {
-    }
+    public function __construct(private ValueConverterInterface $innerConverter, private LoadService $loadService) {}
 
     public function supports(object $object): bool
     {

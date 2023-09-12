@@ -17,8 +17,7 @@ final class ContentProvider implements ValueObjectProviderInterface
         private Repository $repository,
         private LoadService $loadService,
         private ErrorHandlerInterface $errorHandler,
-    ) {
-    }
+    ) {}
 
     public function getValueObject(mixed $value): ?Content
     {
