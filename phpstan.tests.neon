@@ -4,3 +4,7 @@ includes:
     - vendor/phpstan/phpstan-symfony/rules.neon
     - vendor/phpstan/phpstan-phpunit/extension.neon
     - vendor/phpstan/phpstan-phpunit/rules.neon
+
+parameters:
+    ignoreErrors:
+        - '#should be contravariant with parameter \$parameters \(array\) of method Netgen\\IbexaSiteApi\\API\\Values\\Content::get(Path|Url)\(\)#'
