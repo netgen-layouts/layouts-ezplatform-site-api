@@ -162,11 +162,17 @@ final class Content extends APIContent
         return new Pagerfanta(new Adapter());
     }
 
+    /**
+     * @param array<string, mixed> $parameters
+     */
     public function getPath(array $parameters = []): string
     {
         return '/example';
     }
 
+    /**
+     * @param array<string, mixed> $parameters
+     */
     public function getUrl(array $parameters = []): string
     {
         return 'https://netgen.io/example';
