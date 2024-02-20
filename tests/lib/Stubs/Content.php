@@ -113,4 +113,62 @@ final class Content extends APIContent
     ): Pagerfanta {
         return new Pagerfanta(new Adapter());
     }
+
+    public function getSudoFieldRelation(string $fieldDefinitionIdentifier): ?APIContent
+    {
+        return new self();
+    }
+
+    public function getSudoFieldRelations(string $fieldDefinitionIdentifier, int $limit = 25): array
+    {
+        return [];
+    }
+
+    /**
+     * @param array<mixed> $contentTypeIdentifiers
+     *
+     * @return \Pagerfanta\Pagerfanta<\Netgen\IbexaSiteApi\API\Values\Content>
+     */
+    public function filterSudoFieldRelations(
+        string $fieldDefinitionIdentifier,
+        array $contentTypeIdentifiers = [],
+        int $maxPerPage = 25,
+        int $currentPage = 1,
+    ): Pagerfanta {
+        return new Pagerfanta(new Adapter());
+    }
+
+    public function getSudoFieldRelationLocation(string $fieldDefinitionIdentifier): ?Location
+    {
+        return null;
+    }
+
+    public function getSudoFieldRelationLocations(string $fieldDefinitionIdentifier, int $limit = 25): array
+    {
+        return [];
+    }
+
+    /**
+     * @param array<mixed> $contentTypeIdentifiers
+     *
+     * @return \Pagerfanta\Pagerfanta<\Netgen\IbexaSiteApi\API\Values\Location>
+     */
+    public function filterSudoFieldRelationLocations(
+        string $fieldDefinitionIdentifier,
+        array $contentTypeIdentifiers = [],
+        int $maxPerPage = 25,
+        int $currentPage = 1,
+    ): Pagerfanta {
+        return new Pagerfanta(new Adapter());
+    }
+
+    public function getPath(array $parameters = []): string
+    {
+        return '/example';
+    }
+
+    public function getUrl(array $parameters = []): string
+    {
+        return 'https://netgen.io/example';
+    }
 }
